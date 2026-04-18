@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Acoustic Underground — Wordmark Concepts</title>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,700;0,9..144,900;1,9..144,400;1,9..144,700;1,9..144,900&family=Inter:wght@300;400;500;600;700&family=Bebas+Neue&family=Archivo+Black&family=DM+Serif+Display:ital@0;1&family=Abril+Fatface&family=Oswald:wght@300;500;700&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700;1,900&family=Cormorant+Garamond:ital,wght@0,400;0,700;1,400;1,700&family=Anton&family=Cinzel:wght@400;700;900&display=swap" rel="stylesheet">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { background: #0A0A0C; color: #F5F2ED; font-family: 'Inter', sans-serif; padding: 3rem 2rem; line-height: 1.6; }
+.wrap { max-width: 1200px; margin: 0 auto; }
+h1 { font-family: 'Fraunces', serif; font-weight: 400; font-size: 2.5rem; margin-bottom: 0.5rem; letter-spacing: -0.02em; }
+.intro { color: #A8A096; margin-bottom: 2.5rem; max-width: 720px; }
+.intro strong { color: #F5F2ED; font-weight: 500; }
+
+.concept { margin-bottom: 4rem; padding-bottom: 4rem; border-bottom: 1px solid #22252A; }
+.concept:last-child { border-bottom: none; }
+.concept-head { display: flex; align-items: baseline; gap: 1rem; margin-bottom: 0.5rem; flex-wrap: wrap; }
+.concept-num { font-family: 'Fraunces', serif; font-style: italic; font-size: 1.1rem; color: #DC821E; letter-spacing: 0.2em; }
+.concept h2 { font-family: 'Fraunces', serif; font-weight: 400; font-size: 1.75rem; letter-spacing: -0.01em; }
+.concept-desc { color: #A8A096; font-size: 0.95rem; max-width: 760px; margin-bottom: 2rem; }
+.concept-desc strong { color: #F5F2ED; font-weight: 500; }
+
+.logo-stage { background: #14181C; border: 1px solid #22252A; border-radius: 16px; padding: 4rem 2rem; margin-bottom: 1.25rem; display: flex; align-items: center; justify-content: center; min-height: 320px; }
+.variants-row { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1rem; }
+.variant-stage { background: #F5F2ED; border-radius: 12px; padding: 2rem 1.5rem; display: flex; align-items: center; justify-content: center; min-height: 140px; }
+.variant-stage.dark { background: #14181C; border: 1px solid #22252A; }
+.variant-label { font-size: 0.65rem; color: #6B655E; letter-spacing: 0.2em; text-transform: uppercase; margin-bottom: 0.5rem; text-align: center; }
+.variant-col { display: flex; flex-direction: column; }
+
+/* ============ 11: ARC'D WORDMARK (Eagles / Bon Jovi energy) ============ */
+.c11 { text-align: center; }
+.c11-wordmark {
+  font-family: 'Cinzel', serif; font-weight: 900;
+  font-size: 2.6rem; line-height: 1;
+  color: #F5F2ED; letter-spacing: 0.02em;
+  text-transform: uppercase;
+}
+.c11-arc {
+  display: block;
+  width: 500px; max-width: 100%;
+  margin: -0.3rem auto;
+}
+.c11-under {
+  font-family: 'Cinzel', serif; font-weight: 900;
+  font-size: 2.6rem; line-height: 1;
+  color: #F5F2ED; letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-top: -0.1rem;
+}
+.c11-under .au {
+  color: #DC821E;
+  font-style: normal;
+}
+
+/* ============ 12: LIGATURE AU MARK (The signature move) ============ */
+.c12-wrap { text-align: center; }
+.c12-mark {
+  display: inline-block;
+  margin-bottom: 1rem;
+  filter: drop-shadow(0 4px 20px rgba(220,130,30,0.2));
+}
+.c12-text {
+  font-family: 'Fraunces', serif; font-weight: 700;
+  font-style: italic;
+  font-size: 2.2rem; line-height: 1;
+  color: #F5F2ED;
+  letter-spacing: -0.01em;
+}
+.c12-text .small-caps {
+  font-variant: small-caps;
+  font-style: normal;
+  font-weight: 500;
+  letter-spacing: 0.15em;
+  font-size: 0.9rem;
+  display: block;
+  color: #DC821E;
+  margin-top: 0.25rem;
+}
+
+/* ============ 13: CUSTOM "UNDERGROUND" with arrow flourish ============ */
+.c13 {
+  font-family: 'Playfair Display', serif;
+  text-align: center;
+  line-height: 0.95;
+}
+.c13-top {
+  font-weight: 400;
+  font-style: italic;
+  font-size: 2.2rem;
+  color: #F5F2ED;
+  letter-spacing: -0.01em;
+  margin-bottom: 0.1rem;
+  display: block;
+}
+.c13-top .amp {
+  color: #DC821E;
+  font-size: 2rem;
+  margin: 0 0.15rem;
+}
+.c13-bottom {
+  font-weight: 900;
+  font-style: italic;
+  font-size: 4.2rem;
+  color: #F5F2ED;
+  letter-spacing: -0.035em;
+  display: block;
+  line-height: 0.9;
+  position: relative;
+}
+.c13-bottom .descender {
+  display: inline-block;
+  position: relative;
+}
+.c13-bottom .descender::after {
+  content: '';
+  position: absolute;
+  left: 0; right: -5%;
+  bottom: -0.15em;
+  height: 3px;
+  background: #DC821E;
+  transform: skewY(-1.5deg);
+}
+
+/* ============ 14: BROKEN WORDMARK with AU ligature ============ */
+.c14 { text-align: left; display: inline-block; }
+.c14-row { display: flex; align-items: baseline; gap: 0.5rem; }
+.c14-a {
+  font-family: 'Anton', sans-serif;
+  font-size: 5rem; line-height: 0.85;
+  color: #F5F2ED;
+  letter-spacing: -0.02em;
+}
+.c14-rest {
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-weight: 400;
+  font-size: 1.8rem;
+  color: #F5F2ED;
+  letter-spacing: 0.02em;
+  padding-bottom: 0.6rem;
+}
+.c14-row2 {
+  font-family: 'Anton', sans-serif;
+  font-size: 2.1rem;
+  letter-spacing: 0.02em;
+  color: #F5F2ED;
+  margin-top: -0.3rem;
+  border-top: 2px solid #DC821E;
+  padding-top: 0.35rem;
+  text-transform: uppercase;
+  position: relative;
+}
+.c14-u-call {
+  color: #DC821E;
+}
+
+/* ============ 15: MONOGRAM + WORDMARK (AC/DC, Van Halen energy) ============ */
+.c15 { text-align: center; }
+.c15-mono {
+  display: inline-block;
+  margin-bottom: 0.75rem;
+  filter: drop-shadow(0 6px 24px rgba(220,130,30,0.25));
+}
+.c15-text {
+  font-family: 'Archivo Black', sans-serif;
+  font-size: 1.2rem;
+  letter-spacing: 0.55em;
+  color: #F5F2ED;
+  text-transform: uppercase;
+  padding-left: 0.55em;
+  border-top: 1px solid #F5F2ED;
+  padding-top: 0.5rem;
+  display: inline-block;
+}
+
+/* ============ Light variant overrides ============ */
+.variant-stage .c11-wordmark, .variant-stage .c11-under { color: #0A0A0C; }
+.variant-stage .c11-under .au { color: #B8501A; }
+.variant-stage .c12-text { color: #0A0A0C; }
+.variant-stage .c12-text .small-caps { color: #B8501A; }
+.variant-stage .c13-top, .variant-stage .c13-bottom { color: #0A0A0C; }
+.variant-stage .c13-top .amp { color: #B8501A; }
+.variant-stage .c13-bottom .descender::after { background: #B8501A; }
+.variant-stage .c14-a, .variant-stage .c14-rest, .variant-stage .c14-row2 { color: #0A0A0C; }
+.variant-stage .c14-u-call { color: #B8501A; }
+.variant-stage .c14-row2 { border-color: #B8501A; }
+.variant-stage .c15-text { color: #0A0A0C; border-color: #0A0A0C; }
+
+.picker {
+  margin-top: 2rem; padding: 2rem;
+  background: #14181C; border: 1px solid #22252A;
+  border-radius: 16px; color: #A8A096;
+}
+.picker strong { color: #F5F2ED; }
+
+.stage-caption {
+  color: #6B655E;
+  font-size: 0.75rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <h1>Round 3: wordmark-first, no frame</h1>
+  <p class="intro">Looking at your references (Beatles, Zeppelin, Eagles, Bon Jovi, Metallica, AC/DC): <strong>the typography itself is the logo</strong>. Where there's a mark, it's a real symbol. These five go that way: the words do the work, the AU appears as either a hidden ligature in the wordmark or a small sidekick mark.</p>
+
+  <!-- ============ CONCEPT 11 ============ -->
+  <div class="concept">
+    <div class="concept-head">
+      <span class="concept-num">11</span>
+      <h2>Curved wordmark — Eagles / Foreigner lineage</h2>
+    </div>
+    <p class="concept-desc">"Acoustic" arcs along the top, "Underground" runs flat below. Cinzel is a classic inscriptional serif that feels timeless without being Ye Olde Tavern. The "AU" inside "Underground" is tinted to reveal the monogram hiding in plain sight. This is the most classic "rock band wordmark" direction: looks right on a t-shirt, a festival poster, or a stage backdrop.</p>
+
+    <p class="stage-caption">On dark</p>
+    <div class="logo-stage">
+      <div class="c11">
+        <svg viewBox="0 0 500 80" class="c11-arc" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <path id="arc11" d="M 20 75 Q 250 0 480 75" fill="none"/>
+          </defs>
+          <text font-family="Cinzel, serif" font-weight="900" font-size="56" fill="#F5F2ED" letter-spacing="6">
+            <textPath href="#arc11" startOffset="50%" text-anchor="middle">ACOUSTIC</textPath>
+          </text>
+        </svg>
+        <div class="c11-under"><span class="au">AU</span>NDERGROUND</div>
+      </div>
+    </div>
+
+    <div class="variants-row">
+      <div class="variant-col">
+        <div class="variant-label">On light</div>
+        <div class="variant-stage">
+          <div class="c11">
+            <svg viewBox="0 0 500 80" style="width: 280px; display: block; margin: 0 auto -0.3rem;" xmlns="http://www.w3.org/2000/svg">
+              <defs><path id="arc11b" d="M 20 75 Q 250 0 480 75" fill="none"/></defs>
+              <text font-family="Cinzel, serif" font-weight="900" font-size="56" fill="#0A0A0C" letter-spacing="6">
+                <textPath href="#arc11b" startOffset="50%" text-anchor="middle">ACOUSTIC</textPath>
+              </text>
+            </svg>
+            <div class="c11-under" style="font-size: 1.5rem;"><span class="au">AU</span>NDERGROUND</div>
+          </div>
+        </div>
+      </div>
+      <div class="variant-col">
+        <div class="variant-label">Single-color (merch)</div>
+        <div class="variant-stage dark">
+          <div class="c11">
+            <svg viewBox="0 0 500 80" style="width: 260px; display: block; margin: 0 auto -0.3rem;" xmlns="http://www.w3.org/2000/svg">
+              <defs><path id="arc11c" d="M 20 75 Q 250 0 480 75" fill="none"/></defs>
+              <text font-family="Cinzel, serif" font-weight="900" font-size="56" fill="#F5F2ED" letter-spacing="6">
+                <textPath href="#arc11c" startOffset="50%" text-anchor="middle">ACOUSTIC</textPath>
+              </text>
+            </svg>
+            <div class="c11-under" style="font-size: 1.4rem; color: #F5F2ED;"><span class="au" style="color: #F5F2ED;">AU</span>NDERGROUND</div>
+          </div>
+        </div>
+      </div>
+      <div class="variant-col">
+        <div class="variant-label">Just the "AU" wordpart</div>
+        <div class="variant-stage dark">
+          <div class="c11-under" style="font-size: 3rem; font-family: 'Cinzel', serif; font-weight: 900; letter-spacing: 0.05em;"><span class="au">AU</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============ CONCEPT 12 ============ -->
+  <div class="concept">
+    <div class="concept-head">
+      <span class="concept-num">12</span>
+      <h2>AU ligature — a real icon that doubles as a guitar tuning peg</h2>
+    </div>
+    <p class="concept-desc">A custom "AU" mark where the A's crossbar becomes the U's base, creating a single connected symbol. The opening at the top of the A reads as a guitar headstock or tuning peg. This is your Rolling Stones tongue: a mark that can live without the name attached, and works on a pick, a pin, a pedal board. The wordmark sits below in italic Fraunces (serious, literary).</p>
+
+    <p class="stage-caption">On dark — mark above wordmark</p>
+    <div class="logo-stage">
+      <div class="c12-wrap">
+        <svg class="c12-mark" width="140" height="140" viewBox="0 0 140 140">
+          <!-- A shape (triangular with opening) -->
+          <path d="M 30 118 L 60 22 L 80 22 L 110 118" stroke="#F5F2ED" stroke-width="7" fill="none" stroke-linecap="square" stroke-linejoin="miter"/>
+          <!-- Crossbar of A that extends into U base -->
+          <path d="M 42 78 L 98 78" stroke="#DC821E" stroke-width="7" fill="none" stroke-linecap="square"/>
+          <!-- U extending down from crossbar -->
+          <path d="M 55 78 L 55 105 Q 55 118 70 118 Q 85 118 85 105 L 85 78" stroke="#F5F2ED" stroke-width="7" fill="none" stroke-linecap="square" stroke-linejoin="miter"/>
+          <!-- Tuning peg detail at top of A -->
+          <circle cx="70" cy="18" r="4" fill="#DC821E"/>
+        </svg>
+        <div class="c12-text">
+          <em>Acoustic Underground</em>
+          <span class="small-caps">Richmond · Virginia</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="variants-row">
+      <div class="variant-col">
+        <div class="variant-label">On light</div>
+        <div class="variant-stage">
+          <div class="c12-wrap">
+            <svg width="70" height="70" viewBox="0 0 140 140">
+              <path d="M 30 118 L 60 22 L 80 22 L 110 118" stroke="#0A0A0C" stroke-width="8" fill="none" stroke-linecap="square" stroke-linejoin="miter"/>
+              <path d="M 42 78 L 98 78" stroke="#B8501A" stroke-width="8" fill="none" stroke-linecap="square"/>
+              <path d="M 55 78 L 55 105 Q 55 118 70 118 Q 85 118 85 105 L 85 78" stroke="#0A0A0C" stroke-width="8" fill="none" stroke-linecap="square" stroke-linejoin="miter"/>
+              <circle cx="70" cy="18" r="4" fill="#B8501A"/>
+            </svg>
+            <div class="c12-text" style="font-size: 1.3rem; margin-top: 0.5rem;">
+              <em>Acoustic Underground</em>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="variant-col">
+        <div class="variant-label">Mark only (avatar)</div>
+        <div class="variant-stage dark">
+          <svg width="80" height="80" viewBox="0 0 140 140">
+            <path d="M 30 118 L 60 22 L 80 22 L 110 118" stroke="#F5F2ED" stroke-width="8" fill="none" stroke-linecap="square" stroke-linejoin="miter"/>
+            <path d="M 42 78 L 98 78" stroke="#DC821E" stroke-width="8" fill="none" stroke-linecap="square"/>
+            <path d="M 55 78 L 55 105 Q 55 118 70 118 Q 85 118 85 105 L 85 78" stroke="#F5F2ED" stroke-width="8" fill="none" stroke-linecap="square" stroke-linejoin="miter"/>
+            <circle cx="70" cy="18" r="4" fill="#DC821E"/>
+          </svg>
+        </div>
+      </div>
+      <div class="variant-col">
+        <div class="variant-label">Horizontal lockup</div>
+        <div class="variant-stage dark">
+          <div style="display: flex; align-items: center; gap: 0.75rem;">
+            <svg width="50" height="50" viewBox="0 0 140 140">
+              <path d="M 30 118 L 60 22 L 80 22 L 110 118" stroke="#F5F2ED" stroke-width="9" fill="none" stroke-linecap="square" stroke-linejoin="miter"/>
+              <path d="M 42 78 L 98 78" stroke="#DC821E" stroke-width="9" fill="none" stroke-linecap="square"/>
+              <path d="M 55 78 L 55 105 Q 55 118 70 118 Q 85 118 85 105 L 85 78" stroke="#F5F2ED" stroke-width="9" fill="none" stroke-linecap="square" stroke-linejoin="miter"/>
+            </svg>
+            <div style="font-family: 'Fraunces', serif; font-style: italic; font-weight: 700; font-size: 0.95rem; line-height: 1; color: #F5F2ED;">
+              Acoustic<br>Underground
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============ CONCEPT 13 ============ -->
+  <div class="concept">
+    <div class="concept-head">
+      <span class="concept-num">13</span>
+      <h2>Italic drop — UNDERGROUND as the hero, with a skewed underline</h2>
+    </div>
+    <p class="concept-desc">Inspired by Zeppelin, Lynyrd Skynyrd, and old concert posters: "Acoustic" plays small and italic, "Underground" explodes in oversized heavy italic Playfair with a hand-drawn amber underline skewed slightly. The underline itself is the "underground." No icon required, the wordmark commits completely and carries the identity.</p>
+
+    <p class="stage-caption">On dark</p>
+    <div class="logo-stage">
+      <div class="c13">
+        <span class="c13-top">acoustic</span>
+        <span class="c13-bottom"><span class="descender">UNDERGROUND</span></span>
+      </div>
+    </div>
+
+    <div class="variants-row">
+      <div class="variant-col">
+        <div class="variant-label">On light</div>
+        <div class="variant-stage">
+          <div class="c13">
+            <span class="c13-top" style="font-size: 1.4rem;">acoustic</span>
+            <span class="c13-bottom" style="font-size: 2.6rem;"><span class="descender">UNDERGROUND</span></span>
+          </div>
+        </div>
+      </div>
+      <div class="variant-col">
+        <div class="variant-label">Stacked (for square/avatar)</div>
+        <div class="variant-stage dark">
+          <div class="c13">
+            <span class="c13-top" style="font-size: 0.9rem;">acoustic</span>
+            <span class="c13-bottom" style="font-size: 1.5rem; letter-spacing: -0.02em;"><span class="descender">UNDER<br>GROUND</span></span>
+          </div>
+        </div>
+      </div>
+      <div class="variant-col">
+        <div class="variant-label">"AU" sidekick mark</div>
+        <div class="variant-stage dark">
+          <div style="font-family: 'Playfair Display', serif; font-style: italic; font-weight: 900; font-size: 3.5rem; color: #F5F2ED; line-height: 1; position: relative; display: inline-block;">
+            AU<span style="position: absolute; left: 0; right: -5%; bottom: -0.1em; height: 3px; background: #DC821E; transform: skewY(-1.5deg); display: block;"></span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============ CONCEPT 14 ============ -->
+  <div class="concept">
+    <div class="concept-head">
+      <span class="concept-num">14</span>
+      <h2>Oversized A — one signature letter carries the whole mark</h2>
+    </div>
+    <p class="concept-desc">Remembering The Beatles (elongated T) and Foreigner (tall F): one letter does the heavy lifting. A massive Anton "A" anchors the left, "coustic" finishes the word in italic Playfair across the top, and "UNDERGROUND" spans the full width below with the "U" in amber calling out the monogram. The A and the amber U together read as "AU" without announcing it.</p>
+
+    <p class="stage-caption">On dark</p>
+    <div class="logo-stage">
+      <div class="c14">
+        <div class="c14-row">
+          <span class="c14-a">A</span>
+          <span class="c14-rest"><em>coustic</em></span>
+        </div>
+        <div class="c14-row2"><span class="c14-u-call">U</span>NDERGROUND</div>
+      </div>
+    </div>
+
+    <div class="variants-row">
+      <div class="variant-col">
+        <div class="variant-label">On light</div>
+        <div class="variant-stage">
+          <div class="c14">
+            <div class="c14-row">
+              <span class="c14-a" style="font-size: 3rem;">A</span>
+              <span class="c14-rest" style="font-size: 1.1rem;"><em>coustic</em></span>
+            </div>
+            <div class="c14-row2" style="font-size: 1.3rem;"><span class="c14-u-call">U</span>NDERGROUND</div>
+          </div>
+        </div>
+      </div>
+      <div class="variant-col">
+        <div class="variant-label">Reduced (small sizes)</div>
+        <div class="variant-stage dark">
+          <div class="c14">
+            <div class="c14-row">
+              <span class="c14-a" style="font-size: 2rem;">A</span>
+              <span class="c14-rest" style="font-size: 0.8rem; padding-bottom: 0.3rem;"><em>coustic</em></span>
+            </div>
+            <div class="c14-row2" style="font-size: 0.9rem; padding-top: 0.2rem;"><span class="c14-u-call">U</span>NDERGROUND</div>
+          </div>
+        </div>
+      </div>
+      <div class="variant-col">
+        <div class="variant-label">A+U avatar</div>
+        <div class="variant-stage dark">
+          <div style="display: flex; align-items: baseline; gap: 0.1rem; color: #F5F2ED;">
+            <span style="font-family: 'Anton', sans-serif; font-size: 4rem; line-height: 0.85;">A</span>
+            <span style="font-family: 'Anton', sans-serif; font-size: 4rem; line-height: 0.85; color: #DC821E;">U</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============ CONCEPT 15 ============ -->
+  <div class="concept">
+    <div class="concept-head">
+      <span class="concept-num">15</span>
+      <h2>AU wave monogram — a mark you could pin to a jacket</h2>
+    </div>
+    <p class="concept-desc">A standalone AU icon where the A is built from two angled strokes and the U below is actually a sound wave cupping underneath it. The wave gives the mark its "acoustic" meaning without needing a guitar, a microphone, or anything else literal. The wordmark below sits in spaced-out Archivo Black, a little like The Who's tracked-out nameplate. This is the closest thing to a <em>real band icon</em> in the set.</p>
+
+    <p class="stage-caption">On dark</p>
+    <div class="logo-stage">
+      <div class="c15">
+        <svg class="c15-mono" width="160" height="160" viewBox="0 0 160 160">
+          <!-- A (two strokes) -->
+          <line x1="30" y1="120" x2="75" y2="25" stroke="#F5F2ED" stroke-width="8" stroke-linecap="square"/>
+          <line x1="85" y1="25" x2="130" y2="120" stroke="#F5F2ED" stroke-width="8" stroke-linecap="square"/>
+          <!-- A crossbar -->
+          <line x1="48" y1="82" x2="112" y2="82" stroke="#F5F2ED" stroke-width="8" stroke-linecap="square"/>
+          <!-- U as sound wave beneath -->
+          <path d="M 20 135 Q 35 145, 50 135 T 80 135 T 110 135 T 140 135" stroke="#DC821E" stroke-width="5" fill="none" stroke-linecap="round"/>
+          <path d="M 25 145 Q 40 152, 55 145 T 85 145 T 115 145 T 140 145" stroke="#DC821E" stroke-width="3" fill="none" stroke-linecap="round" opacity="0.6"/>
+        </svg>
+        <div class="c15-text">ACOUSTIC UNDERGROUND</div>
+      </div>
+    </div>
+
+    <div class="variants-row">
+      <div class="variant-col">
+        <div class="variant-label">On light</div>
+        <div class="variant-stage">
+          <div class="c15">
+            <svg width="80" height="80" viewBox="0 0 160 160">
+              <line x1="30" y1="120" x2="75" y2="25" stroke="#0A0A0C" stroke-width="10" stroke-linecap="square"/>
+              <line x1="85" y1="25" x2="130" y2="120" stroke="#0A0A0C" stroke-width="10" stroke-linecap="square"/>
+              <line x1="48" y1="82" x2="112" y2="82" stroke="#0A0A0C" stroke-width="10" stroke-linecap="square"/>
+              <path d="M 20 135 Q 35 145, 50 135 T 80 135 T 110 135 T 140 135" stroke="#B8501A" stroke-width="6" fill="none" stroke-linecap="round"/>
+            </svg>
+            <div class="c15-text" style="font-size: 0.75rem; color: #0A0A0C; border-color: #0A0A0C; margin-top: 0.5rem;">ACOUSTIC UNDERGROUND</div>
+          </div>
+        </div>
+      </div>
+      <div class="variant-col">
+        <div class="variant-label">Mark only (avatar)</div>
+        <div class="variant-stage dark">
+          <svg width="80" height="80" viewBox="0 0 160 160">
+            <line x1="30" y1="120" x2="75" y2="25" stroke="#F5F2ED" stroke-width="10" stroke-linecap="square"/>
+            <line x1="85" y1="25" x2="130" y2="120" stroke="#F5F2ED" stroke-width="10" stroke-linecap="square"/>
+            <line x1="48" y1="82" x2="112" y2="82" stroke="#F5F2ED" stroke-width="10" stroke-linecap="square"/>
+            <path d="M 20 135 Q 35 145, 50 135 T 80 135 T 110 135 T 140 135" stroke="#DC821E" stroke-width="6" fill="none" stroke-linecap="round"/>
+          </svg>
+        </div>
+      </div>
+      <div class="variant-col">
+        <div class="variant-label">Horizontal lockup</div>
+        <div class="variant-stage dark">
+          <div style="display: flex; align-items: center; gap: 1rem;">
+            <svg width="55" height="55" viewBox="0 0 160 160">
+              <line x1="30" y1="120" x2="75" y2="25" stroke="#F5F2ED" stroke-width="12" stroke-linecap="square"/>
+              <line x1="85" y1="25" x2="130" y2="120" stroke="#F5F2ED" stroke-width="12" stroke-linecap="square"/>
+              <line x1="48" y1="82" x2="112" y2="82" stroke="#F5F2ED" stroke-width="12" stroke-linecap="square"/>
+              <path d="M 20 135 Q 35 145, 50 135 T 80 135 T 110 135 T 140 135" stroke="#DC821E" stroke-width="7" fill="none" stroke-linecap="round"/>
+            </svg>
+            <div style="font-family: 'Archivo Black', sans-serif; font-size: 0.75rem; letter-spacing: 0.3em; color: #F5F2ED; text-transform: uppercase; line-height: 1.2;">ACOUSTIC<br>UNDERGROUND</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="picker">
+    <strong>The key shift this round:</strong> the wordmark IS the logo. No container, no extra taglines, no "est." flags. The only decorative element is the AU hook, shown four different ways:
+    <br><br>
+    · <strong>11:</strong> AU hidden inside "UNDERGROUND" as a color change<br>
+    · <strong>12:</strong> AU as a structural ligature mark above the wordmark<br>
+    · <strong>13:</strong> no AU mark at all, italic UNDERGROUND does all the work<br>
+    · <strong>14:</strong> oversized A + colored U = implicit AU<br>
+    · <strong>15:</strong> AU monogram with a sound-wave base as a true standalone icon
+    <br><br>
+    Tell me which direction clicks, and which element of the AU hook feels right. We can also swap fonts inside any concept, I'm not married to these typeface picks.
+  </div>
+
+</div>
+</body>
+</html>

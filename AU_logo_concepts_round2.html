@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Acoustic Underground — Logo Concepts, Round 2</title>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,700;0,9..144,900;1,9..144,400;1,9..144,700&family=Inter:wght@300;400;500;600;700&family=Bebas+Neue&family=Archivo+Black&family=DM+Serif+Display:ital@0;1&family=Abril+Fatface&family=Oswald:wght@300;500;700&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&display=swap" rel="stylesheet">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { background: #0A0A0C; color: #F5F2ED; font-family: 'Inter', sans-serif; padding: 3rem 2rem; line-height: 1.6; }
+.wrap { max-width: 1200px; margin: 0 auto; }
+h1 { font-family: 'Fraunces', serif; font-weight: 400; font-size: 2.5rem; margin-bottom: 0.5rem; letter-spacing: -0.02em; }
+.intro { color: #A8A096; margin-bottom: 2.5rem; max-width: 720px; }
+.intro strong { color: #F5F2ED; font-weight: 500; }
+
+.concept { margin-bottom: 4rem; padding-bottom: 4rem; border-bottom: 1px solid #22252A; }
+.concept:last-child { border-bottom: none; }
+.concept-head { display: flex; align-items: baseline; gap: 1rem; margin-bottom: 0.5rem; flex-wrap: wrap; }
+.concept-num { font-family: 'Fraunces', serif; font-style: italic; font-size: 1.1rem; color: #DC821E; letter-spacing: 0.2em; }
+.concept h2 { font-family: 'Fraunces', serif; font-weight: 400; font-size: 1.75rem; letter-spacing: -0.01em; }
+.concept-desc { color: #A8A096; font-size: 0.95rem; max-width: 750px; margin-bottom: 2rem; }
+
+.logo-stage { background: #14181C; border: 1px solid #22252A; border-radius: 16px; padding: 3.5rem 2rem; margin-bottom: 1.25rem; display: flex; align-items: center; justify-content: center; min-height: 280px; }
+.variants-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+.variant-stage { background: #F5F2ED; border-radius: 12px; padding: 2rem; display: flex; align-items: center; justify-content: center; min-height: 130px; }
+.variant-stage.small { min-height: 100px; background: #14181C; border: 1px solid #22252A; }
+.variant-label { font-size: 0.7rem; color: #6B655E; letter-spacing: 0.2em; text-transform: uppercase; margin-bottom: 0.5rem; text-align: center; }
+.variant-col { display: flex; flex-direction: column; }
+
+/* === CONCEPT 6: Rounded-rect badge (ticket stub) === */
+.c6 {
+  border: 2px solid #F5F2ED;
+  border-radius: 14px;
+  padding: 1.2rem 2rem;
+  position: relative;
+  text-align: center;
+  background: transparent;
+}
+.c6::before, .c6::after {
+  content: '';
+  position: absolute;
+  width: 20px; height: 20px;
+  background: #14181C;
+  border: 2px solid #F5F2ED;
+  border-radius: 50%;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.c6::before { left: -12px; }
+.c6::after { right: -12px; }
+.c6-top {
+  font-family: 'Oswald', sans-serif; font-weight: 300;
+  font-size: 0.75rem; letter-spacing: 0.4em;
+  text-transform: uppercase; color: #DC821E;
+  margin-bottom: 0.35rem;
+}
+.c6-main {
+  font-family: 'Playfair Display', serif; font-weight: 900; font-style: italic;
+  font-size: 2.6rem; line-height: 0.9;
+  color: #F5F2ED; letter-spacing: -0.02em;
+}
+.c6-main .amp { color: #DC821E; font-style: italic; font-weight: 400; }
+.c6-bottom {
+  font-family: 'Oswald', sans-serif; font-weight: 500;
+  font-size: 0.7rem; letter-spacing: 0.35em;
+  text-transform: uppercase; margin-top: 0.4rem;
+  padding-top: 0.4rem;
+  border-top: 1px solid #22252A;
+  color: #A8A096;
+}
+
+/* === CONCEPT 7: Shield/Crest (hexagonal) === */
+.c7 { text-align: center; display: inline-block; }
+.c7-shield {
+  width: 220px;
+  height: 260px;
+  position: relative;
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  padding: 1.75rem 1rem;
+  background: transparent;
+  clip-path: polygon(0 0, 100% 0, 100% 82%, 50% 100%, 0 82%);
+  border: none;
+}
+.c7-shield-border {
+  position: absolute; inset: 0;
+  background: #F5F2ED;
+  clip-path: polygon(0 0, 100% 0, 100% 82%, 50% 100%, 0 82%);
+  z-index: 0;
+}
+.c7-shield-inner {
+  position: absolute; inset: 3px;
+  background: #14181C;
+  clip-path: polygon(0 0, 100% 0, 100% 82%, 50% 100%, 0 82%);
+  z-index: 1;
+}
+.c7-content { position: relative; z-index: 2; }
+.c7-est {
+  font-family: 'Oswald', sans-serif; font-weight: 500;
+  font-size: 0.6rem; letter-spacing: 0.35em;
+  text-transform: uppercase; color: #DC821E;
+  margin-bottom: 0.5rem;
+}
+.c7-main {
+  font-family: 'Abril Fatface', serif;
+  font-size: 1.9rem; line-height: 0.95;
+  color: #F5F2ED; letter-spacing: -0.01em;
+}
+.c7-divider {
+  width: 30px; height: 1px;
+  background: #DC821E; margin: 0.5rem auto;
+}
+.c7-city {
+  font-family: 'Oswald', sans-serif; font-weight: 300;
+  font-size: 0.6rem; letter-spacing: 0.3em;
+  text-transform: uppercase; color: #A8A096;
+}
+
+/* === CONCEPT 8: Offset double-frame === */
+.c8-wrap { position: relative; padding: 1rem; }
+.c8 {
+  border: 2px solid #F5F2ED;
+  padding: 1.5rem 2.25rem;
+  position: relative;
+  z-index: 2;
+  background: #14181C;
+  text-align: center;
+}
+.c8-wrap::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border: 2px solid #DC821E;
+  transform: translate(8px, 8px);
+  z-index: 1;
+}
+.c8-name {
+  font-family: 'Playfair Display', serif;
+  font-style: italic; font-weight: 900;
+  font-size: 2.2rem; line-height: 1;
+  color: #F5F2ED; letter-spacing: -0.01em;
+}
+.c8-rule {
+  display: flex; align-items: center; gap: 0.6rem;
+  margin: 0.6rem 0;
+  font-family: 'Oswald', sans-serif; font-weight: 300;
+  font-size: 0.65rem; letter-spacing: 0.35em;
+  text-transform: uppercase; color: #DC821E;
+  justify-content: center;
+}
+.c8-rule hr {
+  flex: 1; max-width: 30px;
+  border: none; border-top: 1px solid #DC821E;
+}
+.c8-sub {
+  font-family: 'Oswald', sans-serif; font-weight: 500;
+  font-size: 0.75rem; letter-spacing: 0.5em;
+  text-transform: uppercase; color: #F5F2ED;
+}
+
+/* === CONCEPT 9: Half-circle horizon (partial container) === */
+.c9 { text-align: center; position: relative; padding: 1rem 2rem 2.5rem; }
+.c9-arc {
+  position: relative;
+  padding-top: 3rem;
+}
+.c9-arc-shape {
+  position: absolute;
+  top: 0; left: 50%;
+  transform: translateX(-50%);
+  width: 400px; height: 200px;
+  border: 2px solid #F5F2ED;
+  border-bottom: none;
+  border-radius: 200px 200px 0 0;
+  z-index: 0;
+}
+.c9-content {
+  position: relative; z-index: 1;
+  padding-top: 1.5rem;
+}
+.c9-name {
+  font-family: 'Playfair Display', serif;
+  font-style: italic; font-weight: 400;
+  font-size: 2rem; line-height: 0.95;
+  color: #F5F2ED; letter-spacing: -0.01em;
+}
+.c9-name .bold {
+  display: block; font-weight: 900; font-style: italic; color: #F5F2ED;
+  margin-top: 0.1rem;
+}
+.c9-divider-line {
+  width: 100%; max-width: 380px;
+  height: 1px; background: #DC821E;
+  margin: 0.75rem auto 0.5rem;
+}
+.c9-city {
+  font-family: 'Oswald', sans-serif; font-weight: 300;
+  font-size: 0.7rem; letter-spacing: 0.45em;
+  text-transform: uppercase; color: #A8A096;
+}
+
+/* === CONCEPT 10: Tall vertical nameplate (cassette/mixtape) === */
+.c10 {
+  display: inline-block;
+  background: #14181C;
+  border: 2px solid #F5F2ED;
+  padding: 0;
+  position: relative;
+  min-width: 340px;
+}
+.c10-band {
+  background: #DC821E;
+  padding: 0.35rem 1rem;
+  font-family: 'Oswald', sans-serif; font-weight: 500;
+  font-size: 0.65rem; letter-spacing: 0.4em;
+  text-transform: uppercase; color: #0A0A0C;
+  text-align: center;
+}
+.c10-main {
+  padding: 1.5rem 2rem;
+  font-family: 'Abril Fatface', serif;
+  font-size: 2.3rem; line-height: 0.95;
+  color: #F5F2ED;
+  text-align: center;
+  letter-spacing: -0.015em;
+  border-bottom: 1px solid #F5F2ED;
+}
+.c10-main em {
+  display: block;
+  font-style: italic;
+  font-family: 'Playfair Display', serif;
+  font-weight: 400;
+  color: #DC821E;
+  font-size: 2.3rem;
+  margin-top: -0.2rem;
+}
+.c10-foot {
+  padding: 0.5rem 1rem;
+  font-family: 'Oswald', sans-serif; font-weight: 300;
+  font-size: 0.65rem; letter-spacing: 0.35em;
+  text-transform: uppercase; color: #A8A096;
+  display: flex; justify-content: space-between;
+}
+
+/* === Light variant overrides === */
+.variant-stage .c6 { border-color: #0A0A0C; }
+.variant-stage .c6::before, .variant-stage .c6::after { background: #F5F2ED; border-color: #0A0A0C; }
+.variant-stage .c6-top { color: #B8501A; }
+.variant-stage .c6-main { color: #0A0A0C; }
+.variant-stage .c6-main .amp { color: #B8501A; }
+.variant-stage .c6-bottom { color: #6B655E; border-color: #0A0A0C22; }
+.variant-stage .c7-shield-border { background: #0A0A0C; }
+.variant-stage .c7-shield-inner { background: #F5F2ED; }
+.variant-stage .c7-main { color: #0A0A0C; }
+.variant-stage .c7-est, .variant-stage .c7-divider { color: #B8501A; background: #B8501A; }
+.variant-stage .c7-city { color: #6B655E; }
+.variant-stage .c8-wrap::before { border-color: #B8501A; }
+.variant-stage .c8 { border-color: #0A0A0C; background: #F5F2ED; }
+.variant-stage .c8-name { color: #0A0A0C; }
+.variant-stage .c8-rule { color: #B8501A; }
+.variant-stage .c8-rule hr { border-color: #B8501A; }
+.variant-stage .c8-sub { color: #0A0A0C; }
+.variant-stage .c9-arc-shape { border-color: #0A0A0C; }
+.variant-stage .c9-name { color: #0A0A0C; }
+.variant-stage .c9-divider-line { background: #B8501A; }
+.variant-stage .c9-city { color: #6B655E; }
+.variant-stage .c10 { border-color: #0A0A0C; background: #F5F2ED; }
+.variant-stage .c10-band { background: #B8501A; color: #F5F2ED; }
+.variant-stage .c10-main { color: #0A0A0C; border-color: #0A0A0C; }
+.variant-stage .c10-main em { color: #B8501A; }
+.variant-stage .c10-foot { color: #6B655E; }
+
+.picker {
+  margin-top: 2rem; padding: 2rem;
+  background: #14181C; border: 1px solid #22252A;
+  border-radius: 16px; color: #A8A096;
+}
+.picker strong { color: #F5F2ED; }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <h1>Round 2: five more directions, all contained</h1>
+  <p class="intro">You liked the grounded feel of a container but not a circle. These five all live inside a defined shape, and all draw from the band's actual identity: <strong>Richmond bar-and-brewery band since 2020, harmonies, covers + originals, "play it well, make it fun."</strong></p>
+
+  <!-- ============ CONCEPT 6: TICKET STUB ============ -->
+  <div class="concept">
+    <div class="concept-head">
+      <span class="concept-num">06</span>
+      <h2>Ticket stub — a band you can hold in your hand</h2>
+    </div>
+    <p class="concept-desc">A rounded rectangle with two notches that reads as a torn concert ticket. Reinforces live music at a glance. Typography is Playfair italic (goosebumps territory) with Oswald condensed for the supporting type. Works on a stage banner, a koozie, or a 32px favicon.</p>
+    <div class="logo-stage">
+      <div class="c6">
+        <div class="c6-top">Richmond · Est. 2020</div>
+        <div class="c6-main">Acoustic <span class="amp">&</span> Underground</div>
+        <div class="c6-bottom">Bars · Breweries · Stages</div>
+      </div>
+    </div>
+    <div class="variants-row">
+      <div class="variant-col">
+        <div class="variant-label">On light</div>
+        <div class="variant-stage">
+          <div class="c6" style="padding: 0.8rem 1.5rem;">
+            <div class="c6-top" style="font-size: 0.55rem;">Richmond · Est. 2020</div>
+            <div class="c6-main" style="font-size: 1.6rem;">Acoustic <span class="amp">&</span> Underground</div>
+            <div class="c6-bottom" style="font-size: 0.55rem;">Bars · Breweries · Stages</div>
+          </div>
+        </div>
+      </div>
+      <div class="variant-col">
+        <div class="variant-label">Small / avatar</div>
+        <div class="variant-stage small">
+          <div class="c6" style="padding: 0.6rem 1.2rem;">
+            <div class="c6-main" style="font-size: 1.3rem; line-height: 1;">Acoustic<br><span class="amp" style="font-size: 1rem;">&</span> Underground</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============ CONCEPT 7: CREST/SHIELD ============ -->
+  <div class="concept">
+    <div class="concept-head">
+      <span class="concept-num">07</span>
+      <h2>Pointed crest — heritage without being historical</h2>
+    </div>
+    <p class="concept-desc">A five-sided shield shape (flat top, pointed bottom). Same "established" weight as a crest or brewery logo, but the narrow point keeps it modern and forward-leaning rather than old-world. Abril Fatface gives it literary gravity. This is the logo of a band that's been doing it a while.</p>
+    <div class="logo-stage">
+      <div class="c7">
+        <div class="c7-shield">
+          <div class="c7-shield-border"></div>
+          <div class="c7-shield-inner"></div>
+          <div class="c7-content">
+            <div class="c7-est">Est. 2020</div>
+            <div class="c7-main">Acoustic<br>Underground</div>
+            <div class="c7-divider"></div>
+            <div class="c7-city">Richmond, Virginia</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="variants-row">
+      <div class="variant-col">
+        <div class="variant-label">On light</div>
+        <div class="variant-stage">
+          <div class="c7">
+            <div class="c7-shield" style="width: 120px; height: 140px; padding: 0.75rem 0.5rem;">
+              <div class="c7-shield-border"></div>
+              <div class="c7-shield-inner"></div>
+              <div class="c7-content">
+                <div class="c7-est" style="font-size: 0.4rem;">Est. 2020</div>
+                <div class="c7-main" style="font-size: 1rem;">Acoustic<br>Underground</div>
+                <div class="c7-divider" style="width: 18px; margin: 0.3rem auto;"></div>
+                <div class="c7-city" style="font-size: 0.4rem;">Richmond, VA</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="variant-col">
+        <div class="variant-label">Small / avatar</div>
+        <div class="variant-stage small">
+          <div class="c7">
+            <div class="c7-shield" style="width: 80px; height: 96px; padding: 0.4rem;">
+              <div class="c7-shield-border"></div>
+              <div class="c7-shield-inner"></div>
+              <div class="c7-content">
+                <div class="c7-main" style="font-size: 0.75rem; line-height: 1;">Acoustic<br>Underground</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============ CONCEPT 8: OFFSET DOUBLE-FRAME ============ -->
+  <div class="concept">
+    <div class="concept-head">
+      <span class="concept-num">08</span>
+      <h2>Offset frame — print-shop precision with a little wink</h2>
+    </div>
+    <p class="concept-desc">Two rectangles offset by a few pixels, the way a letterpress print looks when the color plate registers slightly off. Signals craft and attention to detail (your actual positioning). Feels hand-printed without being twee. The offset is the personality.</p>
+    <div class="logo-stage">
+      <div class="c8-wrap">
+        <div class="c8">
+          <div class="c8-rule"><hr>Est. 2020<hr></div>
+          <div class="c8-name">Acoustic Underground</div>
+          <div class="c8-rule" style="margin-top: 0.6rem; margin-bottom: 0;"><hr>Richmond, VA<hr></div>
+        </div>
+      </div>
+    </div>
+    <div class="variants-row">
+      <div class="variant-col">
+        <div class="variant-label">On light</div>
+        <div class="variant-stage">
+          <div class="c8-wrap">
+            <div class="c8" style="padding: 0.9rem 1.5rem;">
+              <div class="c8-name" style="font-size: 1.5rem;">Acoustic Underground</div>
+              <div class="c8-rule" style="margin: 0.3rem 0 0;"><hr>Richmond · Est. 2020<hr></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="variant-col">
+        <div class="variant-label">Small / avatar</div>
+        <div class="variant-stage small">
+          <div class="c8-wrap">
+            <div class="c8" style="padding: 0.6rem 1rem;">
+              <div class="c8-name" style="font-size: 0.9rem; line-height: 1.1;">Acoustic<br><em style="font-style: italic;">Underground</em></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============ CONCEPT 9: HALF-CIRCLE ARC ============ -->
+  <div class="concept">
+    <div class="concept-head">
+      <span class="concept-num">09</span>
+      <h2>Arch — a stage you walk under</h2>
+    </div>
+    <p class="concept-desc">An arc opens across the top while the bottom stays flat. Echoes a stage proscenium, a doorway into a club, or a horizon from above. Contained but not closed. Playfair italic for "Acoustic," bold Playfair for "Underground." The amber rule underneath anchors the whole mark to the ground.</p>
+    <div class="logo-stage">
+      <div class="c9">
+        <div class="c9-arc">
+          <div class="c9-arc-shape"></div>
+          <div class="c9-content">
+            <div class="c9-name">
+              Acoustic
+              <span class="bold">Underground</span>
+            </div>
+            <div class="c9-divider-line"></div>
+            <div class="c9-city">Richmond · Virginia · Est. 2020</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="variants-row">
+      <div class="variant-col">
+        <div class="variant-label">On light</div>
+        <div class="variant-stage" style="min-height: 170px;">
+          <div class="c9" style="padding: 0.5rem 1rem 1.5rem;">
+            <div class="c9-arc" style="padding-top: 2rem;">
+              <div class="c9-arc-shape" style="width: 260px; height: 130px; border-radius: 130px 130px 0 0;"></div>
+              <div class="c9-content" style="padding-top: 1rem;">
+                <div class="c9-name" style="font-size: 1.2rem;">
+                  Acoustic
+                  <span class="bold" style="font-size: 1.2rem;">Underground</span>
+                </div>
+                <div class="c9-divider-line" style="max-width: 230px;"></div>
+                <div class="c9-city" style="font-size: 0.55rem;">Richmond · Est. 2020</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="variant-col">
+        <div class="variant-label">Small / avatar</div>
+        <div class="variant-stage small">
+          <div class="c9" style="padding: 0.5rem;">
+            <div class="c9-arc" style="padding-top: 1.5rem;">
+              <div class="c9-arc-shape" style="width: 130px; height: 65px; border-radius: 65px 65px 0 0;"></div>
+              <div class="c9-content" style="padding-top: 0.5rem;">
+                <div class="c9-name" style="font-size: 0.75rem; line-height: 0.95;">
+                  Acoustic
+                  <span class="bold" style="font-size: 0.75rem;">Underground</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============ CONCEPT 10: CASSETTE NAMEPLATE ============ -->
+  <div class="concept">
+    <div class="concept-head">
+      <span class="concept-num">10</span>
+      <h2>Cassette nameplate — music object, not band logo</h2>
+    </div>
+    <p class="concept-desc">A horizontal rectangle with a colored band on top, the name in the middle, and serial-number style details at the bottom. Reads as the spine label of a mixtape or album sleeve. Music-native container that has nothing to do with badges, circles, or crests. Premium feel without being fussy.</p>
+    <div class="logo-stage">
+      <div class="c10">
+        <div class="c10-band">Richmond, Virginia</div>
+        <div class="c10-main">Acoustic<em>Underground</em></div>
+        <div class="c10-foot">
+          <span>Est. 2020</span>
+          <span>Side A</span>
+        </div>
+      </div>
+    </div>
+    <div class="variants-row">
+      <div class="variant-col">
+        <div class="variant-label">On light</div>
+        <div class="variant-stage">
+          <div class="c10" style="min-width: 260px;">
+            <div class="c10-band" style="font-size: 0.55rem; padding: 0.25rem 0.75rem;">Richmond, Virginia</div>
+            <div class="c10-main" style="padding: 1rem 1.5rem; font-size: 1.5rem;">Acoustic<em style="font-size: 1.5rem;">Underground</em></div>
+            <div class="c10-foot" style="font-size: 0.55rem;">
+              <span>Est. 2020</span><span>Side A</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="variant-col">
+        <div class="variant-label">Small / avatar</div>
+        <div class="variant-stage small">
+          <div class="c10" style="min-width: 160px;">
+            <div class="c10-band" style="font-size: 0.45rem; padding: 0.2rem;">RVA</div>
+            <div class="c10-main" style="padding: 0.5rem; font-size: 1rem; border-bottom: none;">Acoustic<em style="font-size: 1rem;">Underground</em></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="picker">
+    <strong>Where this leaves us:</strong> You've now seen 10 directions. If one of these six-through-ten hits, tell me which and what to refine. If none do, we have a different problem, you may want a designer rather than more concepts, and I'll tell you that honestly. Also fair game: "I liked the square from round 1 but with the ticket-stub typography from round 2" or any other hybrid. Just point at the pieces.
+  </div>
+
+</div>
+</body>
+</html>
