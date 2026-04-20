@@ -60,7 +60,7 @@ nav.top {
   position: fixed;
   top: 0; left: 0; right: 0;
   z-index: 100;
-  padding: 1.25rem 2.5rem;
+  padding: 0.85rem 2.5rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -74,12 +74,12 @@ nav.top.scrolled { border-bottom-color: var(--border); background: rgba(10,10,12
 
 nav .logo-mark { display: flex; align-items: center; gap: 0.75rem; }
 nav .logo-mark img.logo-full {
-  height: 64px;
+  height: 72px;
   width: auto;
   display: block;
 }
 nav .logo-mark img.logo-mark-only {
-  height: 44px;
+  height: 56px;
   width: auto;
   display: none;
 }
@@ -329,6 +329,26 @@ section.band-section { padding: 7rem 2.5rem; position: relative; }
   flex-direction: column;
 }
 .song-card:hover { transform: translateY(-6px); border-color: var(--teal); }
+.song-card .card-bg {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  z-index: 0;
+}
+.song-card:hover .card-bg { opacity: 0.35; }
+.song-card .card-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(10,10,12,0.5) 0%, rgba(20,24,28,0.85) 100%);
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  z-index: 1;
+}
+.song-card:hover .card-overlay { opacity: 1; }
+.song-card > *:not(.card-bg):not(.card-overlay) { position: relative; z-index: 2; }
 .song-card::before {
   content: '';
   position: absolute;
@@ -922,13 +942,13 @@ footer {
 
 <!-- HERO -->
 <section class="hero" id="top">
-  <!-- Background photo carousel -->
+  <!-- Background photo carousel (JS populates with random live photos) -->
   <div class="hero-carousel" id="heroCarousel">
-    <div class="slide active" style="background-image: url('Photos/Live/live-01.jpg');"></div>
-    <div class="slide" style="background-image: url('Photos/Live/live-15.jpg');"></div>
-    <div class="slide" style="background-image: url('Photos/Live/live-28.jpg');"></div>
-    <div class="slide" style="background-image: url('Photos/Live/live-42.jpg');"></div>
-    <div class="slide" style="background-image: url('Photos/Live/live-55.jpg');"></div>
+    <div class="slide active"></div>
+    <div class="slide"></div>
+    <div class="slide"></div>
+    <div class="slide"></div>
+    <div class="slide"></div>
   </div>
   <div class="hero-grain"></div>
   <div class="hero-inner">
@@ -978,6 +998,8 @@ footer {
     <div class="songs-grid">
 
       <div class="song-card reveal">
+        <div class="card-bg"></div>
+        <div class="card-overlay"></div>
         <span class="track-num">01 / Latest</span>
         <h3>Pockets Are Full</h3>
         <p>The rush of young love, empty hands, and wide-open possibility. A reminder of how it felt before life got heavy, and why holding onto that spark still matters.</p>
@@ -988,6 +1010,8 @@ footer {
       </div>
 
       <div class="song-card reveal">
+        <div class="card-bg"></div>
+        <div class="card-overlay"></div>
         <span class="track-num">02</span>
         <h3>The Bond</h3>
         <p>Release, and the painful but necessary act of letting go in order to move forward. Explores the dual nature of love: its power to connect us and its call to let us move on.</p>
@@ -998,6 +1022,8 @@ footer {
       </div>
 
       <div class="song-card reveal">
+        <div class="card-bg"></div>
+        <div class="card-overlay"></div>
         <span class="track-num">03</span>
         <h3>Lonely Astronaut</h3>
         <p>A dreamy, atmospheric folk-rock song that captures the feeling of drifting through space, literally and emotionally. Soaring harmonies, cinematic swells, and the pull toward what truly matters.</p>
@@ -1064,7 +1090,7 @@ footer {
           <div class="title">Lonely Astronaut</div>
         </div>
       </a>
-      <a class="video-tile" href="https://www.youtube.com/channel/UCqip1FeWpGk0zY3oe1NAdGw" target="_blank" rel="noopener" aria-label="Visit our YouTube channel">
+      <a class="video-tile" href="https://www.youtube.com/channel/UCqip1FeWpGk0zY3oe1NAdGw" target="_blank" rel="noopener" aria-label="Visit our YouTube channel" id="ytTile">
         <div class="bg" style="background: linear-gradient(135deg, var(--teal-dark), var(--bg-2));"></div>
         <div class="play"></div>
         <div class="caption">
@@ -1072,7 +1098,7 @@ footer {
           <div class="title">Live clips &amp; more</div>
         </div>
       </a>
-      <a class="video-tile" href="https://www.instagram.com/acousticundergroundrva" target="_blank" rel="noopener" aria-label="Follow us on Instagram">
+      <a class="video-tile" href="https://www.instagram.com/acousticundergroundrva" target="_blank" rel="noopener" aria-label="Follow us on Instagram" id="igTile">
         <div class="bg" style="background: linear-gradient(135deg, #D2285A, #DC821E);"></div>
         <div class="play" style="background: rgba(255,255,255,0.15);"></div>
         <div class="caption">
@@ -1184,19 +1210,19 @@ footer {
     </div>
 
     <div class="gallery-mosaic reveal" id="galleryMosaic">
-      <div class="gallery-item big"><img src="Photos/Live/live-03.jpg" alt="Live performance" loading="lazy"></div>
-      <div class="gallery-item"><img src="Photos/Live/live-09.jpg" alt="Live performance" loading="lazy"></div>
-      <div class="gallery-item"><img src="Photos/Live/live-12.jpg" alt="Live performance" loading="lazy"></div>
-      <div class="gallery-item wide"><img src="Photos/Live/live-18.jpg" alt="Live performance" loading="lazy"></div>
-      <div class="gallery-item tall"><img src="Photos/Live/live-25.jpg" alt="Live performance" loading="lazy"></div>
-      <div class="gallery-item"><img src="Photos/Live/live-31.jpg" alt="Live performance" loading="lazy"></div>
-      <div class="gallery-item"><img src="Photos/Live/live-36.jpg" alt="Live performance" loading="lazy"></div>
-      <div class="gallery-item"><img src="Photos/Live/live-40.jpg" alt="Live performance" loading="lazy"></div>
-      <div class="gallery-item wide"><img src="Photos/Live/live-47.jpg" alt="Live performance" loading="lazy"></div>
-      <div class="gallery-item"><img src="Photos/Live/live-52.jpg" alt="Live performance" loading="lazy"></div>
-      <div class="gallery-item big"><img src="Photos/Live/live-58.jpg" alt="Live performance" loading="lazy"></div>
-      <div class="gallery-item"><img src="Photos/Live/live-61.jpg" alt="Live performance" loading="lazy"></div>
-      <div class="gallery-item"><img src="Photos/Live/live-64.jpg" alt="Live performance" loading="lazy"></div>
+      <div class="gallery-item big"></div>
+      <div class="gallery-item"></div>
+      <div class="gallery-item"></div>
+      <div class="gallery-item wide"></div>
+      <div class="gallery-item tall"></div>
+      <div class="gallery-item"></div>
+      <div class="gallery-item"></div>
+      <div class="gallery-item"></div>
+      <div class="gallery-item wide"></div>
+      <div class="gallery-item"></div>
+      <div class="gallery-item big"></div>
+      <div class="gallery-item"></div>
+      <div class="gallery-item"></div>
     </div>
 
     <p class="gallery-footer reveal">
@@ -1296,16 +1322,78 @@ document.querySelectorAll('#navlist a').forEach(a => {
   });
 });
 
-// Hero carousel cross-fade
+// Shared photo pool config
+const PHOTO_CONFIG = {
+  total: 66,
+  prefix: 'Photos/Live/live-',
+  suffix: '.jpg',
+  pad: 2
+};
+
+// Returns N unique random photo paths from the live photo set
+function getRandomPhotos(count) {
+  const pool = Array.from({length: PHOTO_CONFIG.total}, (_, i) => i + 1);
+  for (let i = pool.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [pool[i], pool[j]] = [pool[j], pool[i]];
+  }
+  return pool.slice(0, count).map(n =>
+    PHOTO_CONFIG.prefix + String(n).padStart(PHOTO_CONFIG.pad, '0') + PHOTO_CONFIG.suffix
+  );
+}
+
+// Hero carousel: randomize the 5 slides and cross-fade
 (function() {
-  const slides = document.querySelectorAll('#heroCarousel .slide');
-  if (slides.length < 2) return;
+  const slideEls = document.querySelectorAll('#heroCarousel .slide');
+  if (slideEls.length < 1) return;
+  const photos = getRandomPhotos(slideEls.length);
+  slideEls.forEach((el, i) => {
+    el.style.backgroundImage = `url('${photos[i]}')`;
+  });
+  if (slideEls.length < 2) return;
   let i = 0;
   setInterval(() => {
-    slides[i].classList.remove('active');
-    i = (i + 1) % slides.length;
-    slides[i].classList.add('active');
+    slideEls[i].classList.remove('active');
+    i = (i + 1) % slideEls.length;
+    slideEls[i].classList.add('active');
   }, 5000);
+})();
+
+// Song cards: one random photo per card as hover background
+(function() {
+  const cards = document.querySelectorAll('.song-card .card-bg');
+  const photos = getRandomPhotos(cards.length);
+  cards.forEach((bg, i) => {
+    bg.style.backgroundImage = `url('${photos[i]}')`;
+  });
+})();
+
+// YouTube and Instagram video tiles: random live photo backgrounds
+(function() {
+  const tiles = ['ytTile', 'igTile']
+    .map(id => document.getElementById(id))
+    .filter(Boolean);
+  const photos = getRandomPhotos(tiles.length);
+  tiles.forEach((tile, i) => {
+    const bg = tile.querySelector('.bg');
+    if (bg) {
+      bg.style.background = `url('${photos[i]}') center/cover no-repeat`;
+    }
+  });
+})();
+
+// Gallery: 13 random photos in mosaic
+(function() {
+  const tiles = document.querySelectorAll('#galleryMosaic .gallery-item');
+  const photos = getRandomPhotos(tiles.length);
+  tiles.forEach((tile, idx) => {
+    if (idx >= photos.length) return;
+    const img = document.createElement('img');
+    img.src = photos[idx];
+    img.alt = 'Acoustic Underground live';
+    img.loading = 'lazy';
+    tile.appendChild(img);
+  });
 })();
 
 // Gallery lightbox
