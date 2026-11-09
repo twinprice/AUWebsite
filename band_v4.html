@@ -1,0 +1,980 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Acoustic Underground · Richmond, Virginia</title>
+<meta name="description" content="Acoustic Underground is a six-piece Richmond, Virginia band playing covers and originals in three and four-part harmony since 2020. Live dates, songs we play, and three originals streaming now.">
+<meta name="theme-color" content="#0A0A0C">
+<meta property="og:title" content="Acoustic Underground">
+<meta property="og:description" content="Richmond, Virginia covers and originals in three and four-part harmony. Live across RVA.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://twinprice.github.io/AUWebsite/band_v4.html">
+<meta property="og:image" content="https://twinprice.github.io/AUWebsite/assets/og-image.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="assets/icons/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="assets/icons/favicon-32.png">
+<link rel="apple-touch-icon" href="assets/icons/apple-touch-icon.png">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "MusicGroup",
+  "name": "Acoustic Underground",
+  "url": "https://twinprice.github.io/AUWebsite/band_v4.html",
+  "image": "https://twinprice.github.io/AUWebsite/assets/og-image.jpg",
+  "logo": "https://twinprice.github.io/AUWebsite/assets/icons/icon-512.png",
+  "genre": ["Folk rock", "Acoustic rock"],
+  "foundingDate": "2020",
+  "foundingLocation": { "@type": "Place", "name": "Richmond, Virginia" },
+  "email": "acousticundergroundRVA@gmail.com",
+  "member": [
+    { "@type": "Person", "name": "Don Busick", "roleName": "Vocals, Guitar" },
+    { "@type": "Person", "name": "Boomer Muth", "roleName": "Vocals, Guitar" },
+    { "@type": "Person", "name": "Matt Williams", "roleName": "Bass, Vocals" },
+    { "@type": "Person", "name": "Sam Bennett", "roleName": "Keyboards" },
+    { "@type": "Person", "name": "Winston Price", "roleName": "Drums, Vocals" },
+    { "@type": "Person", "name": "Ashton Mellott", "roleName": "Live Sound" }
+  ],
+  "sameAs": [
+    "https://www.instagram.com/acousticundergroundrva",
+    "https://m.facebook.com/pg/acousticundergroundRVA",
+    "https://www.youtube.com/channel/UCqip1FeWpGk0zY3oe1NAdGw",
+    "https://www.bandsintown.com/a/acoustic-underground",
+    "https://distrokid.com/hyperfollow/acousticunderground/"
+  ]
+}
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Chivo:wght@400;700;900&display=swap" rel="stylesheet">
+<script>document.documentElement.classList.add('js')</script>
+<style>
+/* ---------- tokens ---------- */
+:root {
+  --bg: #0A0A0C;
+  --surface: #14181C;
+  --ink: #F5F2ED;
+  --muted: #B4ADA3;
+  --teal: #28505A;
+  --cream: #F5F2ED;
+  --cream-ink: #0A0A0C;
+  --cream-muted: #4A4640;
+  --accent: #D10849;
+  --accent-hover: #E01556;
+  --accent-ink: #FFFFFF;
+
+  --font: 'Chivo', system-ui, sans-serif;
+
+  /* five sizes */
+  --step-small: clamp(0.8125rem, 0.79rem + 0.1vw, 0.875rem);
+  --step-body: clamp(1.0625rem, 1rem + 0.25vw, 1.1875rem);
+  --step-lead: clamp(1.25rem, 1.1rem + 0.7vw, 1.625rem);
+  --step-head: clamp(2.25rem, 1.2rem + 5vw, 5.5rem);
+  --step-display: 11.6vw;
+
+  --margin: clamp(1.25rem, 2.2vw, 2rem);
+  --gutter: clamp(1rem, 2vw, 2rem);
+  --section: clamp(6rem, 11vw, 12rem);
+  --radius: 4px;
+  --nav-h: 72px;
+
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-soft: cubic-bezier(0.33, 1, 0.68, 1);
+  --t-press: 140ms;
+  --t-hover: 180ms;
+  --t-reveal: 800ms;
+}
+
+/* ---------- reset ---------- */
+*, *::before, *::after { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
+body { margin: 0; background: var(--bg); color: var(--ink); font-family: var(--font); font-size: var(--step-body); line-height: 1.45; letter-spacing: -0.01em; -webkit-font-smoothing: antialiased; }
+h1, h2, h3, p, figure, blockquote, ul, ol { margin: 0; }
+ul[class], ol[class] { padding: 0; list-style: none; }
+img, video, svg { display: block; max-width: 100%; }
+img, video { height: auto; background: var(--surface); }
+button { font: inherit; color: inherit; background: none; border: 0; padding: 0; cursor: pointer; }
+a { color: inherit; }
+:target { scroll-margin-top: calc(var(--nav-h) + 1rem); }
+::selection { background: var(--accent); color: var(--accent-ink); }
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+p { max-width: 62ch; text-wrap: pretty; }
+p + p { margin-top: 0.9em; }
+.sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+
+/* ---------- type ---------- */
+.display, .head { font-weight: 900; text-transform: uppercase; letter-spacing: -0.05em; line-height: 0.88; text-wrap: balance; }
+.display { font-size: var(--step-display); }
+.head { font-size: var(--step-head); }
+.lead { font-size: var(--step-lead); line-height: 1.3; font-weight: 400; }
+.small { font-size: var(--step-small); line-height: 1.45; }
+.muted { color: var(--muted); }
+
+/* ---------- layout ---------- */
+.wrap { padding-inline: var(--margin); }
+.grid { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); column-gap: var(--gutter); }
+.section { padding-block: calc(var(--section) / 2); }
+
+/* ---------- controls ---------- */
+.button { display: inline-flex; align-items: center; justify-content: center; min-height: 3rem; padding: 0 1.4rem; background: var(--accent); color: var(--accent-ink); border-radius: var(--radius); font-weight: 700; text-decoration: none; white-space: nowrap; transition: transform var(--t-press) var(--ease-out), background-color var(--t-hover) ease; }
+.button:active { transform: scale(0.97); }
+.button--quiet { background: var(--surface); color: var(--ink); }
+.link { font-weight: 700; text-decoration: underline; text-decoration-color: transparent; text-underline-offset: 0.22em; text-decoration-thickness: 0.08em; transition: text-decoration-color var(--t-hover) ease, color var(--t-hover) ease; }
+.link-plain { font-weight: 700; text-decoration: underline; text-underline-offset: 0.2em; text-decoration-thickness: 0.08em; }
+@media (hover: hover) and (pointer: fine) {
+  .button:hover { background: var(--accent-hover); }
+  .button--quiet:hover { background: var(--teal); }
+  .link:hover { text-decoration-color: currentColor; }
+}
+
+/* ---------- nav ---------- */
+.nav { position: fixed; inset: 0 0 auto 0; z-index: 50; display: flex; align-items: center; justify-content: space-between; gap: var(--gutter); padding: 0.75rem var(--margin); background: var(--bg); }
+.nav__logo img { width: auto; height: 48px; background: none; }
+.nav__list { display: flex; align-items: center; gap: 1.75rem; font-size: var(--step-small); font-weight: 700; }
+.nav__list a:not(.button) { text-decoration: none; transition: color var(--t-hover) ease; }
+.nav__list .button { min-height: 2.5rem; padding: 0 1.1rem; }
+.nav__toggle { display: none; min-height: 2.75rem; padding: 0 0.25rem; font-size: var(--step-small); font-weight: 700; }
+@media (hover: hover) and (pointer: fine) { .nav__list a:not(.button):hover { color: var(--muted); } }
+@media (max-width: 860px) {
+  .nav__logo img { height: 40px; }
+  .nav__toggle { display: block; }
+  .nav__list { position: absolute; top: 100%; left: 0; right: 0; flex-direction: column; align-items: flex-start; gap: 0; padding: 0.5rem var(--margin) 1.25rem; background: var(--bg); font-size: var(--step-body); display: none; }
+  .nav__list.is-open { display: flex; }
+  .nav__list li { width: 100%; }
+  .nav__list a:not(.button) { display: block; padding: 0.7rem 0; }
+  .nav__list .button { margin-top: 0.5rem; }
+}
+
+/* ---------- hero: the pinned poster ---------- */
+.stage { position: relative; }
+.js .stage { height: 250svh; }
+.stage__pin { position: sticky; top: 0; height: 100svh; min-height: 34rem; padding: calc(var(--nav-h) + 0.5rem) var(--margin) var(--margin); display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); grid-template-rows: calc(var(--step-display) * 0.88) minmax(0, 1fr) calc(var(--step-display) * 0.88); column-gap: var(--gutter); row-gap: 1.5rem; }
+.stage__title { grid-column: 1 / -1; grid-row: 1 / 4; display: flex; flex-direction: column; justify-content: space-between; pointer-events: none; z-index: 2; }
+.stage__title span { display: block; }
+.stage__title .w2 { align-self: flex-end; }
+.stage__intro { grid-column: 1 / 4; grid-row: 2; align-self: end; }
+.stage__intro p { max-width: 22ch; font-size: var(--step-lead); line-height: 1.3; }
+.stage__actions { display: flex; flex-wrap: wrap; align-items: center; gap: 0.75rem 1.25rem; margin-top: 1.5rem; }
+.stage__next { grid-column: 10 / 13; grid-row: 2; align-self: start; }
+.stage__next p { max-width: 24ch; }
+.stage__next strong { font-weight: 700; color: var(--ink); }
+.stage__figure { grid-column: 4 / 10; grid-row: 2; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 0.6rem; min-height: 0; }
+.stage__frame { position: relative; width: min(100%, calc((100svh - var(--nav-h) - 0.5rem - var(--margin) - var(--step-display) * 1.76 - 3rem - 2rem) * 16 / 9)); aspect-ratio: 16 / 9; overflow: hidden; border-radius: var(--radius); background: var(--surface); }
+.reel { position: absolute; inset: 0; }
+.reel__item { position: absolute; inset: 0; }
+.reel__item + .reel__item { clip-path: inset(100% 0 0 0); }
+.reel__item img, .reel__item video { width: 100%; height: 100%; object-fit: cover; }
+.stage__caption { width: 100%; text-align: center; min-height: 1.45em; }
+@media (max-width: 900px) {
+  :root { --step-display: 12.2vw; }
+  .stage__pin { grid-template-columns: minmax(0, 1fr); grid-template-rows: calc(var(--step-display) * 0.88) auto calc(var(--step-display) * 0.88) auto auto; row-gap: 1rem; align-content: start; }
+  .stage__title { grid-column: 1; grid-row: 1 / 4; }
+  .stage__figure { grid-column: 1; grid-row: 2; }
+  .stage__frame { width: 100%; aspect-ratio: 16 / 9; }
+  .stage__intro { grid-column: 1; grid-row: 4; margin-top: 0.75rem; }
+  .stage__intro p { max-width: 30ch; }
+  .stage__next { grid-column: 1; grid-row: 5; }
+}
+@media (max-width: 700px) { .stage__frame { aspect-ratio: 4 / 3; } }
+@media (max-height: 560px), (max-width: 700px) and (max-height: 720px), (prefers-reduced-motion: reduce) {
+  .js .stage { height: auto; }
+  .stage__pin { position: relative; height: auto; min-height: 100svh; }
+}
+
+/* ---------- intro ---------- */
+.intro__head { grid-column: 1 / -1; margin-bottom: clamp(2.5rem, 5vw, 4.5rem); }
+.intro__text { grid-column: 1 / 7; }
+.intro__text .lead { margin-bottom: 1.5rem; max-width: 30ch; }
+.intro__quote { margin-top: 2.25rem; padding-left: 1.25rem; border-left: 4px solid var(--accent); font-size: var(--step-lead); line-height: 1.3; max-width: 32ch; }
+.intro__photo { grid-column: 8 / 13; }
+.intro__small { margin-top: 3rem; }
+.intro__photo img, .intro__small img { width: 100%; object-fit: cover; border-radius: var(--radius); }
+.ratio-45 { aspect-ratio: 4 / 5; }
+.ratio-1610 { aspect-ratio: 16 / 10; }
+.ratio-11 { aspect-ratio: 1 / 1; }
+figcaption { margin-top: 0.5rem; }
+@media (max-width: 860px) {
+  .intro__text, .intro__photo { grid-column: 1 / -1; }
+  .intro__photo { margin-top: 2.5rem; max-width: 34rem; }
+}
+
+/* ---------- showcase: the music ---------- */
+.music__head { align-items: end; padding-bottom: clamp(2.5rem, 5vw, 4rem); }
+.music__head h2 { grid-column: 1 / 7; }
+.music__sub { grid-column: 7 / 13; }
+.stream { display: flex; flex-wrap: wrap; gap: 0.5rem 1.25rem; margin-top: 1.25rem; font-size: var(--step-small); }
+.stream span { color: var(--muted); }
+.song { position: relative; height: min(100svh, 64vw); min-height: 36rem; overflow: hidden; }
+.song__bg { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.song__grid { position: relative; height: 100%; pointer-events: none; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); column-gap: var(--gutter); padding-inline: var(--margin); align-items: center; }
+.song__card { pointer-events: auto; grid-row: 1; min-height: 52%; display: flex; flex-direction: column; gap: 0.9rem; padding: 1.5rem; background: var(--cream); color: var(--cream-ink); border-radius: var(--radius); }
+.song:nth-of-type(1) .song__card { grid-column: 2; }
+.song:nth-of-type(2) .song__card { grid-column: 3; }
+.song:nth-of-type(3) .song__card { grid-column: 4; }
+.song__card h3 { font-size: var(--step-lead); font-weight: 900; text-transform: uppercase; letter-spacing: -0.03em; line-height: 1.05; }
+.song__card .note { margin-top: -0.5rem; color: var(--cream-muted); font-size: var(--step-small); font-weight: 700; }
+.song__card p { font-size: var(--step-small); line-height: 1.5; }
+.song__card img { width: 100%; aspect-ratio: 3 / 2; object-fit: cover; border-radius: var(--radius); }
+.song__links { margin-top: auto; display: flex; flex-wrap: wrap; align-items: center; gap: 0.75rem 1rem; }
+.song__links .button { flex: 1 1 7rem; }
+@media (max-width: 1100px) {
+  .song__grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .song:nth-of-type(1) .song__card { grid-column: 1; }
+  .song:nth-of-type(2) .song__card { grid-column: 2; }
+  .song:nth-of-type(3) .song__card { grid-column: 3; }
+}
+@media (max-width: 760px) {
+  .music__head h2, .music__sub { grid-column: 1 / -1; }
+  .music__sub { margin-top: 1.25rem; }
+  .song { height: auto; min-height: 0; }
+  .song__bg { position: relative; height: 62svh; }
+  .song__grid { display: block; padding: 0; }
+  .song__card { min-height: 0; border-radius: 0; padding: 1.5rem var(--margin) 2rem; display: grid; grid-template-columns: minmax(0, 1fr) 96px; column-gap: 1rem; row-gap: 0.75rem; }
+  .song__card h3, .song__card .note, .song__card p, .song__links { grid-column: 1 / -1; }
+  .song__card .note { grid-column: 1; grid-row: 2; }
+  .song__card h3 { grid-column: 1; grid-row: 1; }
+  .song__card img { grid-column: 2; grid-row: 1 / 3; align-self: start; }
+  .song__card p { font-size: var(--step-body); }
+}
+
+/* ---------- list: songs we play ---------- */
+.songs { align-items: start; }
+.songs__head { grid-column: 7 / 13; grid-row: 1; }
+.songs__head > p { margin-top: 1.25rem; }
+.songs__photo { grid-column: 1 / 6; grid-row: 1 / 3; position: sticky; top: calc(var(--nav-h) + 6vh); }
+.songs__frame { position: relative; aspect-ratio: 4 / 5; max-height: calc(100svh - var(--nav-h) - 12vh); margin-inline: auto; overflow: hidden; border-radius: var(--radius); background: var(--surface); }
+.songs__frame img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0; transition: opacity 300ms ease; }
+.songs__frame img.is-on { opacity: 1; }
+.songs__body { grid-column: 7 / 13; grid-row: 2; }
+.songlist { margin-top: 2.5rem; }
+.songrow { display: grid; grid-template-columns: minmax(0, 1fr) auto auto; align-items: center; gap: 1rem; min-height: 4rem; padding-block: 0.6rem; color: var(--muted); transition: color var(--t-hover) ease; }
+.songrow.is-active { color: var(--ink); }
+.songrow__t { font-size: var(--step-lead); line-height: 1.15; font-weight: 700; }
+.songrow__a { display: block; font-size: var(--step-small); font-weight: 400; margin-top: 0.15rem; }
+.songrow__y { font-size: var(--step-small); }
+.req { min-height: 2.75rem; padding: 0 1rem; border-radius: var(--radius); background: var(--surface); color: var(--ink); font-size: var(--step-small); font-weight: 700; transition: background-color var(--t-hover) ease, transform var(--t-press) var(--ease-out); }
+.req:active { transform: scale(0.96); }
+.req[aria-pressed="true"] { background: var(--accent); color: var(--accent-ink); }
+@media (hover: hover) and (pointer: fine) { .req:hover { background: var(--teal); } .req[aria-pressed="true"]:hover { background: var(--accent-hover); } }
+.slip { margin-top: 2.5rem; padding: 1.5rem; background: var(--surface); border-radius: var(--radius); }
+.slip h3 { font-size: var(--step-lead); font-weight: 900; text-transform: uppercase; letter-spacing: -0.03em; line-height: 1.05; }
+.slip__list { margin-top: 0.75rem; color: var(--muted); }
+.slip__actions { display: flex; flex-wrap: wrap; align-items: center; gap: 0.75rem 1.25rem; margin-top: 1.25rem; }
+.slip__actions .button[aria-disabled="true"] { background: var(--teal); color: var(--muted); pointer-events: none; }
+@media (max-width: 860px) {
+  .songs__head { grid-column: 1 / -1; margin-bottom: 1.5rem; }
+  .songs__photo { grid-column: 1 / -1; grid-row: auto; top: var(--nav-h); z-index: 3; background: var(--bg); padding-bottom: 0.75rem; }
+  .songs__frame { aspect-ratio: 4 / 3; height: 34svh; width: 100%; max-height: none; }
+  .songs__body { grid-column: 1 / -1; grid-row: auto; margin-top: 1.5rem; }
+}
+
+/* ---------- proof band ---------- */
+.names { background: var(--teal); min-height: 34vh; display: flex; align-items: center; overflow: hidden; }
+.names__track { display: flex; flex-shrink: 0; white-space: nowrap; }
+.names__track span { display: inline-flex; align-items: center; }
+.names__track i { display: inline-block; width: 0.24em; height: 0.24em; margin-inline: 0.42em; border-radius: 50%; background: var(--accent); }
+@media (prefers-reduced-motion: no-preference) {
+  .names__track { animation: names 40s linear infinite; }
+}
+@keyframes names { to { transform: translateX(-50%); } }
+.names__note { padding-top: 1.25rem; }
+@media (max-width: 700px) { .names { min-height: 22vh; } }
+
+/* ---------- shows ---------- */
+.shows__side { grid-column: 1 / 6; }
+.shows__side > p { margin-top: 1.25rem; }
+.shows__links { display: flex; flex-wrap: wrap; gap: 0.75rem 1.5rem; margin-top: 1.5rem; }
+.shows__side figure { margin-top: 2.5rem; }
+.shows__side img { width: 100%; aspect-ratio: 16 / 10; object-fit: cover; border-radius: var(--radius); }
+.shows__main { grid-column: 7 / 13; min-height: 22rem; }
+.shows__wait { color: var(--muted); }
+.shows__fallback { margin-bottom: 1.5rem; padding: 1.25rem; background: var(--surface); border-radius: var(--radius); }
+@media (max-width: 860px) {
+  .shows__side, .shows__main { grid-column: 1 / -1; }
+  .shows__main { margin-top: 2.5rem; min-height: 0; }
+}
+
+/* ---------- band ---------- */
+.band__head { grid-column: 1 / 6; align-self: end; }
+.band__head > p { margin-top: 1.25rem; }
+.band__group { grid-column: 6 / 13; }
+.band__group img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; border-radius: var(--radius); }
+.members { grid-column: 1 / -1; display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: var(--gutter); margin-top: clamp(3rem, 6vw, 5rem); }
+.member:nth-child(even) { margin-top: 4rem; }
+.member img { width: 100%; aspect-ratio: 1 / 1; object-fit: cover; border-radius: var(--radius); }
+.member h3 { margin-top: 0.75rem; font-size: var(--step-body); font-weight: 700; }
+@media (max-width: 860px) {
+  .band__head, .band__group { grid-column: 1 / -1; }
+  .band__group { margin-top: 2rem; }
+  .members { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .member:nth-child(even) { margin-top: 0; }
+  .member:nth-child(3n+2) { margin-top: 2.5rem; }
+}
+@media (max-width: 520px) {
+  .members { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .member:nth-child(3n+2) { margin-top: 0; }
+  .member:nth-child(even) { margin-top: 2.5rem; }
+}
+
+/* ---------- gallery ---------- */
+.gallery__head { align-items: end; padding-bottom: clamp(2.5rem, 5vw, 4rem); }
+.gallery__head h2 { grid-column: 1 / 7; }
+.gallery__head p { grid-column: 8 / 13; }
+.wide-photo { position: relative; height: min(88svh, 60vw); overflow: hidden; }
+.wide-photo img { width: 100%; height: 100%; object-fit: cover; }
+.wide-photo::after { content: ""; position: absolute; inset: auto 0 0 0; height: 120px; background: linear-gradient(to top, rgba(0,0,0,0.6), rgba(0,0,0,0)); } /* taste-skill-ignore: neutral scrim under the caption */
+.wide-photo figcaption { position: absolute; left: var(--margin); bottom: 1.25rem; z-index: 1; margin: 0; color: #fff; font-size: var(--step-small); }
+.strip { display: grid; grid-template-columns: 4fr 3fr 5fr 3fr 4fr; gap: var(--gutter); margin-top: var(--gutter); align-items: start; }
+.strip button { display: block; width: 100%; border-radius: var(--radius); overflow: hidden; }
+.strip img { width: 100%; aspect-ratio: 4 / 5; object-fit: cover; transition: transform 600ms var(--ease-soft); }
+.strip button:nth-child(odd) img { aspect-ratio: 4 / 3; }
+@media (hover: hover) and (pointer: fine) { .strip button:hover img { transform: scale(1.04); } }
+.strip { padding-bottom: calc(var(--section) / 2); }
+@media (max-width: 760px) {
+  .gallery__head h2, .gallery__head p { grid-column: 1 / -1; }
+  .gallery__head p { margin-top: 1.25rem; }
+  .strip { grid-template-columns: 1fr 1fr; }
+  .strip button:nth-child(5) { display: none; }
+  .strip button:nth-child(odd) img, .strip img { aspect-ratio: 4 / 5; }
+}
+.lightbox { padding: 0; border: 0; background: transparent; max-width: 94vw; max-height: 92svh; }
+.lightbox::backdrop { background: rgba(0,0,0,0.88); }
+.lightbox img { max-width: 94vw; max-height: 86svh; width: auto; object-fit: contain; }
+.lightbox button { margin: 0.75rem auto 0; display: block; min-height: 2.75rem; padding: 0 1.2rem; background: var(--surface); border-radius: var(--radius); font-weight: 700; color: var(--ink); }
+
+/* ---------- contact ---------- */
+.contact { background: var(--cream); color: var(--cream-ink); display: flex; flex-direction: column; justify-content: space-between; gap: clamp(3rem, 8vw, 7rem); padding: clamp(3rem, 6vw, 5rem) var(--margin) var(--margin); }
+.contact__lead { margin-top: 1.25rem; max-width: 34ch; }
+.contact__mail { display: block; text-decoration: none; font-size: var(--step-head); font-weight: 400; letter-spacing: -0.045em; line-height: 1; overflow-wrap: anywhere; transition: color var(--t-hover) ease; }
+.contact__mail span { display: block; }
+@media (hover: hover) and (pointer: fine) { .contact__mail:hover { color: var(--accent); } }
+.contact__foot { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 1rem 2rem; font-size: var(--step-small); margin-top: 2.5rem; }
+.contact__foot div { display: flex; flex-wrap: wrap; gap: 0.75rem 1.5rem; }
+.contact__foot .muted { color: var(--cream-muted); }
+.contact__mail span.m1, .contact__mail span.m1b { display: inline; }
+@media (max-width: 700px) { .contact__mail { font-size: var(--step-lead); font-weight: 700; letter-spacing: -0.02em; } }
+
+/* ---------- footer ---------- */
+.foot { display: grid; grid-template-columns: 1fr auto 1fr; align-items: baseline; gap: 1rem 2rem; padding: clamp(4rem, 10vw, 8rem) var(--margin) 1.875rem; font-size: var(--step-small); }
+.foot__links { display: flex; flex-wrap: wrap; gap: 0.5rem 1.5rem; justify-content: center; }
+.foot__links a { font-weight: 700; text-decoration: none; }
+.foot__legal { justify-self: end; color: var(--muted); }
+@media (hover: hover) and (pointer: fine) { .foot__links a:hover { color: var(--muted); } }
+@media (max-width: 760px) {
+  .foot { grid-template-columns: 1fr; gap: 0.5rem; padding-top: 5rem; }
+  .foot__links { justify-content: flex-start; }
+  .foot__legal { justify-self: start; }
+}
+
+/* ---------- entrances (content stays readable without script) ---------- */
+@media (prefers-reduced-motion: no-preference) {
+  .js [data-reveal] { opacity: 0.4; transform: translateY(24px); transition: opacity 700ms var(--ease-out), transform 900ms var(--ease-out); transition-delay: var(--d, 0ms); }
+  .js [data-reveal].is-in { opacity: 1; transform: none; }
+  .js .song__bg { transform: scale(1.08); transition: transform 1600ms var(--ease-soft); }
+  .js .song.is-in .song__bg { transform: none; }
+  .js .wide-photo img { transform: scale(1.06); transition: transform 1600ms var(--ease-soft); }
+  .js .wide-photo.is-in img { transform: none; }
+}
+</style>
+</head>
+<body>
+
+<nav class="nav" id="nav" aria-label="Main">
+  <a href="#top" class="nav__logo" aria-label="Acoustic Underground home">
+    <img src="assets/logo/AU_logo_horizontal.webp" alt="Acoustic Underground" width="582" height="257">
+  </a>
+  <ul class="nav__list" id="navlist">
+    <li><a href="#music">Music</a></li>
+    <li><a href="#songs">Songs</a></li>
+    <li><a href="#shows">Shows</a></li>
+    <li><a href="#band">Band</a></li>
+    <li><a href="#gallery">Gallery</a></li>
+    <li><a href="#contact" class="button">Contact</a></li>
+  </ul>
+  <button class="nav__toggle" id="navToggle" aria-controls="navlist" aria-expanded="false">Menu</button>
+</nav>
+
+<main>
+
+<!-- HERO: the name holds still, split to two corners, while the frame between them changes -->
+<section class="stage" id="top">
+  <div class="stage__pin">
+    <h1 class="stage__title display"><span class="w1">Acoustic</span> <span class="w2">Underground</span></h1>
+
+    <div class="stage__intro">
+      <p>Six musicians from Richmond, Virginia, playing covers and originals in three and four-part harmony since 2020.</p>
+      <div class="stage__actions">
+        <a href="#shows" class="button">See live dates</a>
+        <a href="#music" class="link">Hear the originals</a>
+      </div>
+    </div>
+
+    <figure class="stage__figure">
+      <div class="stage__frame">
+        <div class="reel" id="reel">
+          <div class="reel__item" data-caption="Rehearsing at home">
+            <video id="reelVideo" muted loop playsinline preload="metadata" poster="Photos/RecordingStudio/web/rehearsal-poster.webp" aria-label="Two of the band rehearsing at home">
+              <source src="Photos/RecordingStudio/web/rehearsal-loop.mp4" type="video/mp4">
+            </video>
+          </div>
+          <div class="reel__item" data-caption="The full band, live in Richmond"><img src="Photos/Live/web/live-28.webp" alt="The full band on stage under red and blue lights" decoding="async"></div>
+          <div class="reel__item" data-caption="A brewery night in Richmond"><img src="Photos/Live/web/live-49.webp" alt="The band playing acoustic guitars on a wood-panelled stage" loading="lazy" decoding="async"></div>
+          <div class="reel__item" data-caption="Three guitars, one chorus"><img src="Photos/Live/web/live-58.webp" alt="Three guitarists singing together on stage" loading="lazy" decoding="async"></div>
+          <div class="reel__item" data-caption="Late set, full stage"><img src="Photos/Live/web/live-65.webp" alt="The band on a wide stage under warm lights" loading="lazy" decoding="async"></div>
+        </div>
+      </div>
+      <figcaption class="stage__caption small muted" id="reelCaption" aria-live="polite">Rehearsing at home</figcaption>
+    </figure>
+
+    <div class="stage__next" id="nextShow">
+      <p>New dates go up on <a class="link-plain" href="https://www.bandsintown.com/a/acoustic-underground" target="_blank" rel="noopener">Bandsintown</a> and Instagram first.</p>
+    </div>
+  </div>
+</section>
+
+<!-- INTRO -->
+<section class="section wrap" aria-labelledby="introHead">
+  <div class="grid">
+    <h2 class="head intro__head" id="introHead" data-reveal>Rarely heard live</h2>
+    <div class="intro__text">
+      <p class="lead" data-reveal>There's nothing better than surprising a room with songs it loves but doesn't hear covered often.</p>
+      <p data-reveal>Acoustic Underground plays an eclectic mix of covers and originals. Our sound is built on three and four-part harmonies that give you goosebumps, rock-solid musicianship, and attention to detail you don't often find in the local music scene.</p>
+      <p data-reveal>You'll catch us playing <em>Suite: Judy Blue Eyes</em>, <em>In Your Eyes</em> and <em>Africa</em>, alongside Noah Kahan's <em>Stick Season</em> and Rihanna's <em>Umbrella</em>. Some nights it's the entire second side of <em>Abbey Road</em>. Our originals fit right into the mix.</p>
+      <blockquote class="intro__quote" data-reveal>&ldquo;Our only rules are play it well and make it fun. If you love live music and a great time while you listen, we're here for you.&rdquo;</blockquote>
+      <figure class="intro__small" data-reveal>
+        <img class="ratio-1610" src="Photos/Live/web/live-53.webp" alt="Two singers sharing a harmony at the microphones" loading="lazy" decoding="async">
+        <figcaption class="small muted">Sharing a harmony, live in Richmond.</figcaption>
+      </figure>
+    </div>
+    <figure class="intro__photo" data-reveal>
+      <img class="ratio-45" src="Photos/Live/web/live-24.webp" alt="Singer with guitar in front of the band's banner" loading="lazy" decoding="async">
+    </figure>
+  </div>
+</section>
+
+<!-- SHOWCASE: three originals -->
+<section id="music" aria-labelledby="musicHead">
+  <div class="wrap grid music__head section" style="padding-bottom: clamp(2.5rem, 5vw, 4rem);">
+    <h2 class="head" id="musicHead" data-reveal>The music</h2>
+    <div class="music__sub" data-reveal>
+      <p>Three originals, one story. Each song stands alone. Together they trace an arc from first spark to the quiet, hard work of letting go. All three were recorded with friends in a home studio.</p>
+      <div class="stream">
+        <span>Streaming on</span>
+        <a class="link" href="https://distrokid.com/hyperfollow/acousticunderground/" target="_blank" rel="noopener">Spotify</a>
+        <a class="link" href="https://distrokid.com/hyperfollow/acousticunderground/" target="_blank" rel="noopener">Apple Music</a>
+        <a class="link" href="https://distrokid.com/hyperfollow/acousticunderground/" target="_blank" rel="noopener">YouTube Music</a>
+        <a class="link" href="https://distrokid.com/hyperfollow/acousticunderground/" target="_blank" rel="noopener">Amazon</a>
+        <a class="link" href="https://distrokid.com/hyperfollow/acousticunderground/" target="_blank" rel="noopener">Pandora</a>
+      </div>
+    </div>
+  </div>
+
+  <article class="song" data-scene>
+    <img class="song__bg" src="Photos/RecordingStudio/web/studio-guitar-desk.webp" alt="Guitarist tracking a part while the engineer watches the session at the desk" loading="lazy" decoding="async">
+    <div class="song__grid">
+      <div class="song__card" data-reveal>
+        <h3>Pockets Are Full</h3>
+        <span class="note">Our latest release</span>
+        <img src="Photos/Live/web/live-21.webp" alt="The band playing live" loading="lazy" decoding="async">
+        <p>The rush of young love, empty hands, and wide-open possibility. A reminder of how it felt before life got heavy, and why holding onto that spark still matters.</p>
+        <div class="song__links">
+          <a class="button" href="https://distrokid.com/hyperfollow/acousticunderground/" target="_blank" rel="noopener">Listen</a>
+          <a class="link" href="https://www.youtube.com/watch?v=tggKENp9HzM" target="_blank" rel="noopener">Watch the video</a>
+        </div>
+      </div>
+    </div>
+  </article>
+
+  <article class="song" data-scene>
+    <img class="song__bg" src="Photos/RecordingStudio/web/studio-drums.webp" alt="Drummer playing a take in the studio" loading="lazy" decoding="async">
+    <div class="song__grid">
+      <div class="song__card" data-reveal>
+        <h3>The Bond</h3>
+        <span class="note">Original</span>
+        <img src="Photos/Live/web/live-57.webp" alt="Three band members singing together" loading="lazy" decoding="async">
+        <p>Release, and the painful but necessary act of letting go in order to move forward. The dual nature of love: its power to connect us and its call to let us move on.</p>
+        <div class="song__links">
+          <a class="button" href="https://distrokid.com/hyperfollow/acousticunderground/" target="_blank" rel="noopener">Listen</a>
+          <a class="link" href="https://www.youtube.com/watch?v=UxcnRNDz9iA" target="_blank" rel="noopener">Watch the video</a>
+        </div>
+      </div>
+    </div>
+  </article>
+
+  <article class="song" data-scene>
+    <img class="song__bg" src="Photos/RecordingStudio/web/studio-couch-guitars.webp" alt="Two guitarists working out a part on the studio couch" loading="lazy" decoding="async">
+    <div class="song__grid">
+      <div class="song__card" data-reveal>
+        <h3>Lonely Astronaut</h3>
+        <span class="note">Original</span>
+        <img src="Photos/Live/web/live-59.webp" alt="Guitarists on stage mid-song" loading="lazy" decoding="async">
+        <p>A dreamy, atmospheric folk-rock song about drifting through space, literally and emotionally. Soaring harmonies, cinematic swells, and the pull toward what truly matters.</p>
+        <div class="song__links">
+          <a class="button" href="https://distrokid.com/hyperfollow/acousticunderground/" target="_blank" rel="noopener">Listen</a>
+          <a class="link" href="https://www.youtube.com/watch?v=7OYjEMA2778" target="_blank" rel="noopener">Watch the video</a>
+        </div>
+      </div>
+    </div>
+  </article>
+</section>
+
+<!-- LIST: songs we play, with a request slip -->
+<section class="section wrap" id="songs" aria-labelledby="songsHead">
+  <div class="grid songs">
+    <div class="songs__head">
+      <h2 class="head" id="songsHead" data-reveal>Songs we play</h2>
+      <p data-reveal>Covers people love but rarely hear live, next to our own originals. Every night's set is a little different. Tap the songs you want to hear and send us the list.</p>
+    </div>
+    <div class="songs__photo">
+      <div class="songs__frame" id="songsFrame">
+        <img class="is-on" src="Photos/Live/web/live-03.webp" alt="" decoding="async" loading="lazy">
+      </div>
+    </div>
+    <div class="songs__body">
+      <ul class="songlist" id="songList"></ul>
+      <noscript><p class="muted">Turn on JavaScript to see the song list, or email <a href="mailto:acousticundergroundRVA@gmail.com">acousticundergroundRVA@gmail.com</a> with your requests.</p></noscript>
+      <div class="slip" id="slip" data-ui data-reveal>
+        <h3>Your request list</h3>
+        <p class="slip__list" id="slipList">Nothing yet. Tap Request on any song above.</p>
+        <div class="slip__actions">
+          <a class="button" id="slipSend" href="mailto:acousticundergroundRVA@gmail.com?subject=Song%20request" aria-disabled="true">Send request</a>
+          <button type="button" class="link" id="slipClear" hidden>Clear list</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROOF: who the songs come from -->
+<section aria-labelledby="namesNote">
+  <div class="names" aria-hidden="true">
+    <div class="names__track head" id="namesTrack"></div>
+  </div>
+  <p class="names__note wrap" id="namesNote">Artists whose songs are in our set right now, played next to three originals of our own.</p>
+</section>
+
+<!-- SHOWS -->
+<section class="section wrap" id="shows" aria-labelledby="showsHead">
+  <div class="grid">
+    <div class="shows__side">
+      <h2 class="head" id="showsHead" data-reveal>Upcoming shows</h2>
+      <p data-reveal>Bars, breweries and listening rooms across Richmond. Dates update automatically, and Instagram is where we post most often.</p>
+      <div class="shows__links" data-reveal>
+        <a class="link-plain" href="https://www.bandsintown.com/a/acoustic-underground" target="_blank" rel="noopener">All dates on Bandsintown</a>
+        <a class="link-plain" href="https://www.instagram.com/acousticundergroundrva" target="_blank" rel="noopener">Instagram</a>
+      </div>
+      <figure data-reveal>
+        <img src="Photos/Live/web/live-63.webp" alt="Two guitarists singing on stage" loading="lazy" decoding="async">
+      </figure>
+    </div>
+    <div class="shows__main" id="bitWrap" data-reveal>
+      <div class="shows__fallback" id="showsFallback" hidden>
+        <strong>Shows not loading?</strong> An ad blocker may be hiding the Bandsintown list. See every date on <a class="link-plain" href="https://www.bandsintown.com/a/acoustic-underground" target="_blank" rel="noopener">Bandsintown</a> or <a class="link-plain" href="https://www.instagram.com/acousticundergroundrva" target="_blank" rel="noopener">Instagram</a>.
+      </div>
+      <p class="shows__wait" id="showsWait">Loading dates from Bandsintown.</p>
+      <script charset="utf-8" src="https://widgetv3.bandsintown.com/main.min.js"></script>
+      <a class="bit-widget-initializer"
+        data-artist-name="id_15496223"
+        data-background-color="rgba(10,10,12,1)"
+        data-separator-color="#14181C"
+        data-text-color="rgba(245,242,237,1)"
+        data-font="Chivo"
+        data-auto-style="true"
+        data-local-dates-position="tab"
+        data-display-lineup="false"
+        data-display-start-time="false"
+        data-social-share-icon="true"
+        data-display-limit="all"
+        data-date-format="MMM. D, YYYY"
+        data-date-orientation="horizontal"
+        data-date-border-color="#D10849"
+        data-date-border-width="1px"
+        data-date-border-radius="4px"
+        data-event-ticket-cta-size="small"
+        data-event-ticket-text="TICKETS"
+        data-event-ticket-icon="false"
+        data-event-ticket-cta-text-color="#FFFFFF"
+        data-event-ticket-cta-bg-color="#D10849"
+        data-event-ticket-cta-border-color="#D10849"
+        data-event-ticket-cta-border-width="0px"
+        data-event-ticket-cta-border-radius="4px"
+        data-sold-out-button-text-color="#FFFFFF"
+        data-sold-out-button-background-color="#9B9B9B"
+        data-sold-out-button-border-color="#D10849"
+        data-sold-out-button-clickable="true"
+        data-event-rsvp-position="hidden"
+        data-follow-section-position="hidden"
+        data-play-my-city-position="hidden"
+        data-language="en"
+        data-app-id="e32f9e87dac279e64ef6bd201e290c01"
+        data-bit-logo-position="hidden"
+      ></a>
+    </div>
+  </div>
+</section>
+
+<!-- BAND -->
+<section class="section wrap" id="band" aria-labelledby="bandHead">
+  <div class="grid">
+    <div class="band__head">
+      <h2 class="head" id="bandHead" data-reveal>The band</h2>
+      <p data-reveal>Six of us, with Richmond roots. Built for everything from intimate listening rooms to full brewery stages.</p>
+    </div>
+    <figure class="band__group" data-reveal>
+      <img src="Photos/web/BandGroupPicture.webp" alt="Acoustic Underground band photo" width="1200" height="900" loading="lazy" decoding="async">
+    </figure>
+    <ul class="members">
+      <li class="member" data-reveal><img src="Photos/BandMemberHeadshots/DonBusick.avif" alt="Don Busick" loading="lazy"><h3>Don Busick</h3><span class="small muted">Vocals, guitar</span></li>
+      <li class="member" data-reveal><img src="Photos/BandMemberHeadshots/BoomerMuth.avif" alt="Boomer Muth" loading="lazy"><h3>Boomer Muth</h3><span class="small muted">Vocals, guitar</span></li>
+      <li class="member" data-reveal><img src="Photos/BandMemberHeadshots/MattWilliams.avif" alt="Matt Williams" loading="lazy"><h3>Matt Williams</h3><span class="small muted">Bass, vocals</span></li>
+      <li class="member" data-reveal><img src="Photos/BandMemberHeadshots/SamBennett.avif" alt="Sam Bennett" loading="lazy"><h3>Sam Bennett</h3><span class="small muted">Keyboards</span></li>
+      <li class="member" data-reveal><img src="Photos/BandMemberHeadshots/WinstonPrice.avif" alt="Winston Price" loading="lazy"><h3>Winston Price</h3><span class="small muted">Drums, vocals</span></li>
+      <li class="member" data-reveal><img src="Photos/BandMemberHeadshots/AshtonMellott.avif" alt="Ashton Mellott" loading="lazy"><h3>Ashton Mellott</h3><span class="small muted">Live sound</span></li>
+    </ul>
+  </div>
+</section>
+
+<!-- GALLERY -->
+<section id="gallery" aria-labelledby="galleryHead">
+  <div class="wrap grid gallery__head section" style="padding-bottom: clamp(2.5rem, 5vw, 4rem);">
+    <h2 class="head" id="galleryHead" data-reveal>The gallery</h2>
+    <p data-reveal>Snapshots from stages across Richmond, from patio afternoons to late sets under the lights. Tap any picture to see it full size, and find fresh shots on <a class="link-plain" href="https://www.instagram.com/acousticundergroundrva" target="_blank" rel="noopener">Instagram</a>.</p>
+  </div>
+  <figure class="wide-photo" data-scene>
+    <img src="Photos/Live/web/live-48.webp" alt="The band playing an outdoor afternoon set under trees" loading="lazy" decoding="async">
+    <figcaption>An afternoon set outdoors in Richmond</figcaption>
+  </figure>
+  <div class="wrap">
+    <div class="strip" id="strip">
+      <button type="button" data-reveal data-full="Photos/Live/web/live-36.webp"><img src="Photos/Live/thumb/live-36.webp" alt="Singers lit in pink in front of a projection" loading="lazy" decoding="async"></button>
+      <button type="button" data-reveal data-full="Photos/Live/web/live-43.webp"><img src="Photos/Live/thumb/live-43.webp" alt="Guitarist singing with an acoustic guitar" loading="lazy" decoding="async"></button>
+      <button type="button" data-reveal data-full="Photos/Live/web/live-22.webp"><img src="Photos/Live/thumb/live-22.webp" alt="Guitarist in front of a bright stage screen" loading="lazy" decoding="async"></button>
+      <button type="button" data-reveal data-full="Photos/Live/web/live-41.webp"><img src="Photos/Live/thumb/live-41.webp" alt="Drummer behind the kit in black and white" loading="lazy" decoding="async"></button>
+      <button type="button" data-reveal data-full="Photos/Live/web/live-11.webp"><img src="Photos/Live/thumb/live-11.webp" alt="Singer at the microphone in blue light" loading="lazy" decoding="async"></button>
+    </div>
+  </div>
+  <dialog class="lightbox" id="lightbox" aria-label="Photo">
+    <img id="lightboxImg" src="" alt="">
+    <button type="button" id="lightboxClose">Close</button>
+  </dialog>
+</section>
+
+<!-- CONTACT -->
+<section class="contact" id="contact" aria-labelledby="contactHead">
+  <div>
+    <h2 class="head" id="contactHead" data-reveal>Say hello</h2>
+    <p class="lead contact__lead" data-reveal>Bookings, press, song requests, or a thank-you after the show. It all reaches the band's inbox.</p>
+  </div>
+  <div>
+    <a class="contact__mail" href="mailto:acousticundergroundRVA@gmail.com" data-reveal><span class="m1">acoustic</span><span class="m1b">undergroundRVA</span><span class="m2">@gmail.com</span></a>
+    <div class="contact__foot">
+      <span class="muted">Richmond, Virginia</span>
+      <div>
+        <a class="link-plain" href="https://www.instagram.com/acousticundergroundrva" target="_blank" rel="noopener">Instagram</a>
+        <a class="link-plain" href="https://m.facebook.com/pg/acousticundergroundRVA" target="_blank" rel="noopener">Facebook</a>
+        <a class="link-plain" href="https://www.youtube.com/channel/UCqip1FeWpGk0zY3oe1NAdGw" target="_blank" rel="noopener">YouTube</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="foot">
+  <span class="muted">Acoustic Underground, a Richmond band since 2020</span>
+  <nav class="foot__links" aria-label="Elsewhere">
+    <a href="https://distrokid.com/hyperfollow/acousticunderground/" target="_blank" rel="noopener">Streaming</a>
+    <a href="https://www.bandsintown.com/a/acoustic-underground" target="_blank" rel="noopener">Bandsintown</a>
+    <a href="https://www.instagram.com/acousticundergroundrva" target="_blank" rel="noopener">Instagram</a>
+    <a href="https://www.youtube.com/channel/UCqip1FeWpGk0zY3oe1NAdGw" target="_blank" rel="noopener">YouTube</a>
+  </nav>
+  <span class="foot__legal">&copy; 2026 Acoustic Underground &middot; All rights reserved</span>
+</footer>
+
+<script src="assets/songs.js"></script>
+<script>
+// Bandsintown (same values the shows widget uses)
+const BIT = { artist: 'id_15496223', appId: 'e32f9e87dac279e64ef6bd201e290c01' };
+const BAND_EMAIL = 'acousticundergroundRVA@gmail.com';
+
+const root = document.documentElement;
+const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+function esc(s) { return String(s == null ? '' : s).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c])); }
+
+/* ---------- nav ---------- */
+const nav = document.getElementById('nav');
+function syncNav() { root.style.setProperty('--nav-h', nav.offsetHeight + 'px'); }
+syncNav();
+window.addEventListener('resize', syncNav);
+const navlist = document.getElementById('navlist');
+const navToggle = document.getElementById('navToggle');
+function setMenu(open) { navlist.classList.toggle('is-open', open); navToggle.setAttribute('aria-expanded', String(open)); }
+navToggle.addEventListener('click', (e) => { e.stopPropagation(); setMenu(!navlist.classList.contains('is-open')); });
+navlist.querySelectorAll('a').forEach(a => a.addEventListener('click', () => setMenu(false)));
+document.addEventListener('click', (e) => { if (!nav.contains(e.target)) setMenu(false); });
+document.addEventListener('keydown', (e) => { if (e.key === 'Escape') setMenu(false); });
+
+/* ---------- hero reel: each step of scroll wipes the next picture up into the frame ---------- */
+(function () {
+  const stage = document.querySelector('.stage');
+  const reel = document.getElementById('reel');
+  const items = [...reel.querySelectorAll('.reel__item')];
+  const caption = document.getElementById('reelCaption');
+  const video = document.getElementById('reelVideo');
+  const n = items.length;
+  let shown = -1;
+
+  if (!reduceMotion.matches && video) {
+    video.play().catch(() => {});
+  }
+
+  function update() {
+    const pinned = getComputedStyle(stage.firstElementChild).position === 'sticky';
+    let step = 0;
+    if (pinned) {
+      const total = stage.offsetHeight - window.innerHeight;
+      const p = total > 0 ? Math.min(1, Math.max(0, -stage.getBoundingClientRect().top / total)) : 0;
+      const raw = p * (n - 1);
+      const k = Math.floor(raw);
+      const f = raw - k;
+      // hold each picture, then move quickly to the next
+      const eased = f < 0.55 ? 0 : (f - 0.55) / 0.45;
+      step = Math.min(n - 1, k + eased * eased * (3 - 2 * eased));
+    }
+    items.forEach((el, i) => {
+      if (!i) return;
+      const t = Math.min(1, Math.max(0, step - (i - 1)));
+      el.style.clipPath = `inset(${(1 - t) * 100}% 0 0 0)`;
+    });
+    const now = Math.round(step);
+    if (now !== shown) {
+      shown = now;
+      caption.textContent = items[now].dataset.caption || '';
+    }
+  }
+  let ticking = false;
+  function onScroll() {
+    if (ticking) return;
+    ticking = true;
+    requestAnimationFrame(() => { ticking = false; update(); });
+  }
+  update();
+  window.addEventListener('scroll', onScroll, { passive: true });
+  window.addEventListener('resize', onScroll);
+})();
+
+/* ---------- entrances: heading, then text, then picture, 80ms apart ---------- */
+(function () {
+  const targets = document.querySelectorAll('[data-reveal], [data-scene]');
+  document.querySelectorAll('section, article').forEach(sec => {
+    sec.querySelectorAll('[data-reveal]').forEach((el, i) => el.style.setProperty('--d', Math.min(i, 6) * 80 + 'ms'));
+  });
+  if (!('IntersectionObserver' in window)) { targets.forEach(el => el.classList.add('is-in')); return; }
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('is-in'); io.unobserve(e.target); } });
+  }, { rootMargin: '0px 0px -8% 0px', threshold: 0 });
+  targets.forEach(el => io.observe(el));
+})();
+
+/* ---------- songs we play + request slip ---------- */
+(function () {
+  const list = document.getElementById('songList');
+  const frame = document.getElementById('songsFrame');
+  const slipList = document.getElementById('slipList');
+  const send = document.getElementById('slipSend');
+  const clear = document.getElementById('slipClear');
+  const track = document.getElementById('namesTrack');
+  const songs = (window.AU_SONGS || '').split('\n')
+    .map(l => l.trim())
+    .filter(l => l && !l.startsWith('#'))
+    .map(l => {
+      const [title, artist = '', year = ''] = l.split('|').map(x => x.trim());
+      return { title, artist, year: parseInt(year, 10) || null, original: /^acoustic underground$/i.test(artist) };
+    })
+    .filter(s => s.title);
+
+  // Names band: every artist we cover, in the order they appear in songs.js
+  const artists = [...new Set(songs.filter(s => !s.original).map(s => s.artist))];
+  if (artists.length) {
+    const once = artists.map(a => `<span>${esc(a)}<i></i></span>`).join('');
+    track.innerHTML = once + once;
+  }
+
+  if (!songs.length) { list.innerHTML = '<li class="muted">Song list coming soon.</li>'; return; }
+  const sortKey = t => t.replace(/^(the|a|an)\s+/i, '').toLowerCase();
+  songs.sort((a, b) => (b.original - a.original) || sortKey(a.title).localeCompare(sortKey(b.title)));
+
+  // One live photo per song for the frame beside the list
+  const PHOTOS = [3, 4, 15, 18, 19, 20, 25, 29, 32, 34, 37, 44, 51, 54, 60, 61, 62];
+  frame.innerHTML = '';
+  const imgs = songs.map((s, i) => {
+    const img = document.createElement('img');
+    img.src = `Photos/Live/web/live-${String(PHOTOS[i % PHOTOS.length]).padStart(2, '0')}.webp`; // taste-skill-ignore: file names, not labels
+    img.alt = ''; img.loading = 'lazy'; img.decoding = 'async';
+    frame.appendChild(img);
+    return img;
+  });
+
+  // Fetch every photo once the section is near, so the crossfade never lands on an empty frame
+  if ('IntersectionObserver' in window) {
+    const near = new IntersectionObserver((entries) => {
+      if (!entries.some(e => e.isIntersecting)) return;
+      imgs.forEach(im => { im.loading = 'eager'; });
+      near.disconnect();
+    }, { rootMargin: '150% 0px' });
+    near.observe(frame);
+  } else {
+    imgs.forEach(im => { im.loading = 'eager'; });
+  }
+
+  const picked = new Set();
+  list.innerHTML = songs.map((s, i) => `
+    <li class="songrow" data-i="${i}">
+      <span class="songrow__t">${esc(s.title)}<span class="songrow__a">${s.original ? 'Our original' : esc(s.artist)}</span></span>
+      <span class="songrow__y">${s.year || ''}</span>
+      <button type="button" class="req" aria-pressed="false" aria-label="Request ${esc(s.title)}">Request</button>
+    </li>`).join('');
+  const rows = [...list.querySelectorAll('.songrow')];
+
+  let active = -1;
+  function activate(i) {
+    if (i === active) return;
+    active = i;
+    rows.forEach((r, k) => r.classList.toggle('is-active', k === i));
+    imgs.forEach((im, k) => im.classList.toggle('is-on', k === i));
+  }
+  activate(0);
+  rows.forEach((r, i) => {
+    r.addEventListener('mouseenter', () => activate(i));
+    r.addEventListener('focusin', () => activate(i));
+  });
+  if ('IntersectionObserver' in window) {
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) activate(+e.target.dataset.i); });
+    }, { rootMargin: '-48% 0px -48% 0px', threshold: 0 });
+    rows.forEach(r => io.observe(r));
+  }
+
+  function renderSlip() {
+    const chosen = songs.filter((_, i) => picked.has(i));
+    if (!chosen.length) {
+      slipList.textContent = 'Nothing yet. Tap Request on any song above.';
+      send.setAttribute('aria-disabled', 'true');
+      send.href = `mailto:${BAND_EMAIL}?subject=${encodeURIComponent('Song request')}`;
+      clear.hidden = true;
+      return;
+    }
+    slipList.innerHTML = chosen.map(s => esc(s.title)).join(', ');
+    const body = `Hi Acoustic Underground,\n\nNext time you play, I'd love to hear:\n\n${chosen.map(s => `- ${s.title}${s.original ? '' : ' (' + s.artist + ')'}`).join('\n')}\n\nThanks!`;
+    send.href = `mailto:${BAND_EMAIL}?subject=${encodeURIComponent('Song request from the website')}&body=${encodeURIComponent(body)}`;
+    send.textContent = `Send ${chosen.length} request${chosen.length > 1 ? 's' : ''}`;
+    send.removeAttribute('aria-disabled');
+    clear.hidden = false;
+  }
+  list.addEventListener('click', (e) => {
+    const b = e.target.closest('.req');
+    if (!b) return;
+    const i = +b.closest('.songrow').dataset.i;
+    const on = !picked.has(i);
+    on ? picked.add(i) : picked.delete(i);
+    b.setAttribute('aria-pressed', String(on));
+    b.textContent = on ? 'Added' : 'Request';
+    activate(i);
+    renderSlip();
+  });
+  clear.addEventListener('click', () => {
+    picked.clear();
+    list.querySelectorAll('.req').forEach(b => { b.setAttribute('aria-pressed', 'false'); b.textContent = 'Request'; });
+    send.textContent = 'Send request';
+    renderSlip();
+  });
+})();
+
+/* ---------- gallery lightbox ---------- */
+(function () {
+  const box = document.getElementById('lightbox');
+  const img = document.getElementById('lightboxImg');
+  if (!box.showModal) return;
+  document.getElementById('strip').addEventListener('click', (e) => {
+    const b = e.target.closest('button[data-full]');
+    if (!b) return;
+    img.src = b.dataset.full;
+    img.alt = b.querySelector('img').alt;
+    box.showModal();
+  });
+  document.getElementById('lightboxClose').addEventListener('click', () => box.close());
+  box.addEventListener('click', (e) => { if (e.target === box) box.close(); });
+})();
+
+/* ---------- Bandsintown: show the note only if the widget never draws ---------- */
+(function () {
+  const wrap = document.getElementById('bitWrap');
+  const wait = document.getElementById('showsWait');
+  const note = document.getElementById('showsFallback');
+  function drawn() { return !!wrap.querySelector('.bit-widget, .bit-widget-container, [class*="bit-event"], iframe'); }
+  const t = setInterval(() => { if (drawn()) { wait.hidden = true; clearInterval(t); } }, 500);
+  setTimeout(() => { if (!drawn()) { clearInterval(t); wait.hidden = true; note.hidden = false; } }, 6000);
+})();
+
+/* ---------- next show line in the hero + event data for search engines ---------- */
+function parseLocal(dt) {
+  // Bandsintown gives venue-local time like "2026-10-24T18:00:00"; read it as-is so it never shifts by time zone.
+  const m = /^(\d{4})-(\d{2})-(\d{2})T(\d{2}):(\d{2})/.exec(dt || '');
+  return m ? new Date(+m[1], +m[2] - 1, +m[3], +m[4], +m[5]) : null;
+}
+function dayLabel(d) {
+  const today = new Date(); today.setHours(0, 0, 0, 0);
+  const day = new Date(d); day.setHours(0, 0, 0, 0);
+  const diff = Math.round((day - today) / 86400000);
+  if (diff === 0) return d.getHours() >= 16 ? 'Tonight' : 'Today';
+  if (diff === 1) return 'Tomorrow';
+  if (diff > 1 && diff < 7) return d.toLocaleDateString('en-US', { weekday: 'long' });
+  return d.toLocaleDateString('en-US', { weekday: 'short', month: 'short', day: 'numeric' });
+}
+function timeLabel(d) { return d.toLocaleTimeString('en-US', { hour: 'numeric', minute: d.getMinutes() ? '2-digit' : undefined }); }
+(async function () {
+  try {
+    const res = await fetch(`https://rest.bandsintown.com/artists/${encodeURIComponent(BIT.artist)}/events?app_id=${BIT.appId}&date=upcoming`, { headers: { Accept: 'application/json' } });
+    if (!res.ok) return;
+    const events = await res.json();
+    if (!Array.isArray(events) || !events.length) return;
+    events.sort((a, b) => String(a.datetime).localeCompare(String(b.datetime)));
+    const e = events[0];
+    const d = parseLocal(e.datetime);
+    if (!d) return;
+    const v = e.venue || {};
+    const venue = (v.name || e.title || 'Live show').replace(/^live\s*@\s*/i, '').trim();
+    const place = [v.city, v.region].filter(Boolean).join(', ');
+    const hasTime = /\d\s*(-|–|to)\s*\d|\d\s*(am|pm)/i.test(venue);
+    const when = `${dayLabel(d)}${hasTime ? '' : ', ' + timeLabel(d)}`;
+    const link = e.url ? ` <a class="link-plain" href="${esc(e.url)}" target="_blank" rel="noopener">Details</a>` : '';
+    document.getElementById('nextShow').innerHTML =
+      `<p>Next show: <strong>${esc(when)}</strong> at ${esc(venue)}${place ? ', ' + esc(place) : ''}.${link}</p>` +
+      (events.length > 1 ? `<p><a class="link-plain" href="#shows">${events.length - 1} more date${events.length > 2 ? 's' : ''} below</a></p>` : '');
+
+    const data = events.slice(0, 10).map(ev => {
+      const vv = ev.venue || {};
+      const out = {
+        '@context': 'https://schema.org', '@type': 'MusicEvent',
+        name: `Acoustic Underground at ${(vv.name || '').replace(/^live\s*@\s*/i, '')}`,
+        startDate: ev.starts_at || ev.datetime,
+        eventStatus: 'https://schema.org/EventScheduled',
+        eventAttendanceMode: 'https://schema.org/OfflineEventAttendanceMode',
+        performer: { '@type': 'MusicGroup', name: 'Acoustic Underground' },
+        location: { '@type': 'Place', name: vv.name || '', address: { '@type': 'PostalAddress', streetAddress: vv.street_address || undefined, addressLocality: vv.city || '', addressRegion: vv.region || '', postalCode: vv.postal_code || undefined, addressCountry: vv.country || '' } },
+        url: ev.url
+      };
+      if (ev.ends_at) out.endDate = ev.ends_at;
+      return out;
+    });
+    const s = document.createElement('script');
+    s.type = 'application/ld+json';
+    s.textContent = JSON.stringify(data);
+    document.head.appendChild(s);
+  } catch (_) { /* network blocked or API down: keep the fallback line */ }
+})();
+</script>
+</body>
+</html>
