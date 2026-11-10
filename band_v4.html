@@ -536,7 +536,7 @@ figcaption { margin-top: 0.5rem; }
     </div>
     <div class="songs__photo">
       <div class="songs__frame" id="songsFrame">
-        <img class="is-on" src="Photos/Live/web/live-03.webp" alt="" decoding="async" loading="lazy">
+        <img class="is-on" src="Photos/Live/web/live-03.webp" alt="" style="object-position: 50% 0%;" decoding="async" loading="lazy">
       </div>
     </div>
     <div class="songs__body">
@@ -819,11 +819,14 @@ document.addEventListener('keydown', (e) => { if (e.key === 'Escape') setMenu(fa
 
   // One live photo per song for the frame beside the list
   const PHOTOS = [3, 72, 4, 15, 76, 18, 69, 19, 20, 92, 25, 73, 29, 32, 77, 34, 74, 37, 44, 90, 51, 54, 93, 60, 61, 62];
+  // Faces sit near the top of most photos, so crop from the top. These few need the crop lower.
+  const FOCUS = { 4: 16, 60: 16, 61: 10, 73: 16, 74: 34, 76: 40, 77: 26, 92: 16 };
   frame.innerHTML = '';
   const imgs = songs.map((s, i) => {
     const img = document.createElement('img');
     img.src = `Photos/Live/web/live-${String(PHOTOS[i % PHOTOS.length]).padStart(2, '0')}.webp`; // taste-skill-ignore: file names, not labels
     img.alt = ''; img.loading = 'lazy'; img.decoding = 'async';
+    img.style.objectPosition = `50% ${FOCUS[PHOTOS[i % PHOTOS.length]] || 0}%`;
     frame.appendChild(img);
     return img;
   });
