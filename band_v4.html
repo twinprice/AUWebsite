@@ -149,7 +149,7 @@ p + p { margin-top: 0.9em; }
 
 /* ---------- hero: the pinned poster ---------- */
 .stage { position: relative; }
-.js .stage { height: 250svh; }
+.js .stage { height: 300svh; }
 .stage__pin { position: sticky; top: 0; height: 100svh; min-height: 34rem; padding: calc(var(--nav-h) + 0.5rem) var(--margin) var(--margin); display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); grid-template-rows: calc(var(--step-display) * 0.88) minmax(0, 1fr) calc(var(--step-display) * 0.88); column-gap: var(--gutter); row-gap: 1.5rem; }
 .stage__title { grid-column: 1 / -1; grid-row: 1 / 4; display: flex; flex-direction: column; justify-content: space-between; pointer-events: none; z-index: 2; }
 .stage__title span { display: block; }
@@ -326,18 +326,24 @@ figcaption { margin-top: 0.5rem; }
 .wide-photo img { width: 100%; height: 100%; object-fit: cover; }
 .wide-photo::after { content: ""; position: absolute; inset: auto 0 0 0; height: 120px; background: linear-gradient(to top, rgba(0,0,0,0.6), rgba(0,0,0,0)); } /* taste-skill-ignore: neutral scrim under the caption */
 .wide-photo figcaption { position: absolute; left: var(--margin); bottom: 1.25rem; z-index: 1; margin: 0; color: #fff; font-size: var(--step-small); }
-.strip { display: grid; grid-template-columns: 4fr 3fr 5fr 3fr 4fr; gap: var(--gutter); margin-top: var(--gutter); align-items: start; }
+.strip { display: grid; grid-template-columns: repeat(19, minmax(0, 1fr)); gap: var(--gutter); margin-top: var(--gutter); align-items: start; }
+.strip button:nth-child(1), .strip button:nth-child(5), .strip button:nth-child(6), .strip button:nth-child(8) { grid-column: span 4; }
+.strip button:nth-child(2), .strip button:nth-child(4) { grid-column: span 3; }
+.strip button:nth-child(3), .strip button:nth-child(9) { grid-column: span 5; }
+.strip button:nth-child(7) { grid-column: span 6; }
 .strip button { display: block; width: 100%; border-radius: var(--radius); overflow: hidden; }
 .strip img { width: 100%; aspect-ratio: 4 / 5; object-fit: cover; transition: transform 600ms var(--ease-soft); }
-.strip button:nth-child(odd) img { aspect-ratio: 4 / 3; }
+.strip button:nth-child(1) img, .strip button:nth-child(3) img, .strip button:nth-child(5) img, .strip button:nth-child(7) img, .strip button:nth-child(9) img { aspect-ratio: 4 / 3; }
+.strip button:nth-child(6) img, .strip button:nth-child(8) img { aspect-ratio: 4 / 5; }
 @media (hover: hover) and (pointer: fine) { .strip button:hover img { transform: scale(1.04); } }
 .strip { padding-bottom: calc(var(--section) / 2); }
 @media (max-width: 760px) {
   .gallery__head h2, .gallery__head p { grid-column: 1 / -1; }
   .gallery__head p { margin-top: 1.25rem; }
   .strip { grid-template-columns: 1fr 1fr; }
+  .strip button:nth-child(n) { grid-column: auto; }
   .strip button:nth-child(5) { display: none; }
-  .strip button:nth-child(odd) img, .strip img { aspect-ratio: 4 / 5; }
+  .strip button:nth-child(n) img { aspect-ratio: 4 / 5; }
 }
 .lightbox { padding: 0; border: 0; background: transparent; max-width: 94vw; max-height: 92svh; }
 .lightbox::backdrop { background: rgba(0,0,0,0.88); }
@@ -421,8 +427,9 @@ figcaption { margin-top: 0.5rem; }
           </div>
           <div class="reel__item" data-caption="The full band, live in Richmond"><img src="Photos/Live/web/live-28.webp" alt="The full band on stage under red and blue lights" decoding="async"></div>
           <div class="reel__item" data-caption="A brewery night in Richmond"><img src="Photos/Live/web/live-49.webp" alt="The band playing acoustic guitars on a wood-panelled stage" loading="lazy" decoding="async"></div>
-          <div class="reel__item" data-caption="Three guitars, one chorus"><img src="Photos/Live/web/live-58.webp" alt="Three guitarists singing together on stage" loading="lazy" decoding="async"></div>
+          <div class="reel__item" data-caption="A courtyard night by the water"><img src="Photos/Live/web/live-80.webp" alt="The full band on an outdoor stage at night, with the stage lights reflected in the water" loading="lazy" decoding="async"></div>
           <div class="reel__item" data-caption="Late set, full stage"><img src="Photos/Live/web/live-65.webp" alt="The band on a wide stage under warm lights" loading="lazy" decoding="async"></div>
+          <div class="reel__item" data-caption="Singing together on an outdoor stage"><img src="Photos/Live/web/live-96.webp" alt="Four band members singing together on an outdoor stage" style="object-position: 50% 30%;" loading="lazy" decoding="async"></div>
         </div>
       </div>
       <figcaption class="stage__caption small muted" id="reelCaption" aria-live="polite">Rehearsing at home</figcaption>
@@ -566,7 +573,7 @@ figcaption { margin-top: 0.5rem; }
         <a class="link-plain" href="https://www.instagram.com/acousticundergroundrva" target="_blank" rel="noopener">Instagram</a>
       </div>
       <figure data-reveal>
-        <img src="Photos/Live/web/live-63.webp" alt="Two guitarists singing on stage" loading="lazy" decoding="async">
+        <img src="Photos/Live/web/live-83.webp" alt="A full room watching the band under string lights, in black and white" loading="lazy" decoding="async">
       </figure>
     </div>
     <div class="shows__main" id="bitWrap" data-reveal>
@@ -653,6 +660,10 @@ figcaption { margin-top: 0.5rem; }
       <button type="button" data-reveal data-full="Photos/Live/web/live-22.webp"><img src="Photos/Live/thumb/live-22.webp" alt="Guitarist in front of a bright stage screen" loading="lazy" decoding="async"></button>
       <button type="button" data-reveal data-full="Photos/Live/web/live-41.webp"><img src="Photos/Live/thumb/live-41.webp" alt="Drummer behind the kit in black and white" loading="lazy" decoding="async"></button>
       <button type="button" data-reveal data-full="Photos/Live/web/live-11.webp"><img src="Photos/Live/thumb/live-11.webp" alt="Singer at the microphone in blue light" loading="lazy" decoding="async"></button>
+      <button type="button" data-reveal data-full="Photos/Live/web/live-78.webp"><img src="Photos/Live/thumb/live-78.webp" alt="Bass player under magenta stage light" loading="lazy" decoding="async"></button>
+      <button type="button" data-reveal data-full="Photos/Live/web/live-89.webp"><img src="Photos/Live/thumb/live-89.webp" alt="The drummer at the kit, seen from above" loading="lazy" decoding="async"></button>
+      <button type="button" data-reveal data-full="Photos/Live/web/live-87.webp"><img src="Photos/Live/thumb/live-87.webp" alt="Mandolin player under red stage light" loading="lazy" decoding="async"></button>
+      <button type="button" data-reveal data-full="Photos/Live/web/live-79.webp"><img src="Photos/Live/thumb/live-79.webp" alt="Mandolin and guitar in front of a projection screen" loading="lazy" decoding="async"></button>
     </div>
   </div>
   <dialog class="lightbox" id="lightbox" aria-label="Photo">
@@ -807,7 +818,7 @@ document.addEventListener('keydown', (e) => { if (e.key === 'Escape') setMenu(fa
   songs.sort((a, b) => (b.original - a.original) || sortKey(a.title).localeCompare(sortKey(b.title)));
 
   // One live photo per song for the frame beside the list
-  const PHOTOS = [3, 4, 15, 18, 19, 20, 25, 29, 32, 34, 37, 44, 51, 54, 60, 61, 62];
+  const PHOTOS = [3, 72, 4, 15, 76, 18, 69, 19, 20, 92, 25, 73, 29, 32, 77, 34, 74, 37, 44, 90, 51, 54, 93, 60, 61, 62];
   frame.innerHTML = '';
   const imgs = songs.map((s, i) => {
     const img = document.createElement('img');
