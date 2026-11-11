@@ -109,6 +109,10 @@ button, input, select, textarea { font: inherit; color: inherit; }
 .details { margin-top: 0.4rem; color: var(--muted); white-space: pre-wrap; overflow-wrap: anywhere; max-width: 72ch; }
 .details.clamp { display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
 .more { margin-top: 0.3rem; background: none; border: 0; padding: 0; font-size: 0.8125rem; font-weight: 700; color: var(--muted); text-decoration: underline; text-underline-offset: 0.2em; cursor: pointer; }
+.shots { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 0.6rem; }
+.shots a { display: block; border-radius: var(--radius); overflow: hidden; border: 1px solid var(--line); background: var(--surface-2); }
+.shots img { display: block; width: 9rem; height: 6rem; object-fit: cover; object-position: top; }
+.shots a:hover { border-color: var(--muted); }
 .extra { margin-top: 0.5rem; font-size: 0.8125rem; color: var(--faint); overflow-wrap: anywhere; }
 .extra a { color: var(--muted); font-weight: 700; }
 
@@ -310,6 +314,16 @@ function fmt(iso) {
   return { day: d.toLocaleDateString('en-US', { month: 'short', day: 'numeric' }), time: d.toLocaleTimeString('en-US', { hour: 'numeric', minute: '2-digit' }) };
 }
 
+// Images column holds Drive links, one per line
+function shotsHtml(cell) {
+  const ids = String(cell || '').split(/\s+/).map(u => (u.match(/\/d\/([\w-]{10,})/) || [])[1]).filter(Boolean);
+  const failed = /upload failed/.test(String(cell || ''));
+  if (!ids.length) return failed ? '<p class="extra">A screenshot was sent but didn\'t save.</p>' : '';
+  return '<div class="shots">' + ids.map((id, i) =>
+    '<a href="https://drive.google.com/file/d/' + esc(id) + '/view" target="_blank" rel="noopener" title="Open screenshot ' + (i + 1) + ' full size">' +
+    '<img src="https://drive.google.com/thumbnail?id=' + esc(id) + '&amp;sz=w480" alt="Screenshot ' + (i + 1) + '" loading="lazy" referrerpolicy="no-referrer"></a>').join('') + '</div>';
+}
+
 function render() {
   store.set('au-fb-view', JSON.stringify({ status: view.status, sort: view.sort, dir: view.dir }));
   tally();
@@ -355,6 +369,7 @@ function render() {
         '<p class="summary">' + esc(r.Summary) + '</p>' +
         '<p class="details' + (long ? ' clamp' : '') + '">' + esc(r.Details) + '</p>' +
         (long ? '<button class="more" type="button">Show more</button>' : '') +
+        shotsHtml(r.Images) +
         '<p class="extra">' + shot + esc(r.Device || '') + '</p>' +
       '</div>' +
       '<div class="cell-pri"><span class="tag' + priCls + '">' + esc(r.Priority) + '</span></div>' +
