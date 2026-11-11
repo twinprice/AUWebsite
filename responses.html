@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Feedback responses · Acoustic Underground</title>
+<meta name="theme-color" content="#0A0A0C">
+<link rel="icon" href="assets/icons/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="assets/icons/favicon-32.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Chivo:wght@400;700;900&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #0A0A0C;
+  --surface: #14181C;
+  --surface-2: #1B2026;
+  --line: #2A3036;
+  --ink: #F5F2ED;
+  --muted: #B4ADA3;
+  --faint: #6E6860;
+  --teal: #28505A;
+  --accent: #D10849;
+  --accent-hover: #E01556;
+  --accent-ink: #FFFFFF;
+  --font: 'Chivo', system-ui, sans-serif;
+  --radius: 4px;
+}
+*, *::before, *::after { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
+body { margin: 0; background: var(--bg); color: var(--ink); font-family: var(--font); font-size: 1rem; line-height: 1.45; letter-spacing: -0.01em; -webkit-font-smoothing: antialiased; }
+h1, h2, p { margin: 0; }
+a { color: inherit; }
+button, input, select, textarea { font: inherit; color: inherit; }
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+[hidden] { display: none !important; }
+.sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+
+.page { max-width: 88rem; margin: 0 auto; padding: 1.5rem 1rem 4rem; }
+@media (min-width: 700px) { .page { padding: 2rem 2rem 4rem; } }
+
+.top { display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding-bottom: 1.25rem; border-bottom: 1px solid var(--line); }
+.top img { height: 36px; width: auto; display: block; }
+.toplinks { display: flex; flex-wrap: wrap; justify-content: flex-end; gap: 0.5rem 1.25rem; }
+.toplinks a { font-size: 0.875rem; font-weight: 700; text-decoration: none; color: var(--muted); }
+.toplinks a:hover { color: var(--ink); }
+
+.head { display: flex; flex-wrap: wrap; align-items: end; justify-content: space-between; gap: 1rem 2rem; padding: 1.75rem 0 1.25rem; }
+.head h1 { font-weight: 900; text-transform: uppercase; letter-spacing: -0.04em; line-height: 0.9; font-size: clamp(2.25rem, 7vw, 3.75rem); }
+.head p { color: var(--muted); margin-top: 0.5rem; }
+
+/* status tally doubles as a quick filter */
+.tally { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+.tally button { display: inline-flex; align-items: center; gap: 0.45rem; min-height: 2.25rem; padding: 0 0.8rem; border: 1px solid var(--line); border-radius: 999px; background: var(--surface); font-size: 0.875rem; font-weight: 700; cursor: pointer; }
+.tally button b { font-variant-numeric: tabular-nums; }
+.tally button[aria-pressed=true] { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+
+.controls { display: grid; grid-template-columns: 1fr 1fr; gap: 0.6rem; padding: 1rem 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+.controls .search { grid-column: 1 / -1; }
+@media (min-width: 900px) { .controls { grid-template-columns: 2fr 1fr 1fr 1fr 1.2fr auto; align-items: end; } .controls .search { grid-column: auto; } }
+.ctl label { display: block; font-size: 0.75rem; font-weight: 700; color: var(--muted); text-transform: uppercase; letter-spacing: 0.04em; margin-bottom: 0.3rem; }
+.ctl input, .ctl select { width: 100%; min-height: 2.6rem; padding: 0.45rem 0.7rem; background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); font-size: 0.9375rem; }
+.ctl select, .row select { appearance: none; background-image: linear-gradient(45deg, transparent 50%, var(--muted) 50%), linear-gradient(135deg, var(--muted) 50%, transparent 50%); background-position: calc(100% - 1rem) 50%, calc(100% - 0.7rem) 50%; background-size: 0.3rem 0.3rem; background-repeat: no-repeat; padding-right: 2rem; }
+.dirbtn { min-height: 2.6rem; padding: 0 0.9rem; background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); font-weight: 700; font-size: 0.875rem; cursor: pointer; white-space: nowrap; }
+
+/* list */
+.cols { display: none; }
+@media (min-width: 1100px) {
+  .cols, .row { grid-template-columns: 7rem 6.5rem minmax(0, 1fr) 9rem 17rem; }
+  .cols { display: grid; gap: 1rem; padding: 0.75rem 1rem; font-size: 0.75rem; font-weight: 700; color: var(--muted); text-transform: uppercase; letter-spacing: 0.04em; }
+  .cols button { background: none; border: 0; padding: 0; text-align: left; font: inherit; color: inherit; text-transform: inherit; letter-spacing: inherit; cursor: pointer; }
+  .cols button:hover { color: var(--ink); }
+  .cols button[aria-sort] { color: var(--ink); }
+  .cols button[aria-sort=ascending]::after { content: ' ↑'; }
+  .cols button[aria-sort=descending]::after { content: ' ↓'; }
+}
+.list { display: grid; gap: 0.6rem; margin-top: 0.75rem; }
+@media (min-width: 1100px) { .list { margin-top: 0; } }
+
+.row { display: grid; gap: 0.75rem; padding: 1rem; background: var(--surface); border: 1px solid var(--line); border-left: 4px solid var(--line); border-radius: var(--radius); }
+@media (min-width: 1100px) { .row { gap: 1rem; align-items: start; } }
+.row[data-pri="Must fix before launch"] { border-left-color: var(--accent); }
+.row[data-pri="Should fix"] { border-left-color: #8A7B5A; }
+.row[data-status="Done"], .row[data-status="Won't fix"] { opacity: 0.62; }
+.row[data-status="Done"]:focus-within, .row[data-status="Won't fix"]:focus-within { opacity: 1; }
+
+.cell-when { font-size: 0.8125rem; color: var(--muted); font-variant-numeric: tabular-nums; }
+.cell-when b { display: block; color: var(--ink); font-size: 0.875rem; }
+.cell-from { font-weight: 700; }
+.cell-from small { display: block; font-weight: 400; font-size: 0.8125rem; color: var(--muted); }
+@media (max-width: 1099px) {
+  .row { grid-template-columns: 1fr auto; }
+  .cell-main { grid-column: 1 / -1; grid-row: 1; }
+  .cell-when { grid-column: 2; grid-row: 2; text-align: right; }
+  .cell-when b { display: inline; }
+  .cell-from { grid-column: 1; grid-row: 2; }
+  .cell-pri, .cell-status { grid-column: 1 / -1; }
+}
+
+.tags { display: flex; flex-wrap: wrap; gap: 0.35rem; margin-bottom: 0.4rem; }
+.tag { display: inline-flex; align-items: center; min-height: 1.5rem; padding: 0 0.55rem; border-radius: 999px; font-size: 0.75rem; font-weight: 700; background: var(--surface-2); color: var(--muted); border: 1px solid var(--line); }
+.tag--Bug { color: #FF9BB5; border-color: #5A1F31; }
+.tag--Change { color: #9FD3DE; border-color: var(--teal); }
+.tag--Fact { color: #E8CF8E; border-color: #5C4E2A; }
+.tag--Idea { color: #C9B8FF; border-color: #3E3566; }
+.tag--pri-must { background: var(--accent); color: var(--accent-ink); border-color: var(--accent); }
+.summary { font-weight: 700; font-size: 1.0625rem; line-height: 1.3; }
+.details { margin-top: 0.4rem; color: var(--muted); white-space: pre-wrap; overflow-wrap: anywhere; max-width: 72ch; }
+.details.clamp { display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
+.more { margin-top: 0.3rem; background: none; border: 0; padding: 0; font-size: 0.8125rem; font-weight: 700; color: var(--muted); text-decoration: underline; text-underline-offset: 0.2em; cursor: pointer; }
+.extra { margin-top: 0.5rem; font-size: 0.8125rem; color: var(--faint); overflow-wrap: anywhere; }
+.extra a { color: var(--muted); font-weight: 700; }
+
+.cell-pri .tag { font-size: 0.8125rem; min-height: 1.75rem; border-radius: 6px; padding: 0.2rem 0.55rem; line-height: 1.25; }
+.edit { display: grid; gap: 0.5rem; }
+.edit select { width: 100%; min-height: 2.4rem; padding: 0.35rem 0.65rem; background: var(--surface-2); border: 1px solid var(--line); border-radius: var(--radius); font-weight: 700; font-size: 0.9375rem; }
+.edit textarea { width: 100%; min-height: 4.25rem; padding: 0.5rem 0.65rem; background: var(--surface-2); border: 1px solid var(--line); border-radius: var(--radius); font-size: 0.9375rem; line-height: 1.4; resize: vertical; }
+.edit textarea::placeholder { color: var(--faint); }
+.edit select:focus, .edit textarea:focus { border-color: var(--muted); outline: none; }
+.savestate { font-size: 0.75rem; color: var(--faint); min-height: 1rem; }
+.savestate.ok { color: #7FC8A0; }
+.savestate.err { color: #FF7A9E; }
+
+.st-New { border-color: #6A5A2A !important; }
+.st-Reviewing { border-color: var(--teal) !important; }
+.st-Planned { border-color: #3E3566 !important; }
+.st-Done { border-color: #2F6B4A !important; }
+
+.empty, .msg { padding: 3rem 1rem; text-align: center; color: var(--muted); border: 1px dashed var(--line); border-radius: var(--radius); margin-top: 1rem; }
+.msg h2 { color: var(--ink); font-weight: 900; text-transform: uppercase; letter-spacing: -0.03em; font-size: 1.5rem; margin-bottom: 0.5rem; }
+.msg p { max-width: 46ch; margin: 0 auto; }
+.msg code { background: var(--surface); padding: 0.1rem 0.35rem; border-radius: 3px; font-size: 0.875em; color: var(--ink); }
+
+.gate { max-width: 26rem; margin: 3rem auto 0; padding: 1.75rem; background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); }
+.gate h2 { font-weight: 900; text-transform: uppercase; letter-spacing: -0.03em; font-size: 1.5rem; }
+.gate p { color: var(--muted); margin-top: 0.4rem; font-size: 0.9375rem; }
+.gate form { display: flex; gap: 0.5rem; margin-top: 1.25rem; }
+.gate input { flex: 1; min-width: 0; min-height: 3rem; padding: 0 0.85rem; background: var(--bg); border: 1px solid var(--line); border-radius: var(--radius); }
+.gate .err { color: #FF7A9E; font-size: 0.875rem; margin-top: 0.6rem; }
+.button { display: inline-flex; align-items: center; justify-content: center; min-height: 3rem; padding: 0 1.25rem; background: var(--accent); color: var(--accent-ink); border: 0; border-radius: var(--radius); font-weight: 700; text-decoration: none; cursor: pointer; }
+@media (hover: hover) { .button:hover { background: var(--accent-hover); } }
+.textlink { background: none; border: 0; padding: 0; font-weight: 700; font-size: 0.875rem; color: var(--muted); text-decoration: underline; text-underline-offset: 0.2em; cursor: pointer; }
+.foot { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 0.5rem 1.5rem; margin-top: 1.5rem; font-size: 0.8125rem; color: var(--faint); }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <header class="top">
+    <img src="assets/logo/AU_logo_horizontal.webp" alt="Acoustic Underground" width="582" height="257">
+    <nav class="toplinks">
+      <a href="feedback.html">Add a note</a>
+      <a href="#" id="sheetLink" target="_blank" rel="noopener" hidden>Open the sheet</a>
+      <a href="band_v4.html">Back to the site</a>
+    </nav>
+  </header>
+
+  <div class="head">
+    <div>
+      <h1>Responses</h1>
+      <p id="sub">Band notes on the new site. Change a status or add a note and it saves on its own.</p>
+    </div>
+    <div class="tally" id="tally" role="group" aria-label="Filter by status"></div>
+  </div>
+
+  <section class="gate" id="gate" hidden>
+    <h2>Band passcode</h2>
+    <p>The responses are for the band only. Enter the passcode once and this browser remembers it.</p>
+    <form id="gateForm">
+      <label class="sr-only" for="code">Passcode</label>
+      <input type="password" id="code" autocomplete="current-password" placeholder="Passcode">
+      <button class="button" type="submit">Open</button>
+    </form>
+    <p class="err" id="gateErr" hidden>That passcode didn't work.</p>
+  </section>
+
+  <div id="board" hidden>
+    <div class="controls">
+      <div class="ctl search"><label for="q">Search</label><input type="search" id="q" placeholder="Words in the summary, details or notes"></div>
+      <div class="ctl"><label for="fType">Type</label><select id="fType"><option value="">All types</option><option>Bug</option><option>Change</option><option>Fact check</option><option>Idea</option></select></div>
+      <div class="ctl"><label for="fFrom">From</label><select id="fFrom"><option value="">Everyone</option></select></div>
+      <div class="ctl"><label for="fStatus">Status</label><select id="fStatus"><option value="">All</option><option value="open">Still open</option></select></div>
+      <div class="ctl"><label for="sortBy">Sort by</label><select id="sortBy">
+        <option value="Received">Date received</option>
+        <option value="Priority">Priority</option>
+        <option value="Status">Status</option>
+        <option value="Type">Type</option>
+        <option value="Where">Where on the site</option>
+        <option value="From">From</option>
+        <option value="Updated">Last updated</option>
+      </select></div>
+      <button class="dirbtn" type="button" id="dir" aria-label="Sort direction">Newest first</button>
+    </div>
+
+    <div class="cols" role="row">
+      <button type="button" data-sort="Received">Received</button>
+      <button type="button" data-sort="From">From</button>
+      <button type="button" data-sort="Type">Note</button>
+      <button type="button" data-sort="Priority">Priority</button>
+      <button type="button" data-sort="Status">Status and notes</button>
+    </div>
+    <div class="list" id="list" aria-live="polite"></div>
+    <div class="foot"><span id="count"></span><button class="textlink" type="button" id="refresh">Refresh</button></div>
+  </div>
+
+  <div class="msg" id="msg" hidden></div>
+
+</div>
+
+<script src="assets/feedback-config.js"></script>
+<script>
+const CFG = window.AU_FEEDBACK || {};
+const DB = CFG.dbUrl || '';
+const $ = (id) => document.getElementById(id);
+const store = {
+  get(k) { try { return localStorage.getItem(k); } catch (e) { return null; } },
+  set(k, v) { try { localStorage.setItem(k, v); } catch (e) {} },
+  del(k) { try { localStorage.removeItem(k); } catch (e) {} }
+};
+function esc(s) { return String(s == null ? '' : s).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c])); }
+
+if (CFG.sheetUrl) { $('sheetLink').href = CFG.sheetUrl; $('sheetLink').hidden = false; }
+
+let STATUSES = ['New', 'Reviewing', 'Planned', 'Done', "Won't fix"];
+const OPEN = ['New', 'Reviewing', 'Planned'];
+const PRI = { 'Must fix before launch': 3, 'Should fix': 2, 'Nice to have': 1 };
+let rows = [];
+let code = store.get('au-fb-code') || '';
+const view = { status: '', sort: 'Received', dir: -1 };
+try { Object.assign(view, JSON.parse(store.get('au-fb-view') || '{}')); } catch (e) {}
+
+function showMsg(title, html) {
+  $('board').hidden = true; $('gate').hidden = true;
+  $('msg').innerHTML = '<h2>' + esc(title) + '</h2><p>' + html + '</p>';
+  $('msg').hidden = false;
+}
+
+async function load() {
+  if (!DB) {
+    showMsg('Not connected yet', 'The notes database isn\'t set up. Paste the Apps Script web app URL into <code>assets/feedback-config.js</code>. The steps are in <code>feedback-db/SETUP.md</code>.');
+    return;
+  }
+  if (!code) { $('gate').hidden = false; $('board').hidden = true; $('code').focus(); return; }
+  $('sub').textContent = 'Loading...';
+  try {
+    const res = await fetch(DB + (DB.includes('?') ? '&' : '?') + 'code=' + encodeURIComponent(code));
+    const data = await res.json();
+    if (!data.ok && data.error === 'passcode') {
+      store.del('au-fb-code'); code = '';
+      $('gate').hidden = false; $('gateErr').hidden = false; $('board').hidden = true; $('code').focus();
+      $('sub').textContent = 'Band notes on the new site.';
+      return;
+    }
+    if (!data.ok) throw new Error(data.error || 'error');
+    if (Array.isArray(data.statuses)) STATUSES = data.statuses;
+    rows = data.rows || [];
+    $('gate').hidden = true; $('msg').hidden = true; $('board').hidden = false;
+    $('sub').textContent = 'Band notes on the new site. Change a status or add a note and it saves on its own.';
+    fillFilters();
+    render();
+  } catch (e) {
+    showMsg('Couldn\'t load the responses', 'The notes database didn\'t answer. Check your connection and <a href="" onclick="location.reload();return false">try again</a>.');
+  }
+}
+
+$('gateForm').addEventListener('submit', (e) => {
+  e.preventDefault();
+  code = $('code').value.trim();
+  if (!code) return;
+  store.set('au-fb-code', code);
+  $('gateErr').hidden = true;
+  load();
+});
+
+function fillFilters() {
+  const fs = $('fStatus');
+  fs.innerHTML = '<option value="">All</option><option value="open">Still open</option>' + STATUSES.map(s => '<option>' + esc(s) + '</option>').join('');
+  fs.value = view.status;
+  const people = [...new Set(rows.map(r => r.From).filter(Boolean))].sort();
+  const cur = $('fFrom').value;
+  $('fFrom').innerHTML = '<option value="">Everyone</option>' + people.map(p => '<option>' + esc(p) + '</option>').join('');
+  $('fFrom').value = people.includes(cur) ? cur : '';
+  $('sortBy').value = view.sort;
+}
+
+function tally() {
+  const n = (s) => rows.filter(r => r.Status === s).length;
+  const open = rows.filter(r => OPEN.includes(r.Status)).length;
+  const btn = (val, label, count) => '<button type="button" data-status="' + esc(val) + '" aria-pressed="' + (view.status === val) + '">' + esc(label) + ' <b>' + count + '</b></button>';
+  $('tally').innerHTML = btn('', 'All', rows.length) + btn('open', 'Still open', open) + STATUSES.map(s => btn(s, s, n(s))).join('');
+}
+
+function sortKey(r, k) {
+  if (k === 'Priority') return PRI[r.Priority] || 0;
+  if (k === 'Status') { const i = STATUSES.indexOf(r.Status); return i < 0 ? 99 : i; }
+  if (k === 'Received' || k === 'Updated') return Date.parse(r[k]) || 0;
+  return String(r[k] || '').toLowerCase();
+}
+function dirLabel() {
+  const k = view.sort, d = view.dir;
+  if (k === 'Received' || k === 'Updated') return d < 0 ? 'Newest first' : 'Oldest first';
+  if (k === 'Priority') return d < 0 ? 'Most urgent first' : 'Least urgent first';
+  if (k === 'Status') return d > 0 ? 'New first' : 'Done first';
+  return d > 0 ? 'A to Z' : 'Z to A';
+}
+function fmt(iso) {
+  const d = new Date(iso);
+  if (isNaN(d)) return { day: '', time: '' };
+  return { day: d.toLocaleDateString('en-US', { month: 'short', day: 'numeric' }), time: d.toLocaleTimeString('en-US', { hour: 'numeric', minute: '2-digit' }) };
+}
+
+function render() {
+  store.set('au-fb-view', JSON.stringify({ status: view.status, sort: view.sort, dir: view.dir }));
+  tally();
+  $('fStatus').value = view.status;
+  $('sortBy').value = view.sort;
+  $('dir').textContent = dirLabel();
+  document.querySelectorAll('.cols button').forEach(b => {
+    if (b.dataset.sort === view.sort) b.setAttribute('aria-sort', view.dir > 0 ? 'ascending' : 'descending');
+    else b.removeAttribute('aria-sort');
+  });
+
+  const q = $('q').value.trim().toLowerCase();
+  const type = $('fType').value, from = $('fFrom').value;
+  let list = rows.filter(r =>
+    (!view.status || (view.status === 'open' ? OPEN.includes(r.Status) : r.Status === view.status)) &&
+    (!type || r.Type === type) &&
+    (!from || r.From === from) &&
+    (!q || [r.Summary, r.Details, r.Notes, r.Where].join(' ').toLowerCase().includes(q))
+  );
+  list.sort((a, b) => {
+    const x = sortKey(a, view.sort), y = sortKey(b, view.sort);
+    if (x < y) return -view.dir;
+    if (x > y) return view.dir;
+    return (Date.parse(b.Received) || 0) - (Date.parse(a.Received) || 0);
+  });
+
+  $('count').textContent = 'Showing ' + list.length + ' of ' + rows.length + (rows.length === 1 ? ' note' : ' notes');
+  if (!rows.length) { $('list').innerHTML = '<div class="empty">No notes yet. They show up here as soon as someone sends one.</div>'; return; }
+  if (!list.length) { $('list').innerHTML = '<div class="empty">Nothing matches these filters.</div>'; return; }
+
+  $('list').innerHTML = list.map(r => {
+    const t = fmt(r.Received);
+    const typeCls = 'tag--' + String(r.Type || '').split(' ')[0];
+    const priCls = r.Priority === 'Must fix before launch' ? ' tag--pri-must' : '';
+    const long = String(r.Details || '').length > 220 || String(r.Details || '').split('\n').length > 3;
+    const shot = r.Screenshot && r.Screenshot !== 'None' && /^https?:\/\//i.test(r.Screenshot)
+      ? '<a href="' + esc(r.Screenshot) + '" target="_blank" rel="noopener">Screenshot</a> · ' : '';
+    return '<article class="row" data-id="' + esc(r.ID) + '" data-pri="' + esc(r.Priority) + '" data-status="' + esc(r.Status) + '">' +
+      '<div class="cell-when"><b>' + esc(t.day) + '</b> ' + esc(t.time) + '</div>' +
+      '<div class="cell-from">' + esc(r.From) + '</div>' +
+      '<div class="cell-main">' +
+        '<div class="tags"><span class="tag ' + typeCls + '">' + esc(r.Type) + '</span><span class="tag">' + esc(r.Where) + '</span></div>' +
+        '<p class="summary">' + esc(r.Summary) + '</p>' +
+        '<p class="details' + (long ? ' clamp' : '') + '">' + esc(r.Details) + '</p>' +
+        (long ? '<button class="more" type="button">Show more</button>' : '') +
+        '<p class="extra">' + shot + esc(r.Device || '') + '</p>' +
+      '</div>' +
+      '<div class="cell-pri"><span class="tag' + priCls + '">' + esc(r.Priority) + '</span></div>' +
+      '<div class="cell-status edit">' +
+        '<label class="sr-only" for="s-' + esc(r.ID) + '">Status</label>' +
+        '<select id="s-' + esc(r.ID) + '" class="st-' + esc(String(r.Status).replace(/\W/g, '')) + '">' +
+          STATUSES.map(s => '<option' + (s === r.Status ? ' selected' : '') + '>' + esc(s) + '</option>').join('') +
+        '</select>' +
+        '<label class="sr-only" for="n-' + esc(r.ID) + '">Notes</label>' +
+        '<textarea id="n-' + esc(r.ID) + '" rows="2" placeholder="Notes: who\'s on it, what was decided">' + esc(r.Notes) + '</textarea>' +
+        '<span class="savestate"></span>' +
+      '</div>' +
+    '</article>';
+  }).join('');
+}
+
+// Saving status and notes
+async function save(id, patch, el) {
+  const r = rows.find(x => String(x.ID) === String(id));
+  const state = el.closest('.row').querySelector('.savestate');
+  state.className = 'savestate'; state.textContent = 'Saving...';
+  try {
+    const res = await fetch(DB, { method: 'POST', headers: { 'Content-Type': 'text/plain;charset=utf-8' }, body: JSON.stringify(Object.assign({ action: 'update', code: code, id: id }, patch)) });
+    const data = await res.json();
+    if (!data.ok) throw new Error(data.error);
+    Object.assign(r, patch, { Updated: data.updated || new Date().toISOString() });
+    state.className = 'savestate ok'; state.textContent = 'Saved';
+    setTimeout(() => { if (state.textContent === 'Saved') state.textContent = ''; }, 2500);
+    return true;
+  } catch (e) {
+    state.className = 'savestate err'; state.textContent = e.message === 'passcode' ? 'Passcode changed. Reload the page.' : "Didn't save. Try again.";
+    return false;
+  }
+}
+
+$('list').addEventListener('change', async (e) => {
+  if (e.target.tagName !== 'SELECT') return;
+  const row = e.target.closest('.row'); const id = row.dataset.id;
+  const prev = rows.find(x => String(x.ID) === id).Status;
+  const ok = await save(id, { Status: e.target.value }, e.target);
+  if (!ok) { e.target.value = prev; return; }
+  row.dataset.status = e.target.value;
+  e.target.className = 'st-' + e.target.value.replace(/\W/g, '');
+  tally();
+});
+// Notes save when you leave the box, or with Ctrl/Cmd + Enter
+async function saveNotes(ta) {
+  const id = ta.closest('.row').dataset.id;
+  const r = rows.find(x => String(x.ID) === id);
+  if ((r.Notes || '') === ta.value) return;
+  await save(id, { Notes: ta.value }, ta);
+}
+$('list').addEventListener('focusout', (e) => { if (e.target.tagName === 'TEXTAREA') saveNotes(e.target); });
+$('list').addEventListener('keydown', (e) => { if (e.target.tagName === 'TEXTAREA' && e.key === 'Enter' && (e.metaKey || e.ctrlKey)) { e.preventDefault(); saveNotes(e.target); } });
+$('list').addEventListener('click', (e) => {
+  if (!e.target.classList.contains('more')) return;
+  const d = e.target.previousElementSibling;
+  const open = d.classList.toggle('clamp');
+  e.target.textContent = open ? 'Show more' : 'Show less';
+});
+window.addEventListener('beforeunload', (e) => {
+  const dirty = [...document.querySelectorAll('#list textarea')].some(ta => { const r = rows.find(x => String(x.ID) === ta.closest('.row').dataset.id); return r && (r.Notes || '') !== ta.value; });
+  if (dirty) { e.preventDefault(); e.returnValue = ''; }
+});
+
+// Filters and sorting
+$('tally').addEventListener('click', (e) => { const b = e.target.closest('button'); if (!b) return; view.status = b.dataset.status; render(); });
+$('fStatus').addEventListener('change', () => { view.status = $('fStatus').value; render(); });
+['q', 'fType', 'fFrom'].forEach(id => $(id).addEventListener('input', render));
+function setSort(k) {
+  if (view.sort === k) view.dir = -view.dir;
+  else { view.sort = k; view.dir = (k === 'Received' || k === 'Updated' || k === 'Priority') ? -1 : 1; }
+  render();
+}
+$('sortBy').addEventListener('change', () => { view.sort = ''; setSort($('sortBy').value); });
+$('dir').addEventListener('click', () => { view.dir = -view.dir; render(); });
+document.querySelectorAll('.cols button').forEach(b => b.addEventListener('click', () => setSort(b.dataset.sort)));
+$('refresh').addEventListener('click', load);
+
+load();
+</script>
+</body>
+</html>
