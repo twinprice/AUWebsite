@@ -41,6 +41,7 @@ button, input, select, textarea { font: inherit; color: inherit; }
 
 .top { display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding-bottom: 1.25rem; border-bottom: 1px solid var(--line); }
 .top img { height: 36px; width: auto; display: block; }
+.toplinks { display: flex; gap: 1.25rem; }
 .top a { font-size: 0.875rem; font-weight: 700; text-decoration: none; color: var(--muted); }
 .top a:hover { color: var(--ink); }
 
@@ -119,12 +120,12 @@ form[hidden] { display: none; }
 
   <header class="top">
     <img src="assets/logo/AU_logo_horizontal.webp" alt="Acoustic Underground" width="582" height="257">
-    <a href="band_v4.html" id="backLink">Back to the site</a>
+    <nav class="toplinks"><a href="responses.html" target="_blank" rel="opener">See all responses</a><a href="band_v4.html" id="backLink">Back to the site</a></nav>
   </header>
 
   <div class="intro">
     <h1>Site feedback</h1>
-    <p>For the band only. Spot something broken, wrong or missing on the new site? Send it here and it lands in the band inbox.</p>
+    <p>For the band only. Spot something broken, wrong or missing on the new site? Send it here and it's saved with everyone else's notes. You can see them all under See all responses.</p>
   </div>
 
   <form id="fb" novalidate>
@@ -209,36 +210,38 @@ form[hidden] { display: none; }
 
     <div class="actions">
       <button class="button" type="submit" id="send">Send to the band</button>
-      <button class="textlink" type="button" id="viaEmail">Send by email instead</button>
     </div>
   </form>
 
   <section class="panel panel--ok" id="ok" hidden aria-live="polite">
     <h2 id="okHead">Sent. Thanks.</h2>
-    <p>It's in the band inbox. Keep the site window open and send another whenever you spot something.</p>
+    <p>It's saved with the other notes. Keep the site window open and send another whenever you spot something.</p>
     <div class="actions">
       <button class="button" type="button" id="another">Send another</button>
+      <a class="button button--quiet" href="responses.html" target="_blank" rel="opener">See all responses</a>
       <button class="button button--quiet" type="button" id="closeWin">Close this window</button>
     </div>
   </section>
 
   <section class="panel" id="fail" hidden aria-live="polite">
     <h2>It didn't go through</h2>
-    <p id="failMsg">The form service didn't answer. Your note is still here, so nothing is lost. Send it by email instead and it goes to the same inbox.</p>
+    <p id="failMsg">The notes database didn't answer. Your note is still here, so nothing is lost. Try again, or send it by email instead.</p>
     <div class="actions">
-      <a class="button" id="failMail" href="#">Open it in my email app</a>
+      <a class="button" id="failMail" href="#">Send it by email</a>
       <button class="textlink" type="button" id="retry">Try again</button>
     </div>
   </section>
 
 </div>
 
+<script src="assets/feedback-config.js"></script>
 <script>
-// Notes go to this inbox through FormSubmit (formsubmit.co). No account or key needed.
-// The first note ever sent triggers a one-time "Activate form" email to this address.
-// Click the button in that email and every note after it arrives normally.
-const BAND_EMAIL = 'acousticundergroundRVA@gmail.com';
-const ENDPOINT = 'https://formsubmit.co/ajax/' + BAND_EMAIL;
+// Notes are saved to a Google Sheet through an Apps Script web app (see feedback-db/SETUP.md).
+// The URL lives in assets/feedback-config.js. If it's empty or the sheet doesn't answer,
+// the form offers to open the note in the person's email app instead.
+const CFG = window.AU_FEEDBACK || {};
+const BAND_EMAIL = CFG.bandEmail || 'acousticundergroundRVA@gmail.com';
+const ENDPOINT = CFG.dbUrl || '';
 
 const form = document.getElementById('fb');
 const $ = (id) => document.getElementById(id);
@@ -342,10 +345,6 @@ function mailtoHref(n) {
   return 'mailto:' + BAND_EMAIL + '?subject=' + encodeURIComponent(subject(n)) + '&body=' + encodeURIComponent(body);
 }
 
-$('viaEmail').addEventListener('click', () => {
-  if (!validate()) return;
-  location.href = mailtoHref(note());
-});
 
 form.addEventListener('submit', async (e) => {
   e.preventDefault();
@@ -358,20 +357,22 @@ form.addEventListener('submit', async (e) => {
   $('fail').hidden = true;
   let msg = '';
   try {
+    if (!ENDPOINT) throw new Error('not set up');
+    // text/plain keeps this a "simple" request, which Apps Script accepts from any site
     const res = await fetch(ENDPOINT, {
       method: 'POST',
-      headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-      body: JSON.stringify(Object.assign({}, n, { _subject: subject(n), _template: 'table', _captcha: 'false' }))
+      headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+      body: JSON.stringify(Object.assign({ action: 'add', _honey: $('honey').value }, n))
     });
     const data = await res.json().catch(() => ({}));
-    if (res.ok && String(data.success) === 'true') { done(n); return; }
-    msg = data.message || '';
-  } catch (err) { msg = ''; }
+    if (res.ok && data.ok) { done(n); return; }
+    msg = data.error || '';
+  } catch (err) { msg = ENDPOINT ? '' : 'not set up'; }
   $('send').disabled = false;
   $('send').textContent = 'Send to the band';
-  $('failMsg').textContent = /activat/i.test(msg)
-    ? "The form isn't switched on yet. An activation email just went to the band inbox. Until someone clicks it, send this note by email. It goes to the same inbox."
-    : "The form service didn't answer. Your note is still here, so nothing is lost. Send it by email instead and it goes to the same inbox.";
+  $('failMsg').textContent = msg === 'not set up'
+    ? "The notes database isn't connected yet. Send this one by email for now. It goes to the band inbox."
+    : "The notes database didn't answer. Your note is still here, so nothing is lost. Try again, or send it by email instead.";
   $('failMail').href = mailtoHref(n);
   $('fail').hidden = false;
   $('fail').scrollIntoView({ behavior: 'smooth', block: 'center' });
