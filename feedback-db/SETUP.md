@@ -36,8 +36,15 @@ It's free and takes about 10 minutes.
 2. Open `responses.html`, enter the passcode, and change the test note's status.
 3. The sheet's Responses tab shows both changes.
 
+## Updating the script (for example, to add screenshot uploads)
+1. Open the sheet, then **Extensions > Apps Script**.
+2. Select all the code, replace it with the new `feedback-db/Code.gs`, and click **Save**.
+3. Pick `setup` in the function menu and click **Run**. Google asks for permission again, this time to use Drive. Allow it. This creates a Drive folder named "AU site feedback screenshots".
+4. Click **Deploy > Manage deployments**, click the pencil icon, set Version to **New version**, and click **Deploy**. The web app URL stays the same, so the site needs no change.
+
 ## Good to know
 - Anyone who finds the web app URL can add a note. Only people with the passcode can read the notes or change them.
 - If you edit `Code.gs` later, use **Deploy > Manage deployments > Edit > New version** so the URL stays the same.
+- Screenshots are shrunk in the browser (about 100-500 KB each, up to 3 per note), saved to the Drive folder, and set to "anyone with the link can view" so the responses page can show them. The links are in the sheet's Images column.
 - You can also sort, filter and edit right in the sheet. The Status column has a dropdown.
-- When the site goes live: remove the "Site feedback" link from `band_v4.html` and delete `feedback.html`, `responses.html`, `assets/feedback-config.js` and this folder. The sheet keeps every note.
+- When the site goes live: remove the "Site feedback" link from `band_v4.html` and delete `feedback.html`, `responses.html`, `assets/feedback-config.js` and this folder. The sheet keeps every note, and the Drive folder keeps every screenshot.
