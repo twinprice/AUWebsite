@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Site feedback · Acoustic Underground</title>
+<meta name="theme-color" content="#0A0A0C">
+<link rel="icon" href="assets/icons/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="assets/icons/favicon-32.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Chivo:wght@400;700;900&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #0A0A0C;
+  --surface: #14181C;
+  --line: #2A3036;
+  --ink: #F5F2ED;
+  --muted: #B4ADA3;
+  --teal: #28505A;
+  --accent: #D10849;
+  --accent-hover: #E01556;
+  --accent-ink: #FFFFFF;
+  --font: 'Chivo', system-ui, sans-serif;
+  --radius: 4px;
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+}
+*, *::before, *::after { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
+body { margin: 0; background: var(--bg); color: var(--ink); font-family: var(--font); font-size: 1.0625rem; line-height: 1.45; letter-spacing: -0.01em; -webkit-font-smoothing: antialiased; }
+h1, h2, p, fieldset { margin: 0; }
+fieldset { border: 0; padding: 0; min-width: 0; }
+a { color: inherit; }
+button, input, select, textarea { font: inherit; color: inherit; }
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+::selection { background: var(--accent); color: var(--accent-ink); }
+
+.page { max-width: 40rem; margin: 0 auto; padding: 1.5rem 1rem 3rem; }
+@media (min-width: 560px) { .page { padding: 2rem 1.75rem 3.5rem; } }
+
+.top { display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding-bottom: 1.25rem; border-bottom: 1px solid var(--line); }
+.top img { height: 36px; width: auto; display: block; }
+.top a { font-size: 0.875rem; font-weight: 700; text-decoration: none; color: var(--muted); }
+.top a:hover { color: var(--ink); }
+
+.intro { padding: 1.75rem 0 0.5rem; }
+.intro h1 { font-weight: 900; text-transform: uppercase; letter-spacing: -0.04em; line-height: 0.9; font-size: clamp(2.25rem, 8vw, 3.25rem); }
+.intro p { margin-top: 0.75rem; color: var(--muted); max-width: 46ch; }
+
+form { display: grid; gap: 1.75rem; margin-top: 1.5rem; }
+.label, legend { display: block; font-weight: 700; font-size: 0.9375rem; margin-bottom: 0.6rem; padding: 0; }
+.label .opt, legend .opt { font-weight: 400; color: var(--muted); }
+.hint { font-size: 0.875rem; color: var(--muted); margin-top: 0.4rem; }
+
+/* chip radios */
+.chips { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+.chip { position: relative; }
+.chip input { position: absolute; opacity: 0; inset: 0; margin: 0; cursor: pointer; }
+.chip span { display: inline-flex; align-items: center; min-height: 2.75rem; padding: 0 1rem; border: 1px solid var(--line); border-radius: 999px; background: var(--surface); font-weight: 700; font-size: 0.9375rem; transition: background-color 160ms ease, border-color 160ms ease; }
+.chip input:checked + span { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+.chip input:focus-visible + span { outline: 2px solid var(--accent); outline-offset: 3px; }
+@media (hover: hover) { .chip:hover span { border-color: var(--muted); } }
+
+/* kind cards */
+.kinds { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0.5rem; }
+.kind { position: relative; }
+.kind input { position: absolute; opacity: 0; inset: 0; margin: 0; cursor: pointer; }
+.kind span { display: block; height: 100%; padding: 0.8rem 0.9rem; border: 1px solid var(--line); border-radius: var(--radius); background: var(--surface); transition: background-color 160ms ease, border-color 160ms ease; }
+.kind b { display: block; font-size: 1rem; }
+.kind small { display: block; font-size: 0.8125rem; color: var(--muted); margin-top: 0.15rem; line-height: 1.35; }
+.kind input:checked + span { border-color: var(--accent); background: #2A0B16; }
+.kind input:focus-visible + span { outline: 2px solid var(--accent); outline-offset: 3px; }
+@media (hover: hover) { .kind:hover span { border-color: var(--muted); } }
+
+.field input[type=text], .field input[type=url], .field select, .field textarea {
+  width: 100%; min-height: 3rem; padding: 0.7rem 0.85rem; background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); font-size: 1rem;
+}
+.field textarea { min-height: 9rem; resize: vertical; line-height: 1.45; }
+.field select { appearance: none; background-image: linear-gradient(45deg, transparent 50%, var(--muted) 50%), linear-gradient(135deg, var(--muted) 50%, transparent 50%); background-position: calc(100% - 1.15rem) 1.3rem, calc(100% - 0.8rem) 1.3rem; background-size: 0.35rem 0.35rem; background-repeat: no-repeat; padding-right: 2.25rem; }
+.field input::placeholder, .field textarea::placeholder { color: #6E6860; }
+.field input:focus, .field select:focus, .field textarea:focus { border-color: var(--muted); outline: none; }
+.field input:focus-visible, .field select:focus-visible, .field textarea:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+.other-name { margin-top: 0.6rem; }
+.other-name[hidden] { display: none; }
+
+.row2 { display: grid; gap: 1.75rem; }
+@media (min-width: 560px) { .row2 { grid-template-columns: 1fr 1fr; gap: 1rem; } }
+
+.meta { font-size: 0.8125rem; color: var(--muted); padding: 0.75rem 0.9rem; border: 1px dashed var(--line); border-radius: var(--radius); }
+.meta b { color: var(--ink); font-weight: 700; }
+
+.err { color: #FF7A9E; font-size: 0.875rem; margin-top: 0.4rem; }
+.err:empty { display: none; }
+
+.actions { display: flex; flex-wrap: wrap; align-items: center; gap: 0.75rem 1.25rem; }
+.button { display: inline-flex; align-items: center; justify-content: center; min-height: 3rem; padding: 0 1.4rem; background: var(--accent); color: var(--accent-ink); border: 0; border-radius: var(--radius); font-weight: 700; text-decoration: none; cursor: pointer; transition: transform 140ms var(--ease-out), background-color 180ms ease; }
+.button:active { transform: scale(0.97); }
+.button[disabled] { opacity: 0.6; cursor: progress; }
+.button--quiet { background: var(--surface); color: var(--ink); border: 1px solid var(--line); }
+@media (hover: hover) { .button:hover { background: var(--accent-hover); } .button--quiet:hover { background: var(--teal); } }
+.textlink { background: none; border: 0; padding: 0; font-weight: 700; color: var(--muted); text-decoration: underline; text-underline-offset: 0.2em; cursor: pointer; font-size: 0.9375rem; }
+
+form[hidden] { display: none; }
+.sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+.hp { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
+
+/* result panels */
+.panel { margin-top: 2rem; padding: 1.5rem; border-radius: var(--radius); background: var(--surface); border: 1px solid var(--line); }
+.panel[hidden] { display: none; }
+.panel h2 { font-weight: 900; text-transform: uppercase; letter-spacing: -0.03em; line-height: 0.95; font-size: 1.75rem; }
+.panel p { margin-top: 0.75rem; color: var(--muted); }
+.panel .actions { margin-top: 1.25rem; }
+.panel--ok { border-color: var(--teal); background: #10262B; }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <header class="top">
+    <img src="assets/logo/AU_logo_horizontal.webp" alt="Acoustic Underground" width="582" height="257">
+    <a href="band_v4.html" id="backLink">Back to the site</a>
+  </header>
+
+  <div class="intro">
+    <h1>Site feedback</h1>
+    <p>For the band only. Spot something broken, wrong or missing on the new site? Send it here and it lands in the band inbox.</p>
+  </div>
+
+  <form id="fb" novalidate>
+    <fieldset>
+      <legend>Who's sending this?</legend>
+      <div class="chips" id="who">
+        <label class="chip"><input type="radio" name="who" value="Sam"><span>Sam</span></label>
+        <label class="chip"><input type="radio" name="who" value="Don"><span>Don</span></label>
+        <label class="chip"><input type="radio" name="who" value="Boomer"><span>Boomer</span></label>
+        <label class="chip"><input type="radio" name="who" value="Winston"><span>Winston</span></label>
+        <label class="chip"><input type="radio" name="who" value="Matt"><span>Matt</span></label>
+        <label class="chip"><input type="radio" name="who" value="Ashton"><span>Ashton</span></label>
+        <label class="chip"><input type="radio" name="who" value="Other"><span>Someone else</span></label>
+      </div>
+      <div class="field other-name" id="otherWrap" hidden>
+        <label class="sr-only" for="otherName">Your name</label>
+        <input type="text" id="otherName" placeholder="Your name" autocomplete="name">
+      </div>
+      <p class="err" id="errWho"></p>
+    </fieldset>
+
+    <fieldset>
+      <legend>What kind of note is it?</legend>
+      <div class="kinds">
+        <label class="kind"><input type="radio" name="kind" value="Bug"><span><b>Bug</b><small>Something's broken or looks wrong</small></span></label>
+        <label class="kind"><input type="radio" name="kind" value="Change"><span><b>Change</b><small>Swap a photo, reword, reorder</small></span></label>
+        <label class="kind"><input type="radio" name="kind" value="Fact check"><span><b>Fact check</b><small>A wrong name, date, venue or caption</small></span></label>
+        <label class="kind"><input type="radio" name="kind" value="Idea"><span><b>Idea</b><small>Something new the site should have</small></span></label>
+      </div>
+      <p class="err" id="errKind"></p>
+    </fieldset>
+
+    <div class="row2">
+      <div class="field">
+        <label class="label" for="where">Where on the site?</label>
+        <select id="where" name="where">
+          <option value="Whole site">Whole site / not sure</option>
+          <option value="Menu bar">Menu bar at the top</option>
+          <option value="Top of page (name and video)">Top of page (name and video)</option>
+          <option value="Rarely heard live (bio)">Rarely heard live (bio)</option>
+          <option value="The music (studio songs)">The music (studio songs)</option>
+          <option value="Songs we play (request list)">Songs we play (request list)</option>
+          <option value="Scrolling artist names">Scrolling artist names</option>
+          <option value="Upcoming shows">Upcoming shows</option>
+          <option value="The band (headshots)">The band (headshots)</option>
+          <option value="Gallery">Gallery</option>
+          <option value="Say hello (contact)">Say hello (contact)</option>
+          <option value="Footer">Footer</option>
+        </select>
+      </div>
+      <div class="field">
+        <label class="label" for="priority">How much does it matter?</label>
+        <select id="priority" name="priority">
+          <option value="Nice to have">Nice to have</option>
+          <option value="Should fix" selected>Should fix</option>
+          <option value="Must fix before launch">Must fix before launch</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="field">
+      <label class="label" for="title">One-line summary</label>
+      <input type="text" id="title" name="title" maxlength="120" placeholder="e.g. Gallery photos won't open on my phone">
+      <p class="err" id="errTitle"></p>
+    </div>
+
+    <div class="field">
+      <label class="label" for="details">Details</label>
+      <textarea id="details" name="details" placeholder="What did you see, and what should it be instead?"></textarea>
+      <p class="err" id="errDetails"></p>
+    </div>
+
+    <div class="field">
+      <label class="label" for="shot">Link to a screenshot or photo <span class="opt">(optional)</span></label>
+      <input type="url" id="shot" name="shot" placeholder="Google Drive, Photos or Dropbox link" inputmode="url">
+      <p class="hint">Can't link it? Text the screenshot to the group and say so here.</p>
+    </div>
+
+    <p class="meta" id="meta"></p>
+
+    <div class="hp" aria-hidden="true"><label>Leave this empty <input type="text" name="_honey" id="honey" tabindex="-1" autocomplete="off"></label></div>
+
+    <div class="actions">
+      <button class="button" type="submit" id="send">Send to the band</button>
+      <button class="textlink" type="button" id="viaEmail">Send by email instead</button>
+    </div>
+  </form>
+
+  <section class="panel panel--ok" id="ok" hidden aria-live="polite">
+    <h2 id="okHead">Sent. Thanks.</h2>
+    <p>It's in the band inbox. Keep the site window open and send another whenever you spot something.</p>
+    <div class="actions">
+      <button class="button" type="button" id="another">Send another</button>
+      <button class="button button--quiet" type="button" id="closeWin">Close this window</button>
+    </div>
+  </section>
+
+  <section class="panel" id="fail" hidden aria-live="polite">
+    <h2>It didn't go through</h2>
+    <p id="failMsg">The form service didn't answer. Your note is still here, so nothing is lost. Send it by email instead and it goes to the same inbox.</p>
+    <div class="actions">
+      <a class="button" id="failMail" href="#">Open it in my email app</a>
+      <button class="textlink" type="button" id="retry">Try again</button>
+    </div>
+  </section>
+
+</div>
+
+<script>
+// Notes go to this inbox through FormSubmit (formsubmit.co). No account or key needed.
+// The first note ever sent triggers a one-time "Activate form" email to this address.
+// Click the button in that email and every note after it arrives normally.
+const BAND_EMAIL = 'acousticundergroundRVA@gmail.com';
+const ENDPOINT = 'https://formsubmit.co/ajax/' + BAND_EMAIL;
+
+const form = document.getElementById('fb');
+const $ = (id) => document.getElementById(id);
+const store = {
+  get(k) { try { return localStorage.getItem(k); } catch (e) { return null; } },
+  set(k, v) { try { localStorage.setItem(k, v); } catch (e) {} }
+};
+
+// Section passed from the site, e.g. feedback.html?from=gallery
+const FROM = {
+  top: 'Top of page (name and video)', intro: 'Rarely heard live (bio)', music: 'The music (studio songs)',
+  songs: 'Songs we play (request list)', names: 'Scrolling artist names', shows: 'Upcoming shows',
+  band: 'The band (headshots)', gallery: 'Gallery', contact: 'Say hello (contact)', foot: 'Footer'
+};
+const params = new URLSearchParams(location.search);
+const fromKey = params.get('from');
+if (fromKey && FROM[fromKey]) $('where').value = FROM[fromKey];
+
+// When opened as a popout, "Back to the site" just closes this window.
+const isPopout = !!window.opener;
+if (isPopout) {
+  $('backLink').textContent = 'Close';
+  $('backLink').addEventListener('click', (e) => { e.preventDefault(); window.close(); });
+} else {
+  $('closeWin').hidden = true;
+}
+
+// Remember who's sending
+const saved = store.get('au-fb-who');
+if (saved) {
+  const r = form.querySelector('input[name=who][value="' + (['Sam','Don','Boomer','Winston','Matt','Ashton'].includes(saved) ? saved : 'Other') + '"]');
+  if (r) r.checked = true;
+  if (r && r.value === 'Other') { $('otherWrap').hidden = false; $('otherName').value = saved; }
+}
+form.querySelectorAll('input[name=who]').forEach(r => r.addEventListener('change', () => {
+  $('otherWrap').hidden = r.value !== 'Other' || !r.checked;
+  if (r.value === 'Other' && r.checked) $('otherName').focus();
+  $('errWho').textContent = '';
+}));
+form.querySelectorAll('input[name=kind]').forEach(r => r.addEventListener('change', () => {
+  $('errKind').textContent = '';
+  const ph = {
+    'Bug': 'What did you do, what happened, and what did you expect? e.g. Tapped a gallery photo on my iPhone and nothing opened.',
+    'Change': 'What should change, and to what? e.g. Use the brewery photo instead of the outdoor one in the bio.',
+    'Fact check': "What's wrong and what's right? e.g. The bio photo caption says outdoors, but that show was indoors at a brewery.",
+    'Idea': 'What should the site have, and why would fans or venues care?'
+  }[r.value];
+  if (ph) $('details').placeholder = ph;
+}));
+
+// Device info sent with each note
+function device() {
+  const w = window.screen && screen.width, h = window.screen && screen.height;
+  const ua = navigator.userAgent;
+  const os = /iPhone|iPad|iPod/.test(ua) ? 'iOS' : /Android/.test(ua) ? 'Android' : /Mac/.test(ua) ? 'Mac' : /Windows/.test(ua) ? 'Windows' : 'Other';
+  const br = /Edg\//.test(ua) ? 'Edge' : /CriOS|Chrome\//.test(ua) ? 'Chrome' : /FxiOS|Firefox\//.test(ua) ? 'Firefox' : /Safari\//.test(ua) ? 'Safari' : 'Other';
+  const kind = Math.min(w, h) < 600 ? 'Phone' : Math.min(w, h) < 1000 ? 'Tablet' : 'Computer';
+  const site = params.get('w') ? params.get('w') + ' px wide' : '';
+  return { label: kind + ', ' + os + ', ' + br, screen: w + ' x ' + h + (site ? ' (site window ' + site + ')' : ''), ua };
+}
+const dev = device();
+$('meta').innerHTML = 'Sent along automatically: <b>' + dev.label + '</b>, screen ' + dev.screen + ', and the time.';
+
+function who() {
+  const r = form.querySelector('input[name=who]:checked');
+  if (!r) return '';
+  return r.value === 'Other' ? $('otherName').value.trim() : r.value;
+}
+function kind() { const r = form.querySelector('input[name=kind]:checked'); return r ? r.value : ''; }
+
+function validate() {
+  let ok = true, first = null;
+  const set = (id, msg, el) => { $(id).textContent = msg; if (msg) { ok = false; first = first || el; } };
+  set('errWho', who() ? '' : 'Pick your name so the band knows who to ask.', form.querySelector('input[name=who]'));
+  set('errKind', kind() ? '' : 'Pick one.', form.querySelector('input[name=kind]'));
+  set('errTitle', $('title').value.trim() ? '' : 'Add a short summary.', $('title'));
+  set('errDetails', $('details').value.trim() ? '' : 'Add a little detail.', $('details'));
+  if (first) first.focus();
+  return ok;
+}
+['title', 'details'].forEach(id => $(id).addEventListener('input', () => { $('err' + id[0].toUpperCase() + id.slice(1)).textContent = ''; }));
+
+function note() {
+  const when = new Date().toLocaleString('en-US', { dateStyle: 'medium', timeStyle: 'short' });
+  return {
+    From: who(),
+    Type: kind(),
+    Where: $('where').value,
+    Priority: $('priority').value,
+    Summary: $('title').value.trim(),
+    Details: $('details').value.trim(),
+    Screenshot: $('shot').value.trim() || 'None',
+    Device: dev.label + ', screen ' + dev.screen,
+    Browser: dev.ua,
+    Sent: when
+  };
+}
+function subject(n) { return '[AU site] ' + n.Type + ': ' + n.Summary; }
+function mailtoHref(n) {
+  const body = Object.keys(n).map(k => k + ': ' + n[k]).join('\n');
+  return 'mailto:' + BAND_EMAIL + '?subject=' + encodeURIComponent(subject(n)) + '&body=' + encodeURIComponent(body);
+}
+
+$('viaEmail').addEventListener('click', () => {
+  if (!validate()) return;
+  location.href = mailtoHref(note());
+});
+
+form.addEventListener('submit', async (e) => {
+  e.preventDefault();
+  if ($('honey').value) return;
+  if (!validate()) return;
+  const n = note();
+  store.set('au-fb-who', n.From);
+  $('send').disabled = true;
+  $('send').textContent = 'Sending...';
+  $('fail').hidden = true;
+  let msg = '';
+  try {
+    const res = await fetch(ENDPOINT, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+      body: JSON.stringify(Object.assign({}, n, { _subject: subject(n), _template: 'table', _captcha: 'false' }))
+    });
+    const data = await res.json().catch(() => ({}));
+    if (res.ok && String(data.success) === 'true') { done(n); return; }
+    msg = data.message || '';
+  } catch (err) { msg = ''; }
+  $('send').disabled = false;
+  $('send').textContent = 'Send to the band';
+  $('failMsg').textContent = /activat/i.test(msg)
+    ? "The form isn't switched on yet. An activation email just went to the band inbox. Until someone clicks it, send this note by email. It goes to the same inbox."
+    : "The form service didn't answer. Your note is still here, so nothing is lost. Send it by email instead and it goes to the same inbox.";
+  $('failMail').href = mailtoHref(n);
+  $('fail').hidden = false;
+  $('fail').scrollIntoView({ behavior: 'smooth', block: 'center' });
+});
+$('retry').addEventListener('click', () => { $('fail').hidden = true; form.requestSubmit(); });
+
+function done(n) {
+  form.hidden = true;
+  $('ok').hidden = false;
+  $('okHead').textContent = 'Sent. Thanks, ' + n.From + '.';
+  $('send').disabled = false;
+  $('send').textContent = 'Send to the band';
+  window.scrollTo({ top: 0 });
+}
+$('another').addEventListener('click', () => {
+  const keepWho = form.querySelector('input[name=who]:checked');
+  const other = $('otherName').value;
+  form.reset();
+  if (keepWho) keepWho.checked = true;
+  $('otherName').value = other;
+  $('details').placeholder = 'What did you see, and what should it be instead?';
+  $('ok').hidden = true;
+  form.hidden = false;
+  $('title').focus();
+});
+$('closeWin').addEventListener('click', () => window.close());
+</script>
+</body>
+</html>
