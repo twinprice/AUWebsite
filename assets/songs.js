@@ -1,9 +1,27 @@
 /*
   SONGS WE PLAY
   -------------
-  Edit the list below to update the "Songs we play" section on the site.
+  The site reads the song list from the band's Google Sheet when the link
+  below is filled in. Edit the sheet and the site updates within about
+  5 minutes. No HTML or code changes needed.
+
+  Sheet setup (one time):
+    1. Make a Google Sheet with these column headings in row 1:
+         Title | Artist | Year | Show
+       - Artist: use "Acoustic Underground" for our originals.
+       - Year: optional.
+       - Show: optional. Type "no" to hide a song without deleting it.
+    2. File > Share > Publish to web. Pick the song tab, pick
+       "Comma-separated values (.csv)", click Publish, copy the link.
+    3. Paste the link between the quotes on the next line.
+*/
+window.AU_SONGS_SHEET = '';
+
+/*
+  BACKUP LIST
+  -----------
+  Used only when the sheet link above is empty or the sheet can't be reached.
   One song per line:   Title | Artist | Year
-  - Year is optional. It drives the decade filter.
   - Use "Acoustic Underground" as the artist for our originals.
   - Lines starting with # are ignored.
   - Order does not matter. The site shows originals first, then sorts by title.
