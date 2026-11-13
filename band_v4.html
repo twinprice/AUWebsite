@@ -41,7 +41,7 @@
     "https://www.instagram.com/acousticundergroundrva",
     "https://m.facebook.com/pg/acousticundergroundRVA",
     "https://www.youtube.com/channel/UCqip1FeWpGk0zY3oe1NAdGw",
-    "https://www.bandsintown.com/a/acoustic-underground",
+    "https://www.bandsintown.com/a/15496223-acoustic-underground-rva",
     "https://distrokid.com/hyperfollow/acousticunderground/"
   ]
 }
@@ -189,7 +189,7 @@ p + p { margin-top: 0.9em; }
 }
 
 /* ---------- intro ---------- */
-.intro__head { grid-column: 1 / -1; margin-bottom: clamp(2.5rem, 5vw, 4.5rem); }
+.intro__head { grid-column: 1 / -1; max-width: 22ch; font-size: clamp(2rem, 1rem + 3.4vw, 4.25rem); line-height: 1.02; text-wrap: balance; margin-bottom: clamp(2.5rem, 5vw, 4.5rem); }
 .intro__text { grid-column: 1 / 7; }
 .intro__text .lead { margin-bottom: 1.5rem; max-width: 30ch; }
 .intro__quote { margin-top: 2.25rem; padding-left: 1.25rem; border-left: 4px solid var(--accent); font-size: var(--step-lead); line-height: 1.3; max-width: 32ch; }
@@ -254,6 +254,11 @@ figcaption { margin-top: 0.5rem; }
 .songs__frame img.is-on { opacity: 1; }
 .songs__body { grid-column: 7 / 13; grid-row: 2; }
 .songlist { margin-top: 2.5rem; }
+.songfind { margin-top: 2rem; display: grid; gap: 0.4rem; }
+.songfind input { font: inherit; font-size: var(--step-lead); padding: 0.55rem 0.8rem; border: 2px solid var(--muted); border-radius: var(--radius); background: var(--surface); color: var(--ink); width: 100%; }
+.songfind input:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }
+.songfind + .songlist { margin-top: 1.25rem; }
+.songrow[hidden] { display: none; }
 .songrow { display: grid; grid-template-columns: minmax(0, 1fr) auto auto; align-items: center; gap: 1rem; min-height: 4rem; padding-block: 0.6rem; color: var(--muted); transition: color var(--t-hover) ease; }
 .songrow.is-active { color: var(--ink); }
 .songrow__t { font-size: var(--step-lead); line-height: 1.15; font-weight: 700; }
@@ -426,23 +431,18 @@ figcaption { margin-top: 0.5rem; }
     <figure class="stage__figure">
       <div class="stage__frame">
         <div class="reel" id="reel">
-          <div class="reel__item" data-caption="Rehearsing at home">
-            <video id="reelVideo" muted loop playsinline preload="metadata" poster="Photos/RecordingStudio/web/rehearsal-poster.webp" aria-label="Two of the band rehearsing at home">
-              <source src="Photos/RecordingStudio/web/rehearsal-loop.mp4" type="video/mp4">
-            </video>
-          </div>
-          <div class="reel__item" data-caption="The full band, live in Richmond"><img src="Photos/Live/web/live-28.webp" alt="The full band on stage under red and blue lights" decoding="async"></div>
+          <div class="reel__item" data-caption="A courtyard night by the water"><img src="Photos/Live/web/live-80.webp" alt="The full band on an outdoor stage at night, with the stage lights reflected in the water" decoding="async"></div>
+          <div class="reel__item" data-caption="The full band, live in Richmond"><img src="Photos/Live/web/live-28.webp" alt="The full band on stage under red and blue lights" loading="lazy" decoding="async"></div>
           <div class="reel__item" data-caption="A brewery night in Richmond"><img src="Photos/Live/web/live-49.webp" alt="The band playing acoustic guitars on a wood-panelled stage" loading="lazy" decoding="async"></div>
-          <div class="reel__item" data-caption="A courtyard night by the water"><img src="Photos/Live/web/live-80.webp" alt="The full band on an outdoor stage at night, with the stage lights reflected in the water" loading="lazy" decoding="async"></div>
           <div class="reel__item" data-caption="Late set, full stage"><img src="Photos/Live/web/live-65.webp" alt="The band on a wide stage under warm lights" loading="lazy" decoding="async"></div>
           <div class="reel__item" data-caption="Singing together on an outdoor stage"><img src="Photos/Live/web/live-96.webp" alt="Four band members singing together on an outdoor stage" style="object-position: 50% 30%;" loading="lazy" decoding="async"></div>
         </div>
       </div>
-      <figcaption class="stage__caption small muted" id="reelCaption" aria-live="polite">Rehearsing at home</figcaption>
+      <figcaption class="stage__caption small muted" id="reelCaption" aria-live="polite">A courtyard night by the water</figcaption>
     </figure>
 
     <div class="stage__next" id="nextShow">
-      <p>New dates go up on <a class="link-plain" href="https://www.bandsintown.com/a/acoustic-underground" target="_blank" rel="noopener">Bandsintown</a> and Instagram first.</p>
+      <p>New dates go up on <a class="link-plain" href="https://www.bandsintown.com/a/15496223-acoustic-underground-rva" target="_blank" rel="noopener">Bandsintown</a> and Instagram first.</p>
     </div>
   </div>
 </section>
@@ -450,9 +450,8 @@ figcaption { margin-top: 0.5rem; }
 <!-- INTRO -->
 <section class="section wrap" aria-labelledby="introHead">
   <div class="grid">
-    <h2 class="head intro__head" id="introHead" data-reveal>Rarely heard live</h2>
+    <h2 class="head intro__head" id="introHead" data-reveal>There's nothing better than surprising a room with songs it loves but doesn't hear covered often.</h2>
     <div class="intro__text">
-      <p class="lead" data-reveal>There's nothing better than surprising a room with songs it loves but doesn't hear covered often.</p>
       <p data-reveal>Acoustic Underground plays an eclectic mix of covers and originals. Our sound is built on three and four-part harmonies that give you goosebumps, rock-solid musicianship, and attention to detail you don't often find in the local music scene.</p>
       <p data-reveal>You'll catch us playing <em>Suite: Judy Blue Eyes</em>, <em>In Your Eyes</em> and <em>Africa</em>, alongside Noah Kahan's <em>Stick Season</em> and Rihanna's <em>Umbrella</em>. Some nights it's the entire second side of <em>Abbey Road</em>. Our originals fit right into the mix.</p>
       <blockquote class="intro__quote" data-reveal>&ldquo;Our only rules are play it well and make it fun. If you love live music and a great time while you listen, we're here for you.&rdquo;</blockquote>
@@ -493,7 +492,7 @@ figcaption { margin-top: 0.5rem; }
         <img src="Photos/Live/web/live-21.webp" alt="The band playing live" loading="lazy" decoding="async">
         <p>The rush of young love, empty hands, and wide-open possibility. A reminder of how it felt before life got heavy, and why holding onto that spark still matters.</p>
         <div class="song__links">
-          <a class="button" href="https://distrokid.com/hyperfollow/acousticunderground/" target="_blank" rel="noopener">Listen</a>
+          <a class="button" href="https://distrokid.com/hyperfollow/acousticunderground/pockets-are-full" target="_blank" rel="noopener">Listen</a>
           <a class="link" href="https://www.youtube.com/watch?v=tggKENp9HzM" target="_blank" rel="noopener">Watch the video</a>
         </div>
       </div>
@@ -509,7 +508,7 @@ figcaption { margin-top: 0.5rem; }
         <img src="Photos/Live/web/live-57.webp" alt="Three band members singing together" loading="lazy" decoding="async">
         <p>Release, and the painful but necessary act of letting go in order to move forward. The dual nature of love: its power to connect us and its call to let us move on.</p>
         <div class="song__links">
-          <a class="button" href="https://distrokid.com/hyperfollow/acousticunderground/" target="_blank" rel="noopener">Listen</a>
+          <a class="button" href="https://distrokid.com/hyperfollow/acousticunderground/the-bond" target="_blank" rel="noopener">Listen</a>
           <a class="link" href="https://www.youtube.com/watch?v=UxcnRNDz9iA" target="_blank" rel="noopener">Watch the video</a>
         </div>
       </div>
@@ -525,7 +524,7 @@ figcaption { margin-top: 0.5rem; }
         <img src="Photos/Live/web/live-59.webp" alt="Guitarists on stage mid-song" loading="lazy" decoding="async">
         <p>A dreamy, atmospheric folk-rock song about drifting through space, literally and emotionally. Soaring harmonies, cinematic swells, and the pull toward what truly matters.</p>
         <div class="song__links">
-          <a class="button" href="https://distrokid.com/hyperfollow/acousticunderground/" target="_blank" rel="noopener">Listen</a>
+          <a class="button" href="https://distrokid.com/hyperfollow/acousticunderground/lonely-astronaut" target="_blank" rel="noopener">Listen</a>
           <a class="link" href="https://www.youtube.com/watch?v=7OYjEMA2778" target="_blank" rel="noopener">Watch the video</a>
         </div>
       </div>
@@ -546,7 +545,12 @@ figcaption { margin-top: 0.5rem; }
       </div>
     </div>
     <div class="songs__body">
-      <ul class="songlist" id="songList"></ul>
+      <div class="songfind" id="songFind" hidden>
+        <label class="small muted" for="songFindInput">Find a song or artist</label>
+        <input type="search" id="songFindInput" autocomplete="off" spellcheck="false">
+        <p class="small muted" id="songFindNone" hidden>No match on the list. Email us and ask anyway.</p>
+      </div>
+      <ul class="songlist" id="songList"><li class="muted">Loading the song list.</li></ul>
       <noscript><p class="muted">Turn on JavaScript to see the song list, or email <a href="mailto:acousticundergroundRVA@gmail.com">acousticundergroundRVA@gmail.com</a> with your requests.</p></noscript>
       <div class="slip" id="slip" data-ui data-reveal>
         <h3>Your request list</h3>
@@ -575,7 +579,7 @@ figcaption { margin-top: 0.5rem; }
       <h2 class="head" id="showsHead" data-reveal>Upcoming shows</h2>
       <p data-reveal>Bars, breweries and listening rooms across Richmond. Dates update automatically, and Instagram is where we post most often.</p>
       <div class="shows__links" data-reveal>
-        <a class="link-plain" href="https://www.bandsintown.com/a/acoustic-underground" target="_blank" rel="noopener">All dates on Bandsintown</a>
+        <a class="link-plain" href="https://www.bandsintown.com/a/15496223-acoustic-underground-rva" target="_blank" rel="noopener">All dates on Bandsintown</a>
         <a class="link-plain" href="https://www.instagram.com/acousticundergroundrva" target="_blank" rel="noopener">Instagram</a>
       </div>
       <figure data-reveal>
@@ -584,7 +588,7 @@ figcaption { margin-top: 0.5rem; }
     </div>
     <div class="shows__main" id="bitWrap" data-reveal>
       <div class="shows__fallback" id="showsFallback" hidden>
-        <strong>Shows not loading?</strong> An ad blocker may be hiding the Bandsintown list. See every date on <a class="link-plain" href="https://www.bandsintown.com/a/acoustic-underground" target="_blank" rel="noopener">Bandsintown</a> or <a class="link-plain" href="https://www.instagram.com/acousticundergroundrva" target="_blank" rel="noopener">Instagram</a>.
+        <strong>Shows not loading?</strong> An ad blocker may be hiding the Bandsintown list. See every date on <a class="link-plain" href="https://www.bandsintown.com/a/15496223-acoustic-underground-rva" target="_blank" rel="noopener">Bandsintown</a> or <a class="link-plain" href="https://www.instagram.com/acousticundergroundrva" target="_blank" rel="noopener">Instagram</a>.
       </div>
       <p class="shows__wait" id="showsWait">Loading dates from Bandsintown.</p>
       <script charset="utf-8" src="https://widgetv3.bandsintown.com/main.min.js"></script>
@@ -703,7 +707,7 @@ figcaption { margin-top: 0.5rem; }
   <span class="muted">Acoustic Underground, a Richmond band since 2020</span>
   <nav class="foot__links" aria-label="Elsewhere">
     <a href="https://distrokid.com/hyperfollow/acousticunderground/" target="_blank" rel="noopener">Streaming</a>
-    <a href="https://www.bandsintown.com/a/acoustic-underground" target="_blank" rel="noopener">Bandsintown</a>
+    <a href="https://www.bandsintown.com/a/15496223-acoustic-underground-rva" target="_blank" rel="noopener">Bandsintown</a>
     <a href="https://www.instagram.com/acousticundergroundrva" target="_blank" rel="noopener">Instagram</a>
     <a href="https://www.youtube.com/channel/UCqip1FeWpGk0zY3oe1NAdGw" target="_blank" rel="noopener">YouTube</a>
   </nav>
@@ -761,13 +765,8 @@ document.getElementById('feedbackLink').addEventListener('click', (e) => {
   const reel = document.getElementById('reel');
   const items = [...reel.querySelectorAll('.reel__item')];
   const caption = document.getElementById('reelCaption');
-  const video = document.getElementById('reelVideo');
   const n = items.length;
   let shown = -1;
-
-  if (!reduceMotion.matches && video) {
-    video.play().catch(() => {});
-  }
 
   function update() {
     const pinned = getComputedStyle(stage.firstElementChild).position === 'sticky';
@@ -825,20 +824,78 @@ document.getElementById('feedbackLink').addEventListener('click', (e) => {
   const send = document.getElementById('slipSend');
   const clear = document.getElementById('slipClear');
   const track = document.getElementById('namesTrack');
-  const songs = (window.AU_SONGS || '').split('\n')
-    .map(l => l.trim())
-    .filter(l => l && !l.startsWith('#'))
-    .map(l => {
-      const [title, artist = '', year = ''] = l.split('|').map(x => x.trim());
-      return { title, artist, year: parseInt(year, 10) || null, original: /^acoustic underground$/i.test(artist) };
-    })
-    .filter(s => s.title);
+  const find = document.getElementById('songFind');
+  const findInput = document.getElementById('songFindInput');
+  const findNone = document.getElementById('songFindNone');
+
+  const toSong = (title, artist, year) => ({ title, artist, year: parseInt(year, 10) || null, original: /^acoustic underground$/i.test(artist) });
+
+  // Fallback list: assets/songs.js, one "Title | Artist | Year" per line
+  function fromText(text) {
+    return (text || '').split('\n')
+      .map(l => l.trim())
+      .filter(l => l && !l.startsWith('#'))
+      .map(l => { const [title, artist = '', year = ''] = l.split('|').map(x => x.trim()); return toSong(title, artist, year); })
+      .filter(s => s.title);
+  }
+
+  // Main list: the band's Google Sheet, published to the web as CSV (link set in assets/songs.js)
+  function parseCsv(text) {
+    const rows = []; let row = [], cell = '', q = false;
+    for (let i = 0; i < text.length; i++) {
+      const c = text[i];
+      if (q) {
+        if (c === '"' && text[i + 1] === '"') { cell += '"'; i++; }
+        else if (c === '"') q = false;
+        else cell += c;
+      } else if (c === '"') q = true;
+      else if (c === ',') { row.push(cell); cell = ''; }
+      else if (c === '\n' || c === '\r') {
+        if (c === '\r' && text[i + 1] === '\n') i++;
+        row.push(cell); rows.push(row); row = []; cell = '';
+      } else cell += c;
+    }
+    if (cell || row.length) { row.push(cell); rows.push(row); }
+    return rows;
+  }
+  function fromSheet(text) {
+    const rows = parseCsv(text).map(r => r.map(x => x.trim()));
+    const head = (rows.shift() || []).map(h => h.toLowerCase());
+    const col = (name, fallback) => { const k = head.findIndex(h => h.startsWith(name)); return k < 0 ? fallback : k; };
+    const ti = col('title', 0), ar = col('artist', 1), yr = col('year', 2), sh = col('show', -1);
+    return rows
+      .filter(r => r[ti] && !(sh >= 0 && /^(no|n|false|hide)$/i.test(r[sh] || '')))
+      .map(r => toSong(r[ti], r[ar] || '', r[yr] || ''));
+  }
+
+  async function load() {
+    const url = (window.AU_SONGS_SHEET || '').trim();
+    if (url) {
+      try {
+        const ctl = new AbortController();
+        const timer = setTimeout(() => ctl.abort(), 8000);
+        const res = await fetch(url, { signal: ctl.signal, cache: 'no-store' });
+        clearTimeout(timer);
+        if (res.ok) {
+          const list = fromSheet(await res.text());
+          if (list.length) return list;
+        }
+      } catch (e) { /* fall back to songs.js */ }
+    }
+    return fromText(window.AU_SONGS);
+  }
+
+  load().then(build);
+
+  function build(songs) {
 
   // Names band: every artist we cover, in the order they appear in songs.js
-  const artists = [...new Set(songs.filter(s => !s.original).map(s => s.artist))];
+  const artists = [...new Set(songs.filter(s => !s.original).map(s => s.artist).filter(Boolean))];
   if (artists.length) {
     const once = artists.map(a => `<span>${esc(a)}<i></i></span>`).join('');
     track.innerHTML = once + once;
+    // keep the scroll speed steady however many artists there are
+    track.style.animationDuration = Math.max(40, artists.length * 2.2) + 's';
   }
 
   if (!songs.length) { list.innerHTML = '<li class="muted">Song list coming soon.</li>'; return; }
@@ -932,6 +989,25 @@ document.getElementById('feedbackLink').addEventListener('click', (e) => {
     send.textContent = 'Send request';
     renderSlip();
   });
+
+  // Search box, shown once the list is long enough to need it
+  if (songs.length > 24) {
+    find.hidden = false;
+    findInput.addEventListener('input', () => {
+      const q = findInput.value.trim().toLowerCase();
+      let shown = 0;
+      rows.forEach((r, i) => {
+        const s = songs[i];
+        const hit = !q || s.title.toLowerCase().includes(q) || s.artist.toLowerCase().includes(q);
+        r.hidden = !hit;
+        if (hit) shown++;
+      });
+      findNone.hidden = shown > 0;
+      const first = rows.findIndex(r => !r.hidden);
+      if (first >= 0 && rows[active] && rows[active].hidden) activate(first);
+    });
+  }
+  }
 })();
 
 /* ---------- gallery lightbox ---------- */
