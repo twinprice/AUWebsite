@@ -34,6 +34,7 @@ Lonely Astronaut | Acoustic Underground |
 Life's the Joke | Acoustic Underground |
 Robot Boy | Acoustic Underground |
 Live It Up | Acoustic Underground |
+Abby | Acoustic Underground |
 
 # --- Covers ---
 The Weight | The Band | 1968
@@ -64,4 +65,40 @@ Cleopatra | The Lumineers | 2016
 Colors | Black Pumas | 2019
 Starting Over | Chris Stapleton | 2020
 Stick Season | Noah Kahan | 2022
+
+# --- Added 2026-11-13 from Winston's full list ---
+24 Frames | Jason Isbell | 2015
+Africa | Toto | 1982
+Abbey Road 1 - You Never Give Me Your Money | The Beatles | 1969
+Abbey Road 2 - Sun King | The Beatles | 1969
+Abbey Road 3 - Mean Mr. Mustard | The Beatles | 1969
+Abbey Road 4 - Polythene Pam | The Beatles | 1969
+Abbey Road 5 - She Came In Through the Bathroom Window | The Beatles | 1969
+Abbey Road 6 - Golden Slumbers | The Beatles | 1969
+Abbey Road 7 - Carry That Weight | The Beatles | 1969
+Abbey Road 8 - The End | The Beatles | 1969
+Abbey Road 9 - Her Majesty | The Beatles | 1969
+Blue | The Jayhawks | 1995
+Burning in the Sun | Blue Merle | 2005
+Cinnamon Girl | Neil Young | 1969
+Dance the Night | Dua Lipa | 2023
+Falling Slowly | Glen Hansard | 2007
+Happy Xmas (War Is Over) | John Lennon | 1971
+Harmony Hall | Vampire Weekend | 2019
+Hate It Here | Wilco | 2007
+Hey, Ma | Bon Iver | 2019
+High and Dry | Radiohead | 1995
+In My Place | Coldplay | 2002
+June Hymn | The Decemberists | 2011
+Later On | Fantastic Cat |
+Loving Cup | The Rolling Stones | 1972
+Man on the Moon | R.E.M. | 1992
+The Night We Met | Lord Huron | 2015
+Run Like Hell | Pink Floyd | 1979
+Something's Always Wrong | Toad the Wet Sprocket | 1994
+Suitcase Full of Sparks | Gregory Alan Isakov | 2013
+That's All | Genesis | 1983
+Trouble | Ray LaMontagne | 2004
+Walking on the Moon | The Police | 1979
+Windows Are Rolled Down | Amos Lee | 2008
 `;
