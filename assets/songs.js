@@ -8,6 +8,7 @@
   Sheet setup (one time):
     1. Make a Google Sheet with these column headings in row 1:
          Title | Artist | Year | Show
+       - "Song" or "Song Name" also works for the Title heading.
        - Artist: use "Acoustic Underground" for our originals.
        - Year: optional.
        - Show: optional. Type "no" to hide a song without deleting it.
@@ -15,7 +16,7 @@
        "Comma-separated values (.csv)", click Publish, copy the link.
     3. Paste the link between the quotes on the next line.
 */
-window.AU_SONGS_SHEET = '';
+window.AU_SONGS_SHEET = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vQo7YlYemsHa9H-bdVr_BkZRFW5V6a-dr5otjg-uerP1GrjUbwuPRILR7DE3uuOeovKb0THDq5aSFKB/pub?gid=299097330&single=true&output=csv';
 
 /*
   BACKUP LIST

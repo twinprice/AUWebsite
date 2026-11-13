@@ -862,7 +862,7 @@ document.getElementById('feedbackLink').addEventListener('click', (e) => {
     const rows = parseCsv(text).map(r => r.map(x => x.trim()));
     const head = (rows.shift() || []).map(h => h.toLowerCase());
     const col = (name, fallback) => { const k = head.findIndex(h => h.startsWith(name)); return k < 0 ? fallback : k; };
-    const ti = col('title', 0), ar = col('artist', 1), yr = col('year', 2), sh = col('show', -1);
+    const ti = Math.max(col('title', -1), col('song', -1), 0), ar = col('artist', 1), yr = col('year', 2), sh = col('show', -1);
     return rows
       .filter(r => r[ti] && !(sh >= 0 && /^(no|n|false|hide)$/i.test(r[sh] || '')))
       .map(r => toSong(r[ti], r[ar] || '', r[yr] || ''));
