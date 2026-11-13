@@ -134,6 +134,7 @@ form[hidden] { display: none; }
 .panel h2 { font-weight: 900; text-transform: uppercase; letter-spacing: -0.03em; line-height: 0.95; font-size: 1.75rem; }
 .panel p { margin-top: 0.75rem; color: var(--muted); }
 .panel .actions { margin-top: 1.25rem; }
+.panel .warn { color: #F2C66D; }
 .panel--ok { border-color: var(--teal); background: #10262B; }
 </style>
 </head>
@@ -248,6 +249,7 @@ form[hidden] { display: none; }
   <section class="panel panel--ok" id="ok" hidden aria-live="polite">
     <h2 id="okHead">Sent. Thanks.</h2>
     <p>It's saved with the other notes. Keep the site window open and send another whenever you spot something.</p>
+    <p class="warn" id="okWarn" hidden></p>
     <div class="actions">
       <button class="button" type="button" id="another">Send another</button>
       <a class="button button--quiet" href="responses.html" target="_blank" rel="opener">See all responses</a>
@@ -453,7 +455,7 @@ form.addEventListener('submit', async (e) => {
       }))
     });
     const data = await res.json().catch(() => ({}));
-    if (res.ok && data.ok) { done(n); return; }
+    if (res.ok && data.ok) { done(n, shots.length, data.images); return; }
     msg = data.error || '';
   } catch (err) { msg = ENDPOINT ? '' : 'not set up'; }
   $('send').disabled = false;
@@ -467,7 +469,13 @@ form.addEventListener('submit', async (e) => {
 });
 $('retry').addEventListener('click', () => { $('fail').hidden = true; form.requestSubmit(); });
 
-function done(n) {
+function done(n, sent, saved) {
+  // The sheet script reports how many images it saved. An older script version reports nothing.
+  const lost = sent > 0 && saved !== sent;
+  $('okWarn').hidden = !lost;
+  if (lost) $('okWarn').textContent = (saved === undefined
+    ? "The note saved, but the screenshot didn't. The notes database is running an older script that can't take images yet."
+    : 'The note saved, but only ' + saved + ' of ' + sent + ' screenshots did.') + ' Text the screenshot to the group for now.';
   form.hidden = true;
   $('ok').hidden = false;
   $('okHead').textContent = 'Sent. Thanks, ' + n.From + '.';
